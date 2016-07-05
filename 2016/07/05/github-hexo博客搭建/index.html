@@ -92,10 +92,12 @@
 <meta property="og:url" content="http://yoursite.com/2016/07/05/github-hexo博客搭建/index.html">
 <meta property="og:site_name" content="道生一">
 <meta property="og:description" content="git安装git的相关教程非常多，这里就不赘述了">
-<meta property="og:updated_time" content="2016-07-05T08:13:55.338Z">
+<meta property="og:image" content="http://cnfeat.qiniudn.com/15.png">
+<meta property="og:updated_time" content="2016-07-05T09:10:13.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github + hexo 博客搭建 2016-6-30">
 <meta name="twitter:description" content="git安装git的相关教程非常多，这里就不赘述了">
+<meta name="twitter:image" content="http://cnfeat.qiniudn.com/15.png">
 
 
 
@@ -376,7 +378,14 @@ Host key verification failed.
 </li>
 </ul>
 <p>建议使用 <!-- more -->（即第一种方式），除了可以精确控制需要显示的摘录内容以外， 这种方式也可以让 Hexo 中的插件更好的识别。</p>
-<h4 id="添加独立域名"><a href="#添加独立域名" class="headerlink" title="添加独立域名"></a>添加独立域名</h4><h4 id="设置dns"><a href="#设置dns" class="headerlink" title="设置dns"></a>设置dns</h4>
+<h4 id="添加独立域名"><a href="#添加独立域名" class="headerlink" title="添加独立域名"></a>添加独立域名</h4><p>很早之前就买了一个域名，kylin10.com,但是确一直没有用起来，之前的博客网站放在新浪云SAE上，域名没有备案无法绑定，SAE的费用也是越来越高，用完了云豆就来折腾github了。</p>
+<p>将github与自己的域名绑定只需下面几部：</p>
+<ol>
+<li>在Hexo的source目录下新建一个CNAME文件，里面写上自己的域名，注意前面不要加www等内容，直接写kylin10.com，完成之后deploy</li>
+<li>注册<a href="https://www.dnspod.cn" target="_blank" rel="external">DNSpod</a>，添加域名,可以按照下图设置：<br><img src="http://cnfeat.qiniudn.com/15.png" alt="图片描述"><br>图片来自<a href="http://www.jianshu.com/p/05289a4bc8b2/" target="_blank" rel="external">http://www.jianshu.com/p/05289a4bc8b2/</a></li>
+</ol>
+<p>3.在购买域名的管理中心修改域名对应的dns</p>
+
       
     </div>
 
@@ -402,20 +411,6 @@ Host key verification failed.
         </div>
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/05/开启markdown之旅/" rel="prev" title="开启markdown之旅">
-                开启markdown之旅 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -480,7 +475,7 @@ Host key verification failed.
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">2</span>
+              <span class="site-state-item-count">1</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -497,7 +492,7 @@ Host key verification failed.
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -533,7 +528,7 @@ Host key verification failed.
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git安装"><span class="nav-number">1.</span> <span class="nav-text">git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js安装"><span class="nav-number">2.</span> <span class="nav-text">node.js安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始Github"><span class="nav-number">4.</span> <span class="nav-text">开始Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用GitHub-Pages建立博客"><span class="nav-number">5.</span> <span class="nav-text">使用GitHub Pages建立博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发表新文章"><span class="nav-number">5.0.1.</span> <span class="nav-text">发表新文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除文章"><span class="nav-number">5.0.2.</span> <span class="nav-text">删除文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页显示文章摘要"><span class="nav-number">5.0.3.</span> <span class="nav-text">首页显示文章摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加独立域名"><span class="nav-number">5.0.4.</span> <span class="nav-text">添加独立域名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置dns"><span class="nav-number">5.0.5.</span> <span class="nav-text">设置dns</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git安装"><span class="nav-number">1.</span> <span class="nav-text">git安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#node-js安装"><span class="nav-number">2.</span> <span class="nav-text">node.js安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装Hexo"><span class="nav-number">3.</span> <span class="nav-text">安装Hexo</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#开始Github"><span class="nav-number">4.</span> <span class="nav-text">开始Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用GitHub-Pages建立博客"><span class="nav-number">5.</span> <span class="nav-text">使用GitHub Pages建立博客</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#发表新文章"><span class="nav-number">5.0.1.</span> <span class="nav-text">发表新文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除文章"><span class="nav-number">5.0.2.</span> <span class="nav-text">删除文章</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#首页显示文章摘要"><span class="nav-number">5.0.3.</span> <span class="nav-text">首页显示文章摘要</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加独立域名"><span class="nav-number">5.0.4.</span> <span class="nav-text">添加独立域名</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
