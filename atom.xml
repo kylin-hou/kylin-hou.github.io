@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-05T01:45:15.364Z</updated>
+  <updated>2016-06-29T17:24:49.046Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>开启markdown之旅</title>
+    <link href="http://yoursite.com/2016/07/05/%E5%BC%80%E5%90%AFmarkdown%E4%B9%8B%E6%97%85/"/>
+    <id>http://yoursite.com/2016/07/05/开启markdown之旅/</id>
+    <published>2016-07-05T03:12:26.252Z</published>
+    <updated>2016-06-29T17:24:49.046Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;markdown编辑器&quot;&gt;&lt;a href=&quot;#markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;markdown编辑器&quot;&gt;&lt;/a&gt;markdown编辑器&lt;/h2&gt;&lt;p&gt;所话说欲先攻其器，必先利其器，为了能更好的快速进行markdown的使用和写作，匆匆看完markdown的基本语法之后就开始搜罗windows平台的编辑器，Linux我还是吃不消啊，真是惭愧。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;markdownPad2 ：下载了一个绿色版，但是发现预览功能失败，搜了一下发现在win10平台很多人都这样，需要下载一个插件，100M多点，由于校园网网速问题还没下载成功。&lt;/li&gt;
+&lt;li&gt;小书匠编辑器 ：看了很多的编辑器感觉都大同小异，知乎上一人推荐了这个编辑器，有web版，正在试用，感觉不错。下载了离线版，感觉不错。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;markdown的基本语法&quot;&gt;&lt;a href=&quot;#markdown的基本语法&quot; class=&quot;headerlink&quot; title=&quot;markdown的基本语法&quot;&gt;&lt;/a&gt;markdown的基本语法&lt;/h2&gt;&lt;p&gt;markdown语法确实简单，下面简单介绍。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;控制各级标题 # ## ###&lt;/li&gt;
+&lt;li&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;markdown编辑器&quot;&gt;&lt;a href=&quot;#markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;markdown编辑器&quot;&gt;&lt;/a&gt;markdown编辑器&lt;/h2&gt;&lt;p&gt;所话说欲先攻其器，必先利其器，为了能更好的快速进行markdown的
+    
+    </summary>
+    
+    
+      <category term="markdown,博客,编辑" scheme="http://yoursite.com/tags/markdown-%E5%8D%9A%E5%AE%A2-%E7%BC%96%E8%BE%91/"/>
+    
+  </entry>
   
   <entry>
     <title>github+hexo博客搭建</title>
