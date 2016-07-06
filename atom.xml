@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-07-06T05:32:41.598Z</updated>
+  <updated>2016-07-06T06:19:27.301Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,39 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>世界那么大我想去看</title>
+    <link href="http://yoursite.com/2016/07/06/%E4%B8%96%E7%95%8C%E9%82%A3%E4%B9%88%E5%A4%A7%E6%88%91%E6%83%B3%E5%8E%BB%E7%9C%8B%E7%9C%8B/"/>
+    <id>http://yoursite.com/2016/07/06/世界那么大我想去看看/</id>
+    <published>2016-07-06T05:58:33.073Z</published>
+    <updated>2016-07-06T06:19:27.301Z</updated>
+    
+    <content type="html">&lt;p&gt;世界那么大，我想去看看。这里分享最新的hosts，已经还不错的免费梯子。&lt;/p&gt;
+&lt;p&gt;本人推荐使用hosts，采用这种方式基本的科学上网已经足够，我也就用一下谷歌搜索，fb和youtube基本是不上的，这一种方式的缺点是有时候youtube视频不能播放。相比用软件好处就是对与不需要翻·墙的网站一点影响也没有，使用很多的软件会影响平时的上网速度。&lt;/p&gt;
+&lt;p&gt;Windows 系统hosts位于 C:\Windows\System32\drivers\etc\hosts&lt;br&gt;所以方法非常简单，只需要把相关的文件替换即可，也可以把相应的ip地址写到源文件中。&lt;/p&gt;
+&lt;p&gt;最新hosts下载&lt;/p&gt;
+&lt;p&gt;更新日期2016.7.3  &lt;/p&gt;
+&lt;p&gt;[&lt;a href=&quot;http://pan.baidu.com/s/1pLzUkB5&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我下载&lt;/a&gt;]&lt;/p&gt;
+&lt;p&gt;除了使用hosts之外，也可以使用一些工具，推荐一个蓝灯，一听名字就知道照亮前方的路，电脑手机都有，手机的自己下载吧，这里提供电脑版，双击安装完之后什么都不用管，一键傻瓜式科学上网。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://pan.baidu.com/s/1dFgBJK9&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我下载&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;世界那么大，我想去看看。这里分享最新的hosts，已经还不错的免费梯子。&lt;/p&gt;
+&lt;p&gt;本人推荐使用hosts，采用这种方式基本的科学上网已经足够，我也就用一下谷歌搜索，fb和youtube基本是不上的，这一种方式的缺点是有时候youtube视频不能播放。相比用软件好处就是
+    
+    </summary>
+    
+      <category term="分享" scheme="http://yoursite.com/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="分享" scheme="http://yoursite.com/tags/%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="科学上网" scheme="http://yoursite.com/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    
+  </entry>
   
   <entry>
     <title>将整个hexo博客系统原始文件上传到github</title>
@@ -72,7 +105,7 @@ git push -u origin master
     <link href="http://yoursite.com/2016/07/05/%E5%BC%80%E5%90%AFmarkdown%E4%B9%8B%E6%97%85/"/>
     <id>http://yoursite.com/2016/07/05/开启markdown之旅/</id>
     <published>2016-07-05T03:12:26.252Z</published>
-    <updated>2016-07-06T05:29:05.954Z</updated>
+    <updated>2016-07-06T05:39:18.112Z</updated>
     
     <content type="html">&lt;h2 id=&quot;markdown编辑器&quot;&gt;&lt;a href=&quot;#markdown编辑器&quot; class=&quot;headerlink&quot; title=&quot;markdown编辑器&quot;&gt;&lt;/a&gt;markdown编辑器&lt;/h2&gt;&lt;p&gt;所话说欲先攻其器，必先利其器，为了能更好的快速进行markdown的使用和写作，匆匆看完markdown的基本语法之后就开始搜罗windows平台的编辑器，Linux我还是吃不消啊，真是惭愧。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -85,7 +118,9 @@ git push -u origin master
 &lt;li&gt;控制各级标题 # ## ###&lt;/li&gt;
 &lt;li&gt;&lt;/li&gt;
 &lt;/ul&gt;
-</content>
+&lt;p&gt;hexo中为一篇文章添加多个标签：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;tags: [markdown,博客,编辑]
+&lt;/code&gt;&lt;/pre&gt;</content>
     
     <summary type="html">
     
@@ -96,7 +131,11 @@ git push -u origin master
       <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="markdown, 博客, 编辑" scheme="http://yoursite.com/tags/markdown-%E5%8D%9A%E5%AE%A2-%E7%BC%96%E8%BE%91/"/>
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+      <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
+    
+      <category term="编辑" scheme="http://yoursite.com/tags/%E7%BC%96%E8%BE%91/"/>
     
   </entry>
   
