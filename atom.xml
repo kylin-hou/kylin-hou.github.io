@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-03T15:55:34.930Z</updated>
+  <updated>2016-09-03T15:58:34.039Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yoursite.com/2016/09/03/Mybase%E5%88%86%E4%BA%AB/"/>
     <id>http://yoursite.com/2016/09/03/Mybase分享/</id>
     <published>2016-09-03T14:51:26.974Z</published>
-    <updated>2016-09-03T15:55:34.930Z</updated>
+    <updated>2016-09-03T15:58:34.039Z</updated>
     
     <content type="html">&lt;h3 id=&quot;官方介绍&quot;&gt;&lt;a href=&quot;#官方介绍&quot; class=&quot;headerlink&quot; title=&quot;官方介绍&quot;&gt;&lt;/a&gt;官方介绍&lt;/h3&gt;&lt;p&gt;为了更好的一本正经的胡说八道，专门去看了一下专业的说明：&lt;/p&gt;
 &lt;p&gt;myBase 是一款用于分类存储管理任意格式资料的小型个人数据库软件， 有助于个人用户在( Linux/MacOSX/Windows )桌面电脑系统上实施文档、知识、笔记、日记、图片和网页的分类存储和管理。 借助软件提供的各项功能，创建和维护一个专属于自己的个人知识库将变的相对简单快捷。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;与传统意义上的数据库软件不同， myBase 提供了更好的方式使知识/资料/信息的捕获、编辑、组织、查看、索引、搜索和分享变得更快捷、更容易，且无需任何 SQL 数据库编程技能； myBase 通过内置的富文本编辑器接受图文信息的输入，并按树形大纲分门别类保存， 同时接受任意磁盘文件作为树形大纲条目的附件，可以方便建立条目关联、加贴内容标签、关联日历日期和添加超链接引用等， 可以很方便的构建出多层次、多维度、带交叉引用、支持快速查询、层次分明、一目了然的个人知识库。&lt;/p&gt;
 &lt;h3 id=&quot;我的说明&quot;&gt;&lt;a href=&quot;#我的说明&quot; class=&quot;headerlink&quot; title=&quot;我的说明&quot;&gt;&lt;/a&gt;我的说明&lt;/h3&gt;&lt;p&gt;真的很好用！我应该是从大二的时候就开始使用这个软件了，用它来整理记录自己的学习真的很不错，可以说是我用过的本地知识管理记录类软件中最好用的，本地！现在我用的比较多的还有onenote，使用它的原因是云同步的功能，如果不考虑云同步云备份的功能，mybase真的是摔onenote几十条街。&lt;/p&gt;
 &lt;h3 id=&quot;教程&quot;&gt;&lt;a href=&quot;#教程&quot; class=&quot;headerlink&quot; title=&quot;教程&quot;&gt;&lt;/a&gt;教程&lt;/h3&gt;&lt;p&gt;这个需要教程么？你上手你就会了，我也懒得写这种软件实用类的教程了，看一下我的笔记的样子，你们就知道怎么用了。&lt;/p&gt;
@@ -35,7 +36,7 @@
     <summary type="html">
     
       &lt;h3 id=&quot;官方介绍&quot;&gt;&lt;a href=&quot;#官方介绍&quot; class=&quot;headerlink&quot; title=&quot;官方介绍&quot;&gt;&lt;/a&gt;官方介绍&lt;/h3&gt;&lt;p&gt;为了更好的一本正经的胡说八道，专门去看了一下专业的说明：&lt;/p&gt;
-&lt;p&gt;myBase 是一款用于分类存储管理任意格式资料的小
+&lt;p&gt;myBase 是一款用于分类存储管理任意格式资料的小型个人数据库软件， 有助于个人用户在( Linux/MacOSX/Windows )桌面电脑系统上实施文档、知识、笔记、日记、图片和网页的分类存储和管理。 借助软件提供的各项功能，创建和维护一个专属于自己的个人知识库将变的相对简单快捷。&lt;/p&gt;
     
     </summary>
     
@@ -397,9 +398,9 @@ Host key verification failed.
       <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
       <category term="github" scheme="http://yoursite.com/tags/github/"/>
+    
+      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
