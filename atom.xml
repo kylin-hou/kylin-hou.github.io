@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-03T15:58:34.039Z</updated>
+  <updated>2016-09-03T16:01:43.504Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,11 +16,11 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>mybase分享 2016-6-30</title>
+    <title>mybase分享</title>
     <link href="http://yoursite.com/2016/09/03/Mybase%E5%88%86%E4%BA%AB/"/>
     <id>http://yoursite.com/2016/09/03/Mybase分享/</id>
     <published>2016-09-03T14:51:26.974Z</published>
-    <updated>2016-09-03T15:58:34.039Z</updated>
+    <updated>2016-09-03T16:01:43.504Z</updated>
     
     <content type="html">&lt;h3 id=&quot;官方介绍&quot;&gt;&lt;a href=&quot;#官方介绍&quot; class=&quot;headerlink&quot; title=&quot;官方介绍&quot;&gt;&lt;/a&gt;官方介绍&lt;/h3&gt;&lt;p&gt;为了更好的一本正经的胡说八道，专门去看了一下专业的说明：&lt;/p&gt;
 &lt;p&gt;myBase 是一款用于分类存储管理任意格式资料的小型个人数据库软件， 有助于个人用户在( Linux/MacOSX/Windows )桌面电脑系统上实施文档、知识、笔记、日记、图片和网页的分类存储和管理。 借助软件提供的各项功能，创建和维护一个专属于自己的个人知识库将变的相对简单快捷。&lt;/p&gt;
@@ -40,7 +40,7 @@
     
     </summary>
     
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
+      <category term="分享" scheme="http://yoursite.com/categories/%E5%88%86%E4%BA%AB/"/>
     
     
       <category term="分享" scheme="http://yoursite.com/tags/%E5%88%86%E4%BA%AB/"/>
@@ -50,13 +50,14 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>pr软件分享</title>
     <link href="http://yoursite.com/2016/08/28/pr%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
     <id>http://yoursite.com/2016/08/28/pr软件分享/</id>
     <published>2016-08-28T12:37:40.250Z</published>
-    <updated>2016-08-28T12:47:23.789Z</updated>
+    <updated>2016-09-03T16:03:33.370Z</updated>
     
     <content type="html">&lt;h1 id=&quot;pr软件分享&quot;&gt;&lt;a href=&quot;#pr软件分享&quot; class=&quot;headerlink&quot; title=&quot;pr软件分享&quot;&gt;&lt;/a&gt;pr软件分享&lt;/h1&gt;&lt;p&gt;入职培训终于结束了，明天开始就正式进入部门了，今天晚上好好的整理一下前一段时间的各种事情~&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h2 id=&quot;视频制作&quot;&gt;&lt;a href=&quot;#视频制作&quot; class=&quot;headerlink&quot; title=&quot;视频制作&quot;&gt;&lt;/a&gt;视频制作&lt;/h2&gt;&lt;p&gt;我负责我们小组的视频制作，使用的软件是PremierePro_6_LS7，视频制作的经验约等于0，压力好大，最后的结果还算凑活吧。备份一下pr的安装包已经汉化破解文件  &lt;/p&gt;
 &lt;h4 id=&quot;软件说明&quot;&gt;&lt;a href=&quot;#软件说明&quot; class=&quot;headerlink&quot; title=&quot;软件说明&quot;&gt;&lt;/a&gt;软件说明&lt;/h4&gt;&lt;p&gt;adobe premiere pro cs6介绍&lt;/p&gt;
 &lt;p&gt;Adobe Premiere Pro CS6是Adobe出品的全球顶级视频编辑创作软件。它为高质量的视频提供了完整的解决方案。在Premiere Pro CS6新版中改进了可定制的用户界面，加入了新相机的支持，水印加速功能将和第三方的硬件联系更紧密，加快你工作效率的同时，又保持了Premiere Pro一贯的稳定性。软件广泛用于广告视频、电视电影视频、视频教学录制剪辑等地方，它是视频后期制作必须掌握的软件。&lt;/p&gt;
@@ -68,10 +69,17 @@
     <summary type="html">
     
       &lt;h1 id=&quot;pr软件分享&quot;&gt;&lt;a href=&quot;#pr软件分享&quot; class=&quot;headerlink&quot; title=&quot;pr软件分享&quot;&gt;&lt;/a&gt;pr软件分享&lt;/h1&gt;&lt;p&gt;入职培训终于结束了，明天开始就正式进入部门了，今天晚上好好的整理一下前一段时间的各种事情~&lt;/p&gt;
-&lt;h2 
     
     </summary>
     
+      <category term="分享" scheme="http://yoursite.com/categories/%E5%88%86%E4%BA%AB/"/>
+    
+    
+      <category term="软件分享" scheme="http://yoursite.com/tags/%E8%BD%AF%E4%BB%B6%E5%88%86%E4%BA%AB/"/>
+    
+      <category term="premiere" scheme="http://yoursite.com/tags/premiere/"/>
+    
+      <category term="视频制作" scheme="http://yoursite.com/tags/%E8%A7%86%E9%A2%91%E5%88%B6%E4%BD%9C/"/>
     
   </entry>
   
@@ -398,9 +406,9 @@ Host key verification failed.
       <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
       <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+      <category term="github" scheme="http://yoursite.com/tags/github/"/>
     
       <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
