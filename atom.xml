@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-09-05T15:25:55.021Z</updated>
+  <updated>2016-09-05T15:51:42.237Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,9 +20,10 @@
     <link href="http://yoursite.com/2016/09/05/%E8%B5%B0%EF%BC%8C%E6%88%91%E5%B8%A6%E4%BD%A0%E5%8E%BB%E7%9C%8B%E7%9C%8B/"/>
     <id>http://yoursite.com/2016/09/05/走，我带你去看看/</id>
     <published>2016-09-05T15:19:47.843Z</published>
-    <updated>2016-09-05T15:25:55.021Z</updated>
+    <updated>2016-09-05T15:51:42.237Z</updated>
     
     <content type="html">&lt;h2 id=&quot;使用https访问，才是正确的姿势&quot;&gt;&lt;a href=&quot;#使用https访问，才是正确的姿势&quot; class=&quot;headerlink&quot; title=&quot;使用https访问，才是正确的姿势&quot;&gt;&lt;/a&gt;使用https访问，才是正确的姿势&lt;/h2&gt;&lt;p&gt;很多人替换完host之后发现还是上不了谷歌，很多网页打不开，原因不是host不好使，而是没有使用https的方式。你可以手动在浏览器地址上把http改成https，但是太费劲了，下面教你设置一下浏览器，让应该使用https的网站直接使用https：&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;以谷歌浏览器为例：&lt;/p&gt;
 &lt;p&gt;在 Chrome 浏览器上输入链接 chrome://net-internals/#hsts （可复制此地址粘贴到地址栏），回车。&lt;/p&gt;
 &lt;p&gt;在 Domain 栏里，输入 google.com ，并勾选下面的两个复选框，点击 “Add” 按钮即可。&lt;/p&gt;
@@ -38,7 +39,7 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;使用https访问，才是正确的姿势&quot;&gt;&lt;a href=&quot;#使用https访问，才是正确的姿势&quot; class=&quot;headerlink&quot; title=&quot;使用https访问，才是正确的姿势&quot;&gt;&lt;/a&gt;使用https访问，才是正确的姿势&lt;/h2&gt;&lt;p&gt;很多人替换完host
+      &lt;h2 id=&quot;使用https访问，才是正确的姿势&quot;&gt;&lt;a href=&quot;#使用https访问，才是正确的姿势&quot; class=&quot;headerlink&quot; title=&quot;使用https访问，才是正确的姿势&quot;&gt;&lt;/a&gt;使用https访问，才是正确的姿势&lt;/h2&gt;&lt;p&gt;很多人替换完host之后发现还是上不了谷歌，很多网页打不开，原因不是host不好使，而是没有使用https的方式。你可以手动在浏览器地址上把http改成https，但是太费劲了，下面教你设置一下浏览器，让应该使用https的网站直接使用https：&lt;/p&gt;
     
     </summary>
     
@@ -261,12 +262,12 @@
     <link href="http://yoursite.com/2016/07/06/%E4%B8%96%E7%95%8C%E9%82%A3%E4%B9%88%E5%A4%A7%E6%88%91%E6%83%B3%E5%8E%BB%E7%9C%8B%E7%9C%8B/"/>
     <id>http://yoursite.com/2016/07/06/世界那么大我想去看看/</id>
     <published>2016-07-06T05:58:33.073Z</published>
-    <updated>2016-09-05T15:45:40.899Z</updated>
+    <updated>2016-09-05T15:51:11.731Z</updated>
     
     <content type="html">&lt;p&gt;世界那么大，我想去看看。这里分享最新的hosts，以及还不错的免费梯子。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;本人推荐使用hosts，采用这种方式基本的科学上网已经足够，我也就用一下谷歌搜索，fb和youtube基本是不上的，这一种方式的缺点是有时候youtube视频不能播放。相比用软件好处就是对与不需要翻·墙的网站一点影响也没有，使用很多的翻—墙软件会影响平时的上网速度。&lt;/p&gt;
 &lt;p&gt;Windows 系统hosts位于 C:\Windows\System32\drivers\etc\hosts&lt;br&gt;所以方法非常简单，只需要把相关的文件替换即可，也可以把相应的ip地址写到源文件中。&lt;/p&gt;
-&lt;p&gt;各位别急，因为很多人提出很多的问题，单独写了一个操作指导，里面包括对浏览器的推荐配置，所以在此页面下载完资源之后，请移步  按照教程操作。&lt;/p&gt;
+&lt;p&gt;各位别急，因为很多人提出很多的问题，单独写了一个操作指导，里面包括对浏览器的推荐配置，所以在此页面下载完资源之后，请移步&lt;a href=&quot;http://kylin10.com/2016/09/05/%E8%B5%B0%EF%BC%8C%E6%88%91%E5%B8%A6%E4%BD%A0%E5%8E%BB%E7%9C%8B%E7%9C%8B/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;此处&lt;/a&gt;按照教程操作。&lt;/p&gt;
 &lt;p&gt;如果你可以访问百度云，直接在本页下载文件就好，如果在公司无法访问百度云，进入&lt;a href=&quot;http://kylin10.com/2016/09/05/hosts/#more&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;此页&lt;/a&gt;手动复制信息即可。&lt;/p&gt;
 &lt;p&gt;最新hosts下载&lt;/p&gt;
 &lt;p&gt;更新日期2016.9.3&lt;br&gt;&lt;a href=&quot;http://pan.baidu.com/s/1i57Bu0P&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我下载&lt;/a&gt;&lt;/p&gt;

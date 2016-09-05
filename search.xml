@@ -7,6 +7,7 @@
       <title><![CDATA[走，我带你去看看]]></title>
       <url>http://yoursite.com/2016/09/05/%E8%B5%B0%EF%BC%8C%E6%88%91%E5%B8%A6%E4%BD%A0%E5%8E%BB%E7%9C%8B%E7%9C%8B/</url>
       <content type="html"><![CDATA[<h2 id="使用https访问，才是正确的姿势"><a href="#使用https访问，才是正确的姿势" class="headerlink" title="使用https访问，才是正确的姿势"></a>使用https访问，才是正确的姿势</h2><p>很多人替换完host之后发现还是上不了谷歌，很多网页打不开，原因不是host不好使，而是没有使用https的方式。你可以手动在浏览器地址上把http改成https，但是太费劲了，下面教你设置一下浏览器，让应该使用https的网站直接使用https：</p>
+<a id="more"></a>
 <p>以谷歌浏览器为例：</p>
 <p>在 Chrome 浏览器上输入链接 chrome://net-internals/#hsts （可复制此地址粘贴到地址栏），回车。</p>
 <p>在 Domain 栏里，输入 google.com ，并勾选下面的两个复选框，点击 “Add” 按钮即可。</p>
@@ -122,7 +123,7 @@
       <content type="html"><![CDATA[<p>世界那么大，我想去看看。这里分享最新的hosts，以及还不错的免费梯子。<br><a id="more"></a></p>
 <p>本人推荐使用hosts，采用这种方式基本的科学上网已经足够，我也就用一下谷歌搜索，fb和youtube基本是不上的，这一种方式的缺点是有时候youtube视频不能播放。相比用软件好处就是对与不需要翻·墙的网站一点影响也没有，使用很多的翻—墙软件会影响平时的上网速度。</p>
 <p>Windows 系统hosts位于 C:\Windows\System32\drivers\etc\hosts<br>所以方法非常简单，只需要把相关的文件替换即可，也可以把相应的ip地址写到源文件中。</p>
-<p>各位别急，因为很多人提出很多的问题，单独写了一个操作指导，里面包括对浏览器的推荐配置，所以在此页面下载完资源之后，请移步  按照教程操作。</p>
+<p>各位别急，因为很多人提出很多的问题，单独写了一个操作指导，里面包括对浏览器的推荐配置，所以在此页面下载完资源之后，请移步<a href="http://kylin10.com/2016/09/05/%E8%B5%B0%EF%BC%8C%E6%88%91%E5%B8%A6%E4%BD%A0%E5%8E%BB%E7%9C%8B%E7%9C%8B/" target="_blank" rel="external">此处</a>按照教程操作。</p>
 <p>如果你可以访问百度云，直接在本页下载文件就好，如果在公司无法访问百度云，进入<a href="http://kylin10.com/2016/09/05/hosts/#more" target="_blank" rel="external">此页</a>手动复制信息即可。</p>
 <p>最新hosts下载</p>
 <p>更新日期2016.9.3<br><a href="http://pan.baidu.com/s/1i57Bu0P" target="_blank" rel="external">点我下载</a></p>
