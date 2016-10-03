@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-03T15:15:16.464Z</updated>
+  <updated>2016-10-03T15:19:33.895Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/2016/09/15/java%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
     <id>http://yoursite.com/2016/09/15/java的学习心得/</id>
     <published>2016-09-15T14:55:56.114Z</published>
-    <updated>2016-10-03T15:15:16.464Z</updated>
+    <updated>2016-10-03T15:19:33.895Z</updated>
     
     <content type="html">&lt;h1 id=&quot;java的学习心得&quot;&gt;&lt;a href=&quot;#java的学习心得&quot; class=&quot;headerlink&quot; title=&quot;java的学习心得&quot;&gt;&lt;/a&gt;java的学习心得&lt;/h1&gt;&lt;p&gt;现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
@@ -32,19 +32,19 @@
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Collection&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;List&lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;List&lt;ul&gt;
 &lt;li&gt;LinkedList&lt;/li&gt;
+&lt;li&gt;ArrayList&lt;/li&gt;
+&lt;li&gt;Vector&lt;ul&gt;
+&lt;li&gt;Stack&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre&gt;&lt;code&gt;* ArrayList
-* Vector
-  - Stack
-&lt;/code&gt;&lt;/pre&gt;&lt;ul&gt;
-&lt;li&gt;Set&lt;/li&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Set&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;ul&gt;
 &lt;li&gt;Map&lt;ul&gt;

@@ -16,19 +16,19 @@
 <ul>
 <li><p>Collection</p>
 <ul>
-<li><p>List</p>
-<ul>
+<li>List<ul>
 <li>LinkedList</li>
+<li>ArrayList</li>
+<li>Vector<ul>
+<li>Stack</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>* ArrayList
-* Vector
-  - Stack
-</code></pre><ul>
-<li>Set</li>
+</li>
+<li><p>Set</p>
+</li>
 </ul>
 <ul>
 <li>Map<ul>
