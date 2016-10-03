@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-03T15:19:33.895Z</updated>
+  <updated>2016-10-03T15:30:14.880Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,18 +20,19 @@
     <link href="http://yoursite.com/2016/09/15/java%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
     <id>http://yoursite.com/2016/09/15/java的学习心得/</id>
     <published>2016-09-15T14:55:56.114Z</published>
-    <updated>2016-10-03T15:19:33.895Z</updated>
+    <updated>2016-10-03T15:30:14.880Z</updated>
     
     <content type="html">&lt;h1 id=&quot;java的学习心得&quot;&gt;&lt;a href=&quot;#java的学习心得&quot; class=&quot;headerlink&quot; title=&quot;java的学习心得&quot;&gt;&lt;/a&gt;java的学习心得&lt;/h1&gt;&lt;p&gt;现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;java的学习过程&quot;&gt;&lt;a href=&quot;#java的学习过程&quot; class=&quot;headerlink&quot; title=&quot;java的学习过程&quot;&gt;&lt;/a&gt;java的学习过程&lt;/h3&gt;&lt;h4 id=&quot;第一阶段-基础学习&quot;&gt;&lt;a href=&quot;#第一阶段-基础学习&quot; class=&quot;headerlink&quot; title=&quot;第一阶段 基础学习&quot;&gt;&lt;/a&gt;第一阶段 基础学习&lt;/h4&gt;&lt;h5 id=&quot;基本语法学习&quot;&gt;&lt;a href=&quot;#基本语法学习&quot; class=&quot;headerlink&quot; title=&quot;基本语法学习&quot;&gt;&lt;/a&gt;基本语法学习&lt;/h5&gt;&lt;p&gt;首先是要学习最基础的学法，不管学习什么编程语言都要经历的过程，如果你已经有其他编程语言的经验了，那么不用一天的时间你就可以把java的基本语法给掌握，就算你没有编程经验，认真的看，试着上手码一下代码，很快就可以入门的，java作为入门语言还是很容易的，我实在想不通为什么大学里面的入门编程语言都要选择c！&lt;/p&gt;
+&lt;h3 id=&quot;java的学习过程&quot;&gt;&lt;a href=&quot;#java的学习过程&quot; class=&quot;headerlink&quot; title=&quot;java的学习过程&quot;&gt;&lt;/a&gt;java的学习过程&lt;/h3&gt;&lt;p&gt;感觉自己写的有点乱，先附上一个图吧。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/475698/201502/101534463707675.jpg&quot; alt=&quot;java历程&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;第一阶段-基础学习&quot;&gt;&lt;a href=&quot;#第一阶段-基础学习&quot; class=&quot;headerlink&quot; title=&quot;第一阶段 基础学习&quot;&gt;&lt;/a&gt;第一阶段 基础学习&lt;/h4&gt;&lt;h5 id=&quot;基本语法学习&quot;&gt;&lt;a href=&quot;#基本语法学习&quot; class=&quot;headerlink&quot; title=&quot;基本语法学习&quot;&gt;&lt;/a&gt;基本语法学习&lt;/h5&gt;&lt;p&gt;首先是要学习最基础的学法，不管学习什么编程语言都要经历的过程，如果你已经有其他编程语言的经验了，那么不用一天的时间你就可以把java的基本语法给掌握，就算你没有编程经验，认真的看，试着上手码一下代码，很快就可以入门的，java作为入门语言还是很容易的，我实在想不通为什么大学里面的入门编程语言都要选择c！&lt;/p&gt;
 &lt;p&gt;需要学习的基础知识无非就是基本的一些规则，从最简单的变量、字符串到数组，学习怎么写循环，怎么做选择，再到什么是函数，等等，这些很基础的东西随便找一本java书就可以学习到。其实我建议初学者可以去图书馆随便挑一本薄一点的java入门书来看，注意一定要薄一点，第一本书不用太有深度，如果你从一开始就看java编程思想，很容易被吓到的。&lt;/p&gt;
 &lt;p&gt;路要一步一步来，别贪心。&lt;/p&gt;
 &lt;h5 id=&quot;集合框架的学习&quot;&gt;&lt;a href=&quot;#集合框架的学习&quot; class=&quot;headerlink&quot; title=&quot;集合框架的学习&quot;&gt;&lt;/a&gt;集合框架的学习&lt;/h5&gt;&lt;p&gt;集合这部分我单独列了出来，其实也可以放在基础语法的那部分里面，但是我感觉这部分实在是太重要了，单出来吧。不管是在具体的工作中还是面试的时候，这部分对你都很重要！！！&lt;/p&gt;
 &lt;p&gt;java的集合大体就这么点东西：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Collection&lt;/p&gt;
-&lt;ul&gt;
+&lt;li&gt;Collection&lt;ul&gt;
 &lt;li&gt;List&lt;ul&gt;
 &lt;li&gt;LinkedList&lt;/li&gt;
 &lt;li&gt;ArrayList&lt;/li&gt;
@@ -41,16 +42,13 @@
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Set&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;ul&gt;
+&lt;li&gt;Set&lt;/li&gt;
 &lt;li&gt;Map&lt;ul&gt;
 &lt;li&gt;Hashtable&lt;/li&gt;
 &lt;li&gt;HashMap&lt;/li&gt;
 &lt;li&gt;WeakHashMap&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
