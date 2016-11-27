@@ -4,30 +4,24 @@
 
     
   <url>
-    <loc>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</loc>
-    <lastmod>2016-11-25T11:45:56.000Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2016-11-25T15:34:01.814Z</pubTime>
-        
-         
-           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2016/11/25/linux%E4%B8%8B%E5%AE%89%E8%A3%85loadrunner%E8%B4%9F%E8%BD%BD%E7%BB%84%E4%BB%B6/</loc>
-    <lastmod>2016-11-25T11:45:56.000Z</lastmod>
+    <lastmod>2016-11-27T07:13:03.176Z</lastmod>
     <data>
         <display>
-        <title></title>
+        <title>linux下安装loadrunner负载组件</title>
         <pubTime>2016-11-25T15:33:59.783Z</pubTime>
         
+        <tag>linux</tag>
+         
+        <tag>性能测试</tag>
+         
+        <tag>loadrunner</tag>
+         
          
            
+             
+              <breadCrumb title="性能测试" url="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+          
         </display>
     </data>
     </url>
@@ -35,14 +29,41 @@
     
   <url>
     <loc>http://yoursite.com/2016/11/25/linux%E5%AE%89%E8%A3%85nload/</loc>
-    <lastmod>2016-11-25T11:45:56.000Z</lastmod>
+    <lastmod>2016-11-27T07:11:07.803Z</lastmod>
     <data>
         <display>
-        <title></title>
+        <title>linux下安装nload</title>
         <pubTime>2016-11-25T15:33:59.687Z</pubTime>
         
+        <tag>linux</tag>
+         
+        <tag>nload</tag>
+         
          
            
+             
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</loc>
+    <lastmod>2016-11-27T07:07:35.189Z</lastmod>
+    <data>
+        <display>
+        <title>查看rpc是否已开启</title>
+        <pubTime>2016-11-25T15:34:01.814Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="linux" url="http://yoursite.com/categories/linux/"/>
+          
         </display>
     </data>
     </url>
