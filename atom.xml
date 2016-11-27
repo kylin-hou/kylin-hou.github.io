@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-10-03T15:30:14.880Z</updated>
+  <updated>2016-11-25T11:45:56.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,16 +16,206 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/"/>
+    <id>http://yoursite.com/2016/11/25/查看rpc是否已开启/</id>
+    <published>2016-11-25T15:34:01.814Z</published>
+    <updated>2016-11-25T11:45:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;查看rpc是否已开启&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author:侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.24&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。&lt;/p&gt;
+&lt;h3 id=&quot;查看rpc是否已开启-1&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启-1&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h3&gt;&lt;p&gt;如果使用loadrunner监控服务器资源的时候发现如下的错误信息：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;RPC-TCP: recv()/recvfrom() failed.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;我们先检查一下服务器的rpc功能是不是已经打开了：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;rpcinfo -p&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;说明rpc已经在运行，没有的话我们开启rpc功能&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;rpc.rstatd&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;而如果在执行  之后，提示：-bash: rpcinfo: command not found，说明系统还未安装rpc。那么我们先来安装rpc。&lt;/p&gt;
+&lt;h3 id=&quot;安装rpc&quot;&gt;&lt;a href=&quot;#安装rpc&quot; class=&quot;headerlink&quot; title=&quot;安装rpc&quot;&gt;&lt;/a&gt;安装rpc&lt;/h3&gt;&lt;p&gt;一步步按照下面的步骤进行就可以成功的安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum install xinetd rsh-server rsh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;wget http://nchc.dl.sourceforge.net/project/rstatd/rstatd/4.0.1/rpc.rstatd-4.0.1.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar -zxvf rpc.rstatd-4.0.1.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd rpc.rstatd-4.0.1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;./configure&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;make&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;make install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;修改/etc/xinetd.d目录下面的3个conf(rogin,rsh,rexec)中的disable均设置为no&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /etc/xinetd.d&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vi  rlogin  　--编辑disable=no，保存&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vi  rsh     　--编辑disable=no，保存&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vi  rexec     --编辑disable=no，保存&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;rpc.rstatd    --启动rpc.rstatd进程&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果报下面的错误：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Cannot register service: RPC: Unable to receive; errno = Connection refused&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;说明还需少一个东西，RPC需要rpcbind，这里要注意看一下你系统的信息，centos6之后改为rpcbind，6之前是叫portmap，安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum install rpcbind&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;启动&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;rpc.rstatd&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;到这里应该不会报错了，说明成功开启rpc，看一下它的运行状态：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;rpcinfo -p&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;查看rpc是否已开启&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author:侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.24
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/11/25/linux%E4%B8%8B%E5%AE%89%E8%A3%85loadrunner%E8%B4%9F%E8%BD%BD%E7%BB%84%E4%BB%B6/"/>
+    <id>http://yoursite.com/2016/11/25/linux下安装loadrunner负载组件/</id>
+    <published>2016-11-25T15:33:59.783Z</published>
+    <updated>2016-11-25T11:45:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;a href=&quot;#linux下安装loadrunner负载组件&quot; class=&quot;headerlink&quot; title=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;/a&gt;linux下安装loadrunner负载组件&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author：侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.25&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。&lt;/p&gt;
+&lt;h3 id=&quot;下载安装包&quot;&gt;&lt;a href=&quot;#下载安装包&quot; class=&quot;headerlink&quot; title=&quot;下载安装包&quot;&gt;&lt;/a&gt;下载安装包&lt;/h3&gt;&lt;h3 id=&quot;检查防火墙&quot;&gt;&lt;a href=&quot;#检查防火墙&quot; class=&quot;headerlink&quot; title=&quot;检查防火墙&quot;&gt;&lt;/a&gt;检查防火墙&lt;/h3&gt;&lt;p&gt;既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;service iptables status&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果提示：Firewall is not running，说明防火墙已经关闭，否则将其关闭。&lt;/p&gt;
+&lt;h3 id=&quot;安装依赖组件&quot;&gt;&lt;a href=&quot;#安装依赖组件&quot; class=&quot;headerlink&quot; title=&quot;安装依赖组件&quot;&gt;&lt;/a&gt;安装依赖组件&lt;/h3&gt;&lt;p&gt;解压缩安装包之后发现里面有一个compat-libstdc++-33-3.2.3-61.i386.rpm文件，需要先安装这个文件，开始安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;rpm -ivh compat-libstdc++-33-3.2.3-61.i386.rpm&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;可能会报如下错误：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;warning: compat-libstdc++-33-3.2.3-61.i386.rpm: Header V3 DSA/SHA1 Signature, key ID e8562897: NOKEY&lt;br&gt;error: Failed dependencies:&lt;br&gt;       libgcc_s.so.1 is needed by compat-libstdc++-33-3.2.3-61.i386&lt;br&gt;       libgcc_s.so.1(GCC_3.0) is needed by compat-libstdc++-33-3.2.3-61.i386&lt;br&gt;       libgcc_s.so.1(GCC_3.3) is needed by compat-libstdc++-33-3.2.3-61.i386&lt;br&gt;       libgcc_s.so.1(GLIBC_2.0) is needed by compat-libstdc++-33-3.2.3-61.i386&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;说明缺少依赖组件，我们一点点来安装：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum install libgcc.i686&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yun install libgcc.x86_64&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;一般安装完上面两个就可以了，如果还有缺少的组件根据提示继续安装&lt;/p&gt;
+&lt;h3 id=&quot;安装loadrunner&quot;&gt;&lt;a href=&quot;#安装loadrunner&quot; class=&quot;headerlink&quot; title=&quot;安装loadrunner&quot;&gt;&lt;/a&gt;安装loadrunner&lt;/h3&gt;&lt;p&gt;先解压文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;unzip Linux.zip&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入Linux文件夹，运行安装程序installer.sh**&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd Linux&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;sh installer.sh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个时候会报错，提示一些脚本文件权限不足，为了方便起见，一次更改Linux下所有文件的权限&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd ..&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chmod 777 -R Linux/&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;再次进入Linux目录，运行安装脚本&lt;/p&gt;
+&lt;p&gt;成功开始安装，根据提示依次输入n（next） a（agree） i （）f （finish）就ok了&lt;/p&gt;
+&lt;h3 id=&quot;配置&quot;&gt;&lt;a href=&quot;#配置&quot; class=&quot;headerlink&quot; title=&quot;配置&quot;&gt;&lt;/a&gt;配置&lt;/h3&gt;&lt;p&gt;增加一个LR负载端的客户higkoo&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;useradd -g 0 -s /bin/csh higkoo&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;修改部分LR的配置&quot;&gt;&lt;a href=&quot;#修改部分LR的配置&quot; class=&quot;headerlink&quot; title=&quot;修改部分LR的配置&quot;&gt;&lt;/a&gt;修改部分LR的配置&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /opt/HP/HP_LoadGenerator/&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;more env.csh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://s13.sinaimg.cn/mw690/9aa583cfgx6C9JejHc07c&amp;amp;690&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;vi /etc/csh.cshrc&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在文件的最后一行加上&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;source /opt/HP/HP_LoadGenerator/env.csh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;切换到higkoo用户，验证一下程序是否安装成功。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;su higkoo&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;env&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://s9.sinaimg.cn/mw690/9aa583cfgx6C9JFsCuY68&amp;amp;690&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /opt/HP/HP_LoadGenerator/bin&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;./verify_generator&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;此时出现提示页面如下：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://s12.sinaimg.cn/mw690/9aa583cfgx6C9JRANf53b&amp;amp;690&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;要求我们设置一个DISPLAY 变量，我们直接修改env.csh文件来解决。&lt;/p&gt;
+&lt;p&gt;先切换到root用户下，因为两个原因：&lt;/p&gt;
+&lt;p&gt;1、env.csh文件对higkoo用户是只读的，无法修改&lt;/p&gt;
+&lt;p&gt;2、修改env.csh用户，相当于修改csh的配置，这个时候需要重新进入一下csh，才能生效&lt;/p&gt;
+&lt;p&gt;所以我们先退回到root下，修改env.csh 文件。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;exit   ////切换回root用户&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vi /opt/HP/HP_LoadGenerator/env.csh&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;直接在文件最后方加上 &lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;setenv DISPLAY 0.0&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;切换到higkoo用户，再次运行验证程序&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;su higkoo&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /opt/HP/HP_LoadGenerator/bin&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;./verify_generator&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://s10.sinaimg.cn/mw690/9aa583cfgx6C9LSuljHe9&amp;amp;690&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;h4 id=&quot;启动LR-负载端&quot;&gt;&lt;a href=&quot;#启动LR-负载端&quot; class=&quot;headerlink&quot; title=&quot;启动LR 负载端&quot;&gt;&lt;/a&gt;启动LR 负载端&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /opt/HP/HP_LoadGenerator/bin&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;./m_daemon_setup start&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果能跟正常启动非常幸运，如果不行的话一般需要进行如下的操作：&lt;/p&gt;
+&lt;p&gt;查看当前shell下的主机名：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;env&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;会看到这样的信息：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[root@iZrj9ficl3p7xemrfle8zgZ ~]# env&lt;br&gt;HOSTNAME=&lt;strong&gt;iZrj9ficl3p7xemrfle8zgZ&lt;/strong&gt;&lt;br&gt;TERM=xterm&lt;br&gt;SHELL=/bin/bash&lt;br&gt;HISTSIZE=1000&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;注意上面的HOSTNAME的值，这就是主机名，我们ping一下看看能不能通&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ping iZrj9ficl3p7xemrfle8zgZ&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;会发现连接不上，loadrunner现在无法启动的原因就在这里。&lt;/p&gt;
+&lt;p&gt;切换到root下，更改hosts配置，把bogon指向127.0.0.1&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;exit&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;vi /etc/hosts&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;blockquote&gt;
+&lt;p&gt;127.0.0.1 localhost iZrj9ficl3p7xemrfle8zgZ&lt;br&gt;::1         localhost localhost.localdomain localhost6 localhost6.localdomain6&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;按照上面的格式将主机名绑定到127.0.0.1上&lt;/p&gt;
+&lt;p&gt;再ping一下：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ping iZrj9ficl3p7xemrfle8zgZ&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;将会发现能够ping通&lt;/p&gt;
+&lt;p&gt;下面重新启动loadrunner&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd /opt/HP/HP_LoadGenerator/bin&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;./m_daemon_setup start&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果输出类似下面的信息，说明成功启动&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;m_agent_daemon ( 26299 )&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;检查loadrunner是否正常启动&quot;&gt;&lt;a href=&quot;#检查loadrunner是否正常启动&quot; class=&quot;headerlink&quot; title=&quot;检查loadrunner是否正常启动&quot;&gt;&lt;/a&gt;检查loadrunner是否正常启动&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;ps aux | grep m_agent_daemon&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;你将会看到下面的信息：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[root@iZrj9ficl3p7xemrfle8zgZ ~]# ps aux | grep m_agent_daemon&lt;br&gt;higkoo   26299 0.1  4.4 737356 727868 ?       S   (后面的内容略掉)&lt;/p&gt;
+&lt;p&gt;root     17552  0.0  0.0 103260   840 pts/0    S+   17:21   0:00 grep m_agent_daemon&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;a href=&quot;#linux下安装loadrunner负载组件&quot; class=&quot;headerlink&quot; title=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;/a&gt;linux下安装loadrunner负载
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2016/11/25/linux%E5%AE%89%E8%A3%85nload/"/>
+    <id>http://yoursite.com/2016/11/25/linux安装nload/</id>
+    <published>2016-11-25T15:33:59.687Z</published>
+    <updated>2016-11-25T11:45:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;linux下安装nload&quot;&gt;&lt;a href=&quot;#linux下安装nload&quot; class=&quot;headerlink&quot; title=&quot;linux下安装nload&quot;&gt;&lt;/a&gt;linux下安装nload&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author：侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.25&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;a href=&quot;#centos下安装nload监控网卡的流量情况&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;/a&gt;centos下安装nload监控网卡的流量情况&lt;/h2&gt;&lt;h4 id=&quot;1、安装依赖包&quot;&gt;&lt;a href=&quot;#1、安装依赖包&quot; class=&quot;headerlink&quot; title=&quot;1、安装依赖包&quot;&gt;&lt;/a&gt;1、安装依赖包&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum install -y gcc gcc-c++ ncurses-devel make wget&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;2、下载Nload&quot;&gt;&lt;a href=&quot;#2、下载Nload&quot; class=&quot;headerlink&quot; title=&quot;2、下载Nload&quot;&gt;&lt;/a&gt;2、下载Nload&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;wget http://www.roland-riegel.de/nload/nload-0.7.4.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;3、安装Nload&quot;&gt;&lt;a href=&quot;#3、安装Nload&quot; class=&quot;headerlink&quot; title=&quot;3、安装Nload&quot;&gt;&lt;/a&gt;3、安装Nload&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nload-0.7.4.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd nload-0.7.4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;./configure&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;make&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;make install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;4、运行Nload&quot;&gt;&lt;a href=&quot;#4、运行Nload&quot; class=&quot;headerlink&quot; title=&quot;4、运行Nload&quot;&gt;&lt;/a&gt;4、运行Nload&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;nload&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h2 id=&quot;nload的基本使用&quot;&gt;&lt;a href=&quot;#nload的基本使用&quot; class=&quot;headerlink&quot; title=&quot;nload的基本使用&quot;&gt;&lt;/a&gt;nload的基本使用&lt;/h2&gt;&lt;p&gt;直接输入nload就可以使用，不过这样显示的单位是Mbit/s&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-6c734aabe9315d76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;nload&quot;&gt;&lt;/p&gt;
+&lt;p&gt;如果想看的方便一点可以使用&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;nload -u M&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这样显示的单位就是MByte/s，也就是平时我们说的兆/每秒&lt;/p&gt;
+&lt;p&gt;下面说一下每一项的含义：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;默认第一行是网卡的名称及IP信息，使用键盘上的左右键可以切换网卡。&lt;br&gt;默认上边Incoming是进入网卡的流量;&lt;br&gt;默认下边Outgoing是网卡出去的流量;&lt;br&gt;默认右边（Curr当前流量）、（Avg平均流量）、（Min最小流量）、（Max最大流量）、（Ttl流量统计）;&lt;br&gt;默认情况，统计数据的左边会使用显示流量图，用#号拼出来的，根据实时流量变化显示。&lt;br&gt;-a：这个好像是全部数据的刷新时间周期，单位是秒，默认是300.&lt;br&gt;-i：进入网卡的流量图的显示比例最大值设置，默认10240 kBit/s.&lt;br&gt;-m：不显示流量图，只显示统计数据。&lt;br&gt;-o：出去网卡的流量图的显示比例最大值设置，默认10240 kBit/s.&lt;br&gt;-t：显示数据的刷新时间间隔，单位是毫秒，默认500。&lt;br&gt;-u：设置右边Curr、Avg、Min、Max的数据单位，默认是自动变的.注意大小写单位不同！&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;linux下安装nload&quot;&gt;&lt;a href=&quot;#linux下安装nload&quot; class=&quot;headerlink&quot; title=&quot;linux下安装nload&quot;&gt;&lt;/a&gt;linux下安装nload&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author：侯兴隆&lt;/p&gt;
+&lt;p&gt;dat
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
     <title>java的学习心得</title>
     <link href="http://yoursite.com/2016/09/15/java%E7%9A%84%E5%AD%A6%E4%B9%A0%E5%BF%83%E5%BE%97/"/>
     <id>http://yoursite.com/2016/09/15/java的学习心得/</id>
     <published>2016-09-15T14:55:56.114Z</published>
-    <updated>2016-10-03T15:30:14.880Z</updated>
+    <updated>2016-10-03T15:31:48.355Z</updated>
     
     <content type="html">&lt;h1 id=&quot;java的学习心得&quot;&gt;&lt;a href=&quot;#java的学习心得&quot; class=&quot;headerlink&quot; title=&quot;java的学习心得&quot;&gt;&lt;/a&gt;java的学习心得&lt;/h1&gt;&lt;p&gt;现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;java的学习过程&quot;&gt;&lt;a href=&quot;#java的学习过程&quot; class=&quot;headerlink&quot; title=&quot;java的学习过程&quot;&gt;&lt;/a&gt;java的学习过程&lt;/h3&gt;&lt;p&gt;感觉自己写的有点乱，先附上一个图吧。&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/475698/201502/101534463707675.jpg&quot; alt=&quot;java历程&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://images.cnitblog.com/blog/475698/201502/101534463707675.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 &lt;h4 id=&quot;第一阶段-基础学习&quot;&gt;&lt;a href=&quot;#第一阶段-基础学习&quot; class=&quot;headerlink&quot; title=&quot;第一阶段 基础学习&quot;&gt;&lt;/a&gt;第一阶段 基础学习&lt;/h4&gt;&lt;h5 id=&quot;基本语法学习&quot;&gt;&lt;a href=&quot;#基本语法学习&quot; class=&quot;headerlink&quot; title=&quot;基本语法学习&quot;&gt;&lt;/a&gt;基本语法学习&lt;/h5&gt;&lt;p&gt;首先是要学习最基础的学法，不管学习什么编程语言都要经历的过程，如果你已经有其他编程语言的经验了，那么不用一天的时间你就可以把java的基本语法给掌握，就算你没有编程经验，认真的看，试着上手码一下代码，很快就可以入门的，java作为入门语言还是很容易的，我实在想不通为什么大学里面的入门编程语言都要选择c！&lt;/p&gt;
 &lt;p&gt;需要学习的基础知识无非就是基本的一些规则，从最简单的变量、字符串到数组，学习怎么写循环，怎么做选择，再到什么是函数，等等，这些很基础的东西随便找一本java书就可以学习到。其实我建议初学者可以去图书馆随便挑一本薄一点的java入门书来看，注意一定要薄一点，第一本书不用太有深度，如果你从一开始就看java编程思想，很容易被吓到的。&lt;/p&gt;
 &lt;p&gt;路要一步一步来，别贪心。&lt;/p&gt;

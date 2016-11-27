@@ -275,6 +275,438 @@
             
               
                 
+                <a class="post-title-link" href="/2016/11/25/查看rpc是否已开启/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T23:34:01+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/查看rpc是否已开启/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/查看rpc是否已开启/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><hr>
+<p>author:侯兴隆</p>
+<p>date：2016.11.24</p>
+<hr>
+<p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
+<h3 id="查看rpc是否已开启-1"><a href="#查看rpc是否已开启-1" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h3><p>如果使用loadrunner监控服务器资源的时候发现如下的错误信息：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.</div><div class="line">RPC-TCP: recv()/recvfrom() failed.</div></pre></td></tr></table></figure>
+<p>我们先检查一下服务器的rpc功能是不是已经打开了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpcinfo -p</div></pre></td></tr></table></figure>
+<p>如果如下图所示：</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>说明rpc已经在运行，没有的话我们开启rpc功能</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
+<p>而如果在执行  之后，提示：-bash: rpcinfo: command not found，说明系统还未安装rpc。那么我们先来安装rpc。</p>
+<h3 id="安装rpc"><a href="#安装rpc" class="headerlink" title="安装rpc"></a>安装rpc</h3><p>一步步按照下面的步骤进行就可以成功的安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install xinetd rsh-server rsh</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://nchc.dl.sourceforge.net/project/rstatd/rstatd/4.0.1/rpc.rstatd-4.0.1.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf rpc.rstatd-4.0.1.tar.gz</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd rpc.rstatd-4.0.1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
+<p>修改/etc/xinetd.d目录下面的3个conf(rogin,rsh,rexec)中的disable均设置为no</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /etc/xinetd.d</div><div class="line">vi  rlogin  　--编辑disable=no，保存</div><div class="line">vi  rsh     　--编辑disable=no，保存</div><div class="line">vi  rexec     --编辑disable=no，保存</div><div class="line">rpc.rstatd    --启动rpc.rstatd进程</div></pre></td></tr></table></figure>
+<p>如果报下面的错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot register service: RPC: Unable to receive; errno = Connection refused</div></pre></td></tr></table></figure>
+<p>说明还需少一个东西，RPC需要rpcbind，这里要注意看一下你系统的信息，centos6之后改为rpcbind，6之前是叫portmap，安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install rpcbind</div></pre></td></tr></table></figure>
+<p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
+<p>到这里应该不会报错了，说明成功开启rpc，看一下它的运行状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpcinfo -p</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/25/linux下安装loadrunner负载组件/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T23:33:59+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/linux下安装loadrunner负载组件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/linux下安装loadrunner负载组件/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="linux下安装loadrunner负载组件"><a href="#linux下安装loadrunner负载组件" class="headerlink" title="linux下安装loadrunner负载组件"></a>linux下安装loadrunner负载组件</h1><hr>
+<p>author：侯兴隆</p>
+<p>date：2016.11.25</p>
+<hr>
+<p>有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。</p>
+<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><h3 id="检查防火墙"><a href="#检查防火墙" class="headerlink" title="检查防火墙"></a>检查防火墙</h3><p>既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables status</div></pre></td></tr></table></figure>
+<p>如果提示：Firewall is not running，说明防火墙已经关闭，否则将其关闭。</p>
+<h3 id="安装依赖组件"><a href="#安装依赖组件" class="headerlink" title="安装依赖组件"></a>安装依赖组件</h3><p>解压缩安装包之后发现里面有一个compat-libstdc++-33-3.2.3-61.i386.rpm文件，需要先安装这个文件，开始安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh compat-libstdc++-33-3.2.3-61.i386.rpm</div></pre></td></tr></table></figure>
+<p>可能会报如下错误：</p>
+<blockquote>
+<p>warning: compat-libstdc++-33-3.2.3-61.i386.rpm: Header V3 DSA/SHA1 Signature, key ID e8562897: NOKEY<br>error: Failed dependencies:<br>       libgcc_s.so.1 is needed by compat-libstdc++-33-3.2.3-61.i386<br>       libgcc_s.so.1(GCC_3.0) is needed by compat-libstdc++-33-3.2.3-61.i386<br>       libgcc_s.so.1(GCC_3.3) is needed by compat-libstdc++-33-3.2.3-61.i386<br>       libgcc_s.so.1(GLIBC_2.0) is needed by compat-libstdc++-33-3.2.3-61.i386</p>
+</blockquote>
+<p>说明缺少依赖组件，我们一点点来安装：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install libgcc.i686</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yun install libgcc.x86_64</div></pre></td></tr></table></figure>
+<p>一般安装完上面两个就可以了，如果还有缺少的组件根据提示继续安装</p>
+<h3 id="安装loadrunner"><a href="#安装loadrunner" class="headerlink" title="安装loadrunner"></a>安装loadrunner</h3><p>先解压文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip Linux.zip</div></pre></td></tr></table></figure>
+<p>进入Linux文件夹，运行安装程序installer.sh**</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Linux</div><div class="line">sh installer.sh</div></pre></td></tr></table></figure>
+<p>这个时候会报错，提示一些脚本文件权限不足，为了方便起见，一次更改Linux下所有文件的权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">chmod 777 -R Linux/</div></pre></td></tr></table></figure>
+<p>再次进入Linux目录，运行安装脚本</p>
+<p>成功开始安装，根据提示依次输入n（next） a（agree） i （）f （finish）就ok了</p>
+<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>增加一个LR负载端的客户higkoo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -g 0 -s /bin/csh higkoo</div></pre></td></tr></table></figure>
+<h4 id="修改部分LR的配置"><a href="#修改部分LR的配置" class="headerlink" title="修改部分LR的配置"></a>修改部分LR的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/</div><div class="line">more env.csh</div></pre></td></tr></table></figure>
+<p><img src="http://s13.sinaimg.cn/mw690/9aa583cfgx6C9JejHc07c&amp;690" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/csh.cshrc</div></pre></td></tr></table></figure>
+<p>在文件的最后一行加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /opt/HP/HP_LoadGenerator/env.csh</div></pre></td></tr></table></figure>
+<p>切换到higkoo用户，验证一下程序是否安装成功。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">su higkoo</div><div class="line">env</div></pre></td></tr></table></figure>
+<p><img src="http://s9.sinaimg.cn/mw690/9aa583cfgx6C9JFsCuY68&amp;690" alt=""></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./verify_generator</div></pre></td></tr></table></figure>
+<p>此时出现提示页面如下：</p>
+<p><img src="http://s12.sinaimg.cn/mw690/9aa583cfgx6C9JRANf53b&amp;690" alt=""></p>
+<p>要求我们设置一个DISPLAY 变量，我们直接修改env.csh文件来解决。</p>
+<p>先切换到root用户下，因为两个原因：</p>
+<p>1、env.csh文件对higkoo用户是只读的，无法修改</p>
+<p>2、修改env.csh用户，相当于修改csh的配置，这个时候需要重新进入一下csh，才能生效</p>
+<p>所以我们先退回到root下，修改env.csh 文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">exit   ////切换回root用户</div><div class="line">vi /opt/HP/HP_LoadGenerator/env.csh</div></pre></td></tr></table></figure>
+<p>直接在文件最后方加上 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setenv DISPLAY 0.0</div></pre></td></tr></table></figure>
+<p>切换到higkoo用户，再次运行验证程序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">su higkoo</div><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./verify_generator</div></pre></td></tr></table></figure>
+<p><img src="http://s10.sinaimg.cn/mw690/9aa583cfgx6C9LSuljHe9&amp;690" alt=""></p>
+<h4 id="启动LR-负载端"><a href="#启动LR-负载端" class="headerlink" title="启动LR 负载端"></a>启动LR 负载端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./m_daemon_setup start</div></pre></td></tr></table></figure>
+<p>如果能跟正常启动非常幸运，如果不行的话一般需要进行如下的操作：</p>
+<p>查看当前shell下的主机名：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">env</div></pre></td></tr></table></figure>
+<p>会看到这样的信息：</p>
+<blockquote>
+<p>[root@iZrj9ficl3p7xemrfle8zgZ ~]# env<br>HOSTNAME=<strong>iZrj9ficl3p7xemrfle8zgZ</strong><br>TERM=xterm<br>SHELL=/bin/bash<br>HISTSIZE=1000</p>
+</blockquote>
+<p>注意上面的HOSTNAME的值，这就是主机名，我们ping一下看看能不能通</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping iZrj9ficl3p7xemrfle8zgZ</div></pre></td></tr></table></figure>
+<p>会发现连接不上，loadrunner现在无法启动的原因就在这里。</p>
+<p>切换到root下，更改hosts配置，把bogon指向127.0.0.1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">exit</div><div class="line">vi /etc/hosts</div></pre></td></tr></table></figure>
+<blockquote>
+<p>127.0.0.1 localhost iZrj9ficl3p7xemrfle8zgZ<br>::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</p>
+</blockquote>
+<p>按照上面的格式将主机名绑定到127.0.0.1上</p>
+<p>再ping一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping iZrj9ficl3p7xemrfle8zgZ</div></pre></td></tr></table></figure>
+<p>将会发现能够ping通</p>
+<p>下面重新启动loadrunner</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./m_daemon_setup start</div></pre></td></tr></table></figure>
+<p>如果输出类似下面的信息，说明成功启动</p>
+<blockquote>
+<p><strong>m_agent_daemon ( 26299 )</strong></p>
+</blockquote>
+<h3 id="检查loadrunner是否正常启动"><a href="#检查loadrunner是否正常启动" class="headerlink" title="检查loadrunner是否正常启动"></a>检查loadrunner是否正常启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep m_agent_daemon</div></pre></td></tr></table></figure>
+<p>你将会看到下面的信息：</p>
+<blockquote>
+<p>[root@iZrj9ficl3p7xemrfle8zgZ ~]# ps aux | grep m_agent_daemon<br>higkoo   26299 0.1  4.4 737356 727868 ?       S   (后面的内容略掉)</p>
+<p>root     17552  0.0  0.0 103260   840 pts/0    S+   17:21   0:00 grep m_agent_daemon</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/11/25/linux安装nload/" itemprop="url">
+                  未命名
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-25T23:33:59+08:00" content="2016-11-25">
+              2016-11-25
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/11/25/linux安装nload/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/25/linux安装nload/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="linux下安装nload"><a href="#linux下安装nload" class="headerlink" title="linux下安装nload"></a>linux下安装nload</h1><hr>
+<p>author：侯兴隆</p>
+<p>date：2016.11.25</p>
+<hr>
+<h2 id="centos下安装nload监控网卡的流量情况"><a href="#centos下安装nload监控网卡的流量情况" class="headerlink" title="centos下安装nload监控网卡的流量情况"></a>centos下安装nload监控网卡的流量情况</h2><h4 id="1、安装依赖包"><a href="#1、安装依赖包" class="headerlink" title="1、安装依赖包"></a>1、安装依赖包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y gcc gcc-c++ ncurses-devel make wget</div></pre></td></tr></table></figure>
+<h4 id="2、下载Nload"><a href="#2、下载Nload" class="headerlink" title="2、下载Nload"></a>2、下载Nload</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://www.roland-riegel.de/nload/nload-0.7.4.tar.gz</div></pre></td></tr></table></figure>
+<h4 id="3、安装Nload"><a href="#3、安装Nload" class="headerlink" title="3、安装Nload"></a>3、安装Nload</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar zxvf nload-0.7.4.tar.gz</div><div class="line">cd nload-0.7.4</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
+<h4 id="4、运行Nload"><a href="#4、运行Nload" class="headerlink" title="4、运行Nload"></a>4、运行Nload</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nload</div></pre></td></tr></table></figure>
+<h2 id="nload的基本使用"><a href="#nload的基本使用" class="headerlink" title="nload的基本使用"></a>nload的基本使用</h2><p>直接输入nload就可以使用，不过这样显示的单位是Mbit/s</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-6c734aabe9315d76.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="nload"></p>
+<p>如果想看的方便一点可以使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nload -u M</div></pre></td></tr></table></figure>
+<p>这样显示的单位就是MByte/s，也就是平时我们说的兆/每秒</p>
+<p>下面说一下每一项的含义：</p>
+<blockquote>
+<p>默认第一行是网卡的名称及IP信息，使用键盘上的左右键可以切换网卡。<br>默认上边Incoming是进入网卡的流量;<br>默认下边Outgoing是网卡出去的流量;<br>默认右边（Curr当前流量）、（Avg平均流量）、（Min最小流量）、（Max最大流量）、（Ttl流量统计）;<br>默认情况，统计数据的左边会使用显示流量图，用#号拼出来的，根据实时流量变化显示。<br>-a：这个好像是全部数据的刷新时间周期，单位是秒，默认是300.<br>-i：进入网卡的流量图的显示比例最大值设置，默认10240 kBit/s.<br>-m：不显示流量图，只显示统计数据。<br>-o：出去网卡的流量图的显示比例最大值设置，默认10240 kBit/s.<br>-t：显示数据的刷新时间间隔，单位是毫秒，默认500。<br>-u：设置右边Curr、Avg、Min、Max的数据单位，默认是自动变的.注意大小写单位不同！</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/09/15/java的学习心得/" itemprop="url">
                   java的学习心得
                 </a>
@@ -1093,372 +1525,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/26/不喜欢这样的自己/" itemprop="url">
-                  很不喜欢这样的自己
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-26T22:57:50+08:00" content="2016-07-26">
-              2016-07-26
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/烂心记/" itemprop="url" rel="index">
-                    <span itemprop="name">烂心记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/26/不喜欢这样的自己/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/26/不喜欢这样的自己/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="为什么又开始这样了"><a href="#为什么又开始这样了" class="headerlink" title="为什么又开始这样了"></a>为什么又开始这样了</h3><p>现在刚刚到了一个新的环境，刚刚开始一段新的生活。最重要的是会遇见很多很多的人，我又要开始认识新的朋友了。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/26/不喜欢这样的自己/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/06/世界那么大我想去看看/" itemprop="url">
-                  世界那么大我想去看
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-06T13:58:33+08:00" content="2016-07-06">
-              2016-07-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/分享/" itemprop="url" rel="index">
-                    <span itemprop="name">分享</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/06/世界那么大我想去看看/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/世界那么大我想去看看/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>世界那么大，我想去看看。这里分享最新的hosts，以及还不错的免费梯子。<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/06/世界那么大我想去看看/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/06/将整个hexo博客系统上传到github/" itemprop="url">
-                  将整个hexo博客系统原始文件上传到github
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-06T12:26:22+08:00" content="2016-07-06">
-              2016-07-06
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/博客/" itemprop="url" rel="index">
-                    <span itemprop="name">博客</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/07/06/将整个hexo博客系统上传到github/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/07/06/将整个hexo博客系统上传到github/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="这是个引子"><a href="#这是个引子" class="headerlink" title="这是个引子"></a>这是个引子</h2><p>将博客弄得基本差不多了之后忽然发现一个问题，使用hexo deploy命令部署在github上的博客仅仅是hexo系统将执行hexo g之后把md文件转换为静态html之后的文件，（这句话怎么说的这么长~） 那如果某一天电脑崩了，或者是文件丢失了，我们只能从github上弄回这些html文件，我们的这个hexo博客系统是找不回的，菊花一紧！<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/06/将整个hexo博客系统上传到github/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1504,7 +1570,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">12</span>
+              <span class="site-state-item-count">15</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
