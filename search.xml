@@ -8,6 +8,7 @@
       <url>http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<h1 id="loadrunner学习"><a href="#loadrunner学习" class="headerlink" title="loadrunner学习"></a>loadrunner学习</h1><h2 id="loadrunner介绍"><a href="#loadrunner介绍" class="headerlink" title="loadrunner介绍"></a>loadrunner介绍</h2><p><strong>LoadRunner </strong>是 HP Mercury Interactive用来测试应用程序性能的工具</p>
 <p>LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 </p>
+<a id="more"></a>
 <h3 id="loadrunner测试过程"><a href="#loadrunner测试过程" class="headerlink" title="loadrunner测试过程"></a>loadrunner测试过程</h3><ul>
 <li>制定负载测试计划 </li>
 <li>开发测试脚本</li>
@@ -20,9 +21,10 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[centos下安装nmon]]></title>
       <url>http://yoursite.com/2017/01/18/%E5%AE%89%E8%A3%85nmon/</url>
-      <content type="html"><![CDATA[<h1 id="centos下安装nmon"><a href="#centos下安装nmon" class="headerlink" title="centos下安装nmon"></a>centos下安装nmon</h1><h3 id="nmon的安装"><a href="#nmon的安装" class="headerlink" title="nmon的安装"></a>nmon的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/local/nmon</div><div class="line">cd /usr/local/nmon</div><div class="line">wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz</div><div class="line">tar zxvf nmon_linux_14i.tar.gz</div><div class="line">chmod 777 nmon_x86_64_sles11</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<h1 id="centos下安装nmon"><a href="#centos下安装nmon" class="headerlink" title="centos下安装nmon"></a>centos下安装nmon</h1><h3 id="nmon的安装"><a href="#nmon的安装" class="headerlink" title="nmon的安装"></a>nmon的安装</h3><a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/local/nmon</div><div class="line">cd /usr/local/nmon</div><div class="line">wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz</div><div class="line">tar zxvf nmon_linux_14i.tar.gz</div><div class="line">chmod 777 nmon_x86_64_sles11</div></pre></td></tr></table></figure>
 <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./nmon_x86_64_sles11</div></pre></td></tr></table></figure>
 <h3 id="nmon的使用"><a href="#nmon的使用" class="headerlink" title="nmon的使用"></a>nmon的使用</h3><p>按C显示CPU信息，再按一次C关闭</p>
 <p>按M显示内存</p>
@@ -32,13 +34,11 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[查看rpc是否已开启]]></title>
       <url>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</url>
       <content type="html"><![CDATA[<h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><hr>
-<p>author:侯兴隆</p>
-<p>date：2016.11.24</p>
-<hr>
 <p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
+<a id="more"></a>
 <h3 id="查看rpc是否已开启-1"><a href="#查看rpc是否已开启-1" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h3><p>如果使用loadrunner监控服务器资源的时候发现如下的错误信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.</div><div class="line">RPC-TCP: recv()/recvfrom() failed.</div></pre></td></tr></table></figure>
 <p>我们先检查一下服务器的rpc功能是不是已经打开了：</p>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-13T12:10:01.000Z</updated>
+  <updated>2017-01-18T14:57:55.243Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,11 @@
     <link href="http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2017/01/18/loadrunner学习/</id>
     <published>2017-01-18T14:29:38.801Z</published>
-    <updated>2017-01-13T12:10:01.000Z</updated>
+    <updated>2017-01-18T14:57:55.243Z</updated>
     
     <content type="html">&lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
 &lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;loadrunner测试过程&quot;&gt;&lt;a href=&quot;#loadrunner测试过程&quot; class=&quot;headerlink&quot; title=&quot;loadrunner测试过程&quot;&gt;&lt;/a&gt;loadrunner测试过程&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;制定负载测试计划 &lt;/li&gt;
 &lt;li&gt;开发测试脚本&lt;/li&gt;
@@ -36,7 +37,8 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#l
+      &lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
+&lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
     
     </summary>
     
@@ -50,13 +52,14 @@
   </entry>
   
   <entry>
-    <title></title>
+    <title>centos下安装nmon</title>
     <link href="http://yoursite.com/2017/01/18/%E5%AE%89%E8%A3%85nmon/"/>
     <id>http://yoursite.com/2017/01/18/安装nmon/</id>
     <published>2017-01-18T14:29:33.674Z</published>
-    <updated>2017-01-13T12:10:01.000Z</updated>
+    <updated>2017-01-18T15:00:23.068Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nmon的安装&quot; class=&quot;headerlink&quot; title=&quot;nmon的安装&quot;&gt;&lt;/a&gt;nmon的安装&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chmod 777 nmon_x86_64_sles11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <content type="html">&lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nmon的安装&quot; class=&quot;headerlink&quot; title=&quot;nmon的安装&quot;&gt;&lt;/a&gt;nmon的安装&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chmod 777 nmon_x86_64_sles11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;启动&quot;&gt;&lt;a href=&quot;#启动&quot; class=&quot;headerlink&quot; title=&quot;启动&quot;&gt;&lt;/a&gt;启动&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;./nmon_x86_64_sles11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;nmon的使用&quot;&gt;&lt;a href=&quot;#nmon的使用&quot; class=&quot;headerlink&quot; title=&quot;nmon的使用&quot;&gt;&lt;/a&gt;nmon的使用&lt;/h3&gt;&lt;p&gt;按C显示CPU信息，再按一次C关闭&lt;/p&gt;
 &lt;p&gt;按M显示内存&lt;/p&gt;
@@ -66,29 +69,31 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nm
+      &lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nmon的安装&quot; class=&quot;headerlink&quot; title=&quot;nmon的安装&quot;&gt;&lt;/a&gt;nmon的安装&lt;/h3&gt;
     
     </summary>
     
+      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+    
     
       <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="nmon" scheme="http://yoursite.com/tags/nmon/"/>
     
       <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
     
   </entry>
   
   <entry>
-    <title></title>
+    <title>查看rpc是否已开启</title>
     <link href="http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/"/>
     <id>http://yoursite.com/2016/11/25/查看rpc是否已开启/</id>
     <published>2016-11-25T15:34:01.814Z</published>
-    <updated>2017-01-13T12:10:01.000Z</updated>
+    <updated>2017-01-18T15:02:24.999Z</updated>
     
     <content type="html">&lt;h1 id=&quot;查看rpc是否已开启&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;author:侯兴隆&lt;/p&gt;
-&lt;p&gt;date：2016.11.24&lt;/p&gt;
-&lt;hr&gt;
 &lt;p&gt;在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;查看rpc是否已开启-1&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启-1&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h3&gt;&lt;p&gt;如果使用loadrunner监控服务器资源的时候发现如下的错误信息：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;RPC-TCP: recv()/recvfrom() failed.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;我们先检查一下服务器的rpc功能是不是已经打开了：&lt;/p&gt;
@@ -129,11 +134,18 @@
     <summary type="html">
     
       &lt;h1 id=&quot;查看rpc是否已开启&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;author:侯兴隆&lt;/p&gt;
-&lt;p&gt;date：2016.11.24
+&lt;p&gt;在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。&lt;/p&gt;
     
     </summary>
     
+      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
+    
+    
+      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="rpc" scheme="http://yoursite.com/tags/rpc/"/>
     
   </entry>
   
@@ -142,7 +154,7 @@
     <link href="http://yoursite.com/2016/11/25/linux%E4%B8%8B%E5%AE%89%E8%A3%85loadrunner%E8%B4%9F%E8%BD%BD%E7%BB%84%E4%BB%B6/"/>
     <id>http://yoursite.com/2016/11/25/linux下安装loadrunner负载组件/</id>
     <published>2016-11-25T15:33:59.783Z</published>
-    <updated>2016-11-27T07:18:01.342Z</updated>
+    <updated>2016-11-27T12:43:24.767Z</updated>
     
     <content type="html">&lt;h1 id=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;a href=&quot;#linux下安装loadrunner负载组件&quot; class=&quot;headerlink&quot; title=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;/a&gt;linux下安装loadrunner负载组件&lt;/h1&gt;&lt;hr&gt;
 &lt;p&gt;有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。&lt;/p&gt;
