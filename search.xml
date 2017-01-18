@@ -4,11 +4,41 @@
   
     
     <entry>
-      <title><![CDATA[查看rpc是否已开启]]></title>
+      <title><![CDATA[loadrunner学习]]></title>
+      <url>http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<h1 id="loadrunner学习"><a href="#loadrunner学习" class="headerlink" title="loadrunner学习"></a>loadrunner学习</h1><h2 id="loadrunner介绍"><a href="#loadrunner介绍" class="headerlink" title="loadrunner介绍"></a>loadrunner介绍</h2><p><strong>LoadRunner </strong>是 HP Mercury Interactive用来测试应用程序性能的工具</p>
+<p>LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 </p>
+<h3 id="loadrunner测试过程"><a href="#loadrunner测试过程" class="headerlink" title="loadrunner测试过程"></a>loadrunner测试过程</h3><ul>
+<li>制定负载测试计划 </li>
+<li>开发测试脚本</li>
+<li>创建运行场景 </li>
+<li>执行测试</li>
+<li>监视场景 </li>
+<li>分析测试结果 </li>
+</ul>
+<h2 id="loadrunner组件"><a href="#loadrunner组件" class="headerlink" title="loadrunner组件"></a>loadrunner组件</h2><h2 id="loadrunner脚本编写"><a href="#loadrunner脚本编写" class="headerlink" title="loadrunner脚本编写"></a>loadrunner脚本编写</h2><h2 id="loadrunner场景设置"><a href="#loadrunner场景设置" class="headerlink" title="loadrunner场景设置"></a>loadrunner场景设置</h2><h2 id="录制手机端脚本"><a href="#录制手机端脚本" class="headerlink" title="录制手机端脚本"></a>录制手机端脚本</h2><h2 id="loadrunner使用遇到的问题"><a href="#loadrunner使用遇到的问题" class="headerlink" title="loadrunner使用遇到的问题"></a>loadrunner使用遇到的问题</h2><h3 id="常见报错信息"><a href="#常见报错信息" class="headerlink" title="常见报错信息"></a>常见报错信息</h3><h3 id="返回信息乱码解决方案"><a href="#返回信息乱码解决方案" class="headerlink" title="返回信息乱码解决方案"></a>返回信息乱码解决方案</h3>]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
+      <url>http://yoursite.com/2017/01/18/%E5%AE%89%E8%A3%85nmon/</url>
+      <content type="html"><![CDATA[<h1 id="centos下安装nmon"><a href="#centos下安装nmon" class="headerlink" title="centos下安装nmon"></a>centos下安装nmon</h1><h3 id="nmon的安装"><a href="#nmon的安装" class="headerlink" title="nmon的安装"></a>nmon的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/local/nmon</div><div class="line">cd /usr/local/nmon</div><div class="line">wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz</div><div class="line">tar zxvf nmon_linux_14i.tar.gz</div><div class="line">chmod 777 nmon_x86_64_sles11</div></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./nmon_x86_64_sles11</div></pre></td></tr></table></figure>
+<h3 id="nmon的使用"><a href="#nmon的使用" class="headerlink" title="nmon的使用"></a>nmon的使用</h3><p>按C显示CPU信息，再按一次C关闭</p>
+<p>按M显示内存</p>
+<p>按N显示网络</p>
+<p>按D显示硬盘</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title></title>
       <url>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</url>
       <content type="html"><![CDATA[<h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><hr>
+<p>author:侯兴隆</p>
+<p>date：2016.11.24</p>
+<hr>
 <p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
-<a id="more"></a>
 <h3 id="查看rpc是否已开启-1"><a href="#查看rpc是否已开启-1" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h3><p>如果使用loadrunner监控服务器资源的时候发现如下的错误信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.</div><div class="line">RPC-TCP: recv()/recvfrom() failed.</div></pre></td></tr></table></figure>
 <p>我们先检查一下服务器的rpc功能是不是已经打开了：</p>
@@ -34,7 +64,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install rpcbind</div></pre></td></tr></table></figure>
 <p>启动</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
-<p>到这里应该不会报错了，说明成功开启rpc，看一下它的运行状态：</p>
+<p>到这里应该不会报错了，说明成功开启rpc，看一下它的运行状态，如果还是报错：</p>
+<blockquote>
+<p>Cannot register service: RPC: Unable to receive; errno = Connection refused</p>
+</blockquote>
+<p>可能是rpcbind没有开启，先开启：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/rpcbind start</div></pre></td></tr></table></figure>
+<p>再启动：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpcinfo -p</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 ]]></content>
@@ -45,6 +82,7 @@
       <url>http://yoursite.com/2016/11/25/linux%E4%B8%8B%E5%AE%89%E8%A3%85loadrunner%E8%B4%9F%E8%BD%BD%E7%BB%84%E4%BB%B6/</url>
       <content type="html"><![CDATA[<h1 id="linux下安装loadrunner负载组件"><a href="#linux下安装loadrunner负载组件" class="headerlink" title="linux下安装loadrunner负载组件"></a>linux下安装loadrunner负载组件</h1><hr>
 <p>有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。</p>
+<a id="more"></a>
 <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><p>安装包下载地址：</p>
 <h3 id="检查防火墙"><a href="#检查防火墙" class="headerlink" title="检查防火墙"></a>检查防火墙</h3><p>既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables status</div></pre></td></tr></table></figure>
@@ -254,26 +292,6 @@
     </entry>
     
     <entry>
-      <title><![CDATA[朋友]]></title>
-      <url>http://yoursite.com/2016/08/09/%E6%9C%8B%E5%8F%8B/</url>
-      <content type="html"><![CDATA[<h1 id="朋友"><a href="#朋友" class="headerlink" title="朋友"></a>朋友</h1><p>今天是七夕，多么特别的日子。</p>
-<p>满大街都在秀恩爱，卖狗粮。我也不知道该干什么。心里是落寞的，没有理由的。</p>
-<a id="more"></a>
-<p>我应该是开心的，在这里的这段日子，身边有几个好朋友陪着。其实这是我没有想到过的，这么短的日子里，我能有这么多的好朋友，也没有多少，3，4个，但是关系确实很好了。我很满意。</p>
-<p>我特别在乎朋友，可以说是一直渴望身边能有懂自己，性格相投的朋友。小时候，我没有什么特别要好的朋友，我在想为什么。小孩之间的友谊都是什么样子的，这个友谊是通过什么建立的？玩。这是我能想到的第一个景象。</p>
-<p>小时候的我，为什么会那么内向胆小（现在的自己仅仅是好了那么一点点），为什么我不会像其他小孩一样那么会玩？现在回想，也真的只是发现自己从小就是呆呆的。男孩子在一起玩游戏，调皮捣蛋就成了好哥们吧，然而我不会调皮捣蛋。调皮捣蛋就像耍帅一样，真的是需要天赋的。所以这也是我有时候会羡慕那些调皮的，活跃的人的原因吧，我羡慕他们能放得开，羡慕他们做什么都那么自然，因为我感觉自己不论做什么都怪怪的，所以有些东西即使自己会感兴趣，都不会去尝试，因为自己害怕，害怕自己做不好，害怕自己出丑，害怕别人笑话，害怕…….</p>
-<p>小时候的我，也不能说是孤立，朋友是有的，但是找不出特别好的朋友，或者说我不是某一个人的最好的朋友。这也是一个很奇怪的现象，我会在乎自己是不是别人最好的朋友，原因还是自己太在乎所以敏感导致的吧。</p>
-<p>所以小学同学里面，有关系比较好的，但是没有那种铁的。初中、高中，其实也有关系非常要好的朋友，但是只能是以前了，初中的同学联系的没有几个，我不知道某天见了之后会是什么感觉，之间会有多少陌生，当初的感觉还能找回多少？高中的同学情况也是类似吧，联系还有，但是四五年没见，我都不知道他们是什么样子了，他们变了多少，我又变了多少？见了面之后除了一起回忆一下往事，聊聊彼此的经历，还能怎样？</p>
-<p>写到这之后，忽然发现自己的想法有点可怕了，需要打住了。按照这个逻辑，任何朋友在很多年不见之后都变成了以前的朋友。这个想法是不能有的，自己对朋友的理解从来都不是这样的。</p>
-<p>那为什么高中的同学现在会给我一种这样的感觉？高中同学，我们一起经历的事情太少，在一起的只是学习，学习，学习。在我的高中生活中是没有任何业余活动的，除了学习就是学习。当时的我们都还没有成为一个完整的自己吧，经历过大学之后会有相当大的变化吧，我不确定他们变成了什么样子，不确定他们是否还在意我们以前的那段比较不错的友谊。虽然是这样，我还是很期待见到我的那几个好朋友，我想看看他们现在成熟了多少，想看看他们改变了多少，应该有些东西是不会变的。</p>
-<p>大学，真的是很珍贵的一段时期。很开心在大学期间收获了很多的好朋友。其实，以前我一直认为，人生得一知己足以，也许正是这种观点的存在，导致我以前只有那么一两个朋友，到最后还会伤心的感觉那几个人也不是自己要找的知己。真是傻的可爱，不，一点都不可爱。哪有那么容易去找个知己，或许一辈子都找不到知己。后来我的观点是，朋友在于精而不在于多。我也确实是这样践行的。看不惯的人我都不鸟他，没必要去装作一般的朋友。我知道自己这种性格到了社会上容易吃亏，但是就是改不了！！！</p>
-<p>大学的好朋友真的不少啊，想起来就很甜蜜，这个词用的很符合今晚的日子，总之就是暖暖的。</p>
-<p>现在，很不错，希望现在在我身边的这几个都能证明我没有看错。</p>
-<p>写了些什么，我自己也不知道，反正只是打发无聊的夜。</p>
-]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Typora推荐]]></title>
       <url>http://yoursite.com/2016/08/02/Typora%E6%8E%A8%E8%8D%90/</url>
       <content type="html"><![CDATA[<h1 id="Typora推荐"><a href="#Typora推荐" class="headerlink" title="Typora推荐"></a>Typora推荐</h1><h3 id="Typora是什么，可以吃吗？"><a href="#Typora是什么，可以吃吗？" class="headerlink" title="Typora是什么，可以吃吗？"></a>Typora是什么，可以吃吗？</h3><p>最近一直在使用markdown写东西，但是windows平台上的各种编辑器都不是很满意，之前一直用的markdowneditor不知道怎么就是启动不了了，索性再找个更好的，于是乎就发现了typora。</p>
@@ -281,34 +299,6 @@
 <h3 id="资源下载"><a href="#资源下载" class="headerlink" title="资源下载"></a>资源下载</h3><p>typora各个平台都有，可以去官网下载，我在下载的时候，下载了2次一直失败，可能是国外服务器 的原因。所以这里分享一个网盘下载</p>
 <p><a href="http://pan.baidu.com/s/1skYhvvn" target="_blank" rel="external">点我下载</a></p>
 <p>可以直接导出为pdf，除此之外还有很多选项，如果要导出为doc或者其他格式，需要电脑上先安装一个pandoc，这个也是需要翻墙才能下载。<a href="http://pan.baidu.com/s/1c20Yf7q" target="_blank" rel="external">网盘下载</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[很不喜欢这样的自己]]></title>
-      <url>http://yoursite.com/2016/07/26/%E4%B8%8D%E5%96%9C%E6%AC%A2%E8%BF%99%E6%A0%B7%E7%9A%84%E8%87%AA%E5%B7%B1/</url>
-      <content type="html"><![CDATA[<h3 id="为什么又开始这样了"><a href="#为什么又开始这样了" class="headerlink" title="为什么又开始这样了"></a>为什么又开始这样了</h3><p>现在刚刚到了一个新的环境，刚刚开始一段新的生活。最重要的是会遇见很多很多的人，我又要开始认识新的朋友了。</p>
-<a id="more"></a>
-<p>我这样的人是很不擅长跟人打交道的，特别是让我在同一时间认识很多的人。一堆人里面，我往往会找出几个看着顺眼的，不管男的女的，就是顺眼的，然后稍微聊一下，感觉不错就可以交朋友了。然后我致命的点来了，当我运气好的时候，可以很快的在心里定下几个人为我的好朋友，然后热情的付出。我根本都不清楚别人的心里是怎么想的，我就自己一边热了，这是我煞笔的第一点吧。</p>
-<p>当我自己心里感觉在这个新的环境中有了几个好朋友之后，我就没有认识其他人的欲望了，我只想着一直跟朋友在一块，其他人一般真是不想搭理了，除非让我很感兴趣。感觉自己这一点，煞笔到极致。</p>
-<p><code>所以会有人感觉我很难接近，又有人感觉我热情的像煞笔，希望那些感觉到我那一份热情的人，不要伤害我这份热情~</code></p>
-<hr>
-<h3 id="想的太多"><a href="#想的太多" class="headerlink" title="想的太多"></a>想的太多</h3><p>多愁善感。我知道自己多愁善感，很多人也说过我。我会因为自己在乎的人的一个无意的举动，有时候我是真不知道他（她）是有意的或无意的，然后自己伤心半天，自己在脑海里各种自虐，会想他这么做的意思，他的想法，他的心情，反正想的所有的一切都是能让自己难受的那种。所以自虐的酸爽，不知道你们有没有能够体会。</p>
-<p>有时候会仅因为自己要好的朋友跟别人愉快的在一起冷落自己心里就不开心！！！我是多么有病！！！我自己心里清楚我不应该这样，但是心里难受的时候管不了这么多。</p>
-<p>当然也不会对什么朋友都这样，能够让我伤心的，肯定都是特别在乎的。</p>
-<p>如果你发现，某一天我对你忽然很冷，可能是我在生你的气，你可能根本不知道自己犯了什么错，没关系，过几天我就自然好了，因为有可能你压根就没做错什么。看到我脸色不好的时候，就当作我大姨夫来了，当然你要是关心的问一下，我是会马上开心起来的。</p>
-<p>真为我的朋友们感到心累。我自己心也很累。</p>
-<p>我这是自私吧。</p>
-<hr>
-<h3 id="多么矛盾的一个人"><a href="#多么矛盾的一个人" class="headerlink" title="多么矛盾的一个人"></a>多么矛盾的一个人</h3><p>高中，还有大学刚开学的一段日子，经常心情会很压抑，每天都难受的不行。自己好像人格分裂一样，自己与自己斗争，每天都在批判那个我不喜欢的自己。</p>
-<p>我特别喜欢反省自己。吾日三省吾身，我真是受够了。</p>
-<p>可以说这是优点，好处就是跟别人有争执之后，我会去反省自己的问题。我能清楚的认识到自己很多的毛病，缺点。</p>
-<p>但是这也很痛苦。就像上面说的各种问题，我自己心里清楚的明白自己不应该那样，所以每一次无原由心情难受之后，还会再自责懊恼一番。</p>
-<p>或许就是因为自己知道自己的诸多缺点，所以才会自卑。</p>
-<p>很多人都不相信我是个自卑的人。虽然我自卑，但是我骨子里还是很积极向上的，正因为自己这么差，所以我要变得更好。</p>
-<hr>
-<p>好吧，这几天就是又郁闷了。这样写一写，还是管一点用的。因为很多东西我都不知道该跟谁去说。从明天开始，好好加油。</p>
-<p>2016年7月26日 星期二</p>
 ]]></content>
     </entry>
     
