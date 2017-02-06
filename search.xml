@@ -244,11 +244,9 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[查看rpc是否已开启]]></title>
       <url>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</url>
-      <content type="html"><![CDATA[<h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><hr>
-<p>title: 查看rpc是否已开启<br>categories: 性能测试<br>tags: [性能测试, linux, rpc]</p>
-<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
+      <content type="html"><![CDATA[<h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
 <a id="more"></a>
 <h3 id="查看rpc是否已开启-1"><a href="#查看rpc是否已开启-1" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h3><p>如果使用loadrunner监控服务器资源的时候发现如下的错误信息：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.</div><div class="line">RPC-TCP: recv()/recvfrom() failed.</div></pre></td></tr></table></figure>
@@ -289,11 +287,9 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[linux下安装loadrunner负载组件]]></title>
       <url>http://yoursite.com/2016/11/25/linux%E4%B8%8B%E5%AE%89%E8%A3%85loadrunner%E8%B4%9F%E8%BD%BD%E7%BB%84%E4%BB%B6/</url>
-      <content type="html"><![CDATA[<h1 id="linux下安装loadrunner负载组件"><a href="#linux下安装loadrunner负载组件" class="headerlink" title="linux下安装loadrunner负载组件"></a>linux下安装loadrunner负载组件</h1><hr>
-<p>title: github + hexo 博客搭建 2016-6-30<br>categories: 博客<br>tags: [博客搭建, github, hexo]</p>
-<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><p>有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。</p>
+      <content type="html"><![CDATA[<h1 id="linux下安装loadrunner负载组件"><a href="#linux下安装loadrunner负载组件" class="headerlink" title="linux下安装loadrunner负载组件"></a>linux下安装loadrunner负载组件</h1><p>有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。</p>
 <a id="more"></a>
 <h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><h3 id="检查防火墙"><a href="#检查防火墙" class="headerlink" title="检查防火墙"></a>检查防火墙</h3><p>既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables status</div></pre></td></tr></table></figure>
@@ -376,11 +372,9 @@
     </entry>
     
     <entry>
-      <title></title>
+      <title><![CDATA[linux下安装nload]]></title>
       <url>http://yoursite.com/2016/11/25/linux%E5%AE%89%E8%A3%85nload/</url>
-      <content type="html"><![CDATA[<h1 id="linux下安装nload"><a href="#linux下安装nload" class="headerlink" title="linux下安装nload"></a>linux下安装nload</h1><hr>
-<p>title: linux下安装nload<br>categories: linux<br>tags: [性能测试, linux, nload]</p>
-<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><h2 id="centos下安装nload监控网卡的流量情况"><a href="#centos下安装nload监控网卡的流量情况" class="headerlink" title="centos下安装nload监控网卡的流量情况"></a>centos下安装nload监控网卡的流量情况</h2><h4 id="1、安装依赖包"><a href="#1、安装依赖包" class="headerlink" title="1、安装依赖包"></a>1、安装依赖包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y gcc gcc-c++ ncurses-devel make wget</div></pre></td></tr></table></figure>
+      <content type="html"><![CDATA[<h1 id="linux下安装nload"><a href="#linux下安装nload" class="headerlink" title="linux下安装nload"></a>linux下安装nload</h1><h2 id="centos下安装nload监控网卡的流量情况"><a href="#centos下安装nload监控网卡的流量情况" class="headerlink" title="centos下安装nload监控网卡的流量情况"></a>centos下安装nload监控网卡的流量情况</h2><h4 id="1、安装依赖包"><a href="#1、安装依赖包" class="headerlink" title="1、安装依赖包"></a>1、安装依赖包</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y gcc gcc-c++ ncurses-devel make wget</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h4 id="2、下载Nload"><a href="#2、下载Nload" class="headerlink" title="2、下载Nload"></a>2、下载Nload</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://www.roland-riegel.de/nload/nload-0.7.4.tar.gz</div></pre></td></tr></table></figure>
 <h4 id="3、安装Nload"><a href="#3、安装Nload" class="headerlink" title="3、安装Nload"></a>3、安装Nload</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">tar zxvf nload-0.7.4.tar.gz</div><div class="line">cd nload-0.7.4</div><div class="line">./configure</div><div class="line">make</div><div class="line">make install</div></pre></td></tr></table></figure>
