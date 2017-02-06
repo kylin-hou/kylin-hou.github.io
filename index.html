@@ -914,36 +914,13 @@
 
       
         
-          
-            <h1 id="loadrunner利用代理模式录制手机脚本"><a href="#loadrunner利用代理模式录制手机脚本" class="headerlink" title="loadrunner利用代理模式录制手机脚本"></a>loadrunner利用代理模式录制手机脚本</h1><p>loadrunner12有手机版，可以直接在手机上录制脚本，但是需要root手机</p>
+          <h1 id="loadrunner利用代理模式录制手机脚本"><a href="#loadrunner利用代理模式录制手机脚本" class="headerlink" title="loadrunner利用代理模式录制手机脚本"></a>loadrunner利用代理模式录制手机脚本</h1><p>loadrunner12有手机版，可以直接在手机上录制脚本，但是需要root手机</p>
 <p>loadrunner11和loadrunner12电脑版也是可以录制手机脚本的，设置一下代理就可以。</p>
-<h4 id="loadrunner的设置"><a href="#loadrunner的设置" class="headerlink" title="loadrunner的设置"></a>loadrunner的设置</h4><p>下面是loadrunner11的方法</p>
-<p>首先创建脚本，选择WEB(HTTP/HTML)协议</p>
-<p>弹出录制选项框，这里需要设置一下，如下图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2936641-52ec26644766db5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="120101.png"></p>
-<p>这里注意program to record选项要重新设置一下，选择loadrunner安装目录下的bin目录下的wplus_init_wsock.exe</p>
-<p>url可以不用写</p>
-<p>然后点击options选项，如下图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2936641-0f2c82bb7d26de84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="120102.png"></p>
-<p>选择network下的port mapping选项，然后点击new entry，进入如下界面：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2936641-dc0f03297e1a26d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="120103.png"></p>
-<p>target server：要录制的脚本所访问的网站域名，如果访问的地址跟这里填写的不一样手机将会访问不了。</p>
-<p>port：80</p>
-<p>service ID：HTTP</p>
-<p>traffic forwarding：选中，然后填写一个端口号，这个端口号是给手机做代理用的。注意使用的端口号是你电脑空闲的一个端口号</p>
-<p>设置这些就可以了，填好之后点击update</p>
-<h4 id="手机端的设置"><a href="#手机端的设置" class="headerlink" title="手机端的设置"></a>手机端的设置</h4><p>手机上需要设置代理，让手机的流量通过你loadrunner所在的电脑，原理还是让loadrunner充当一个代理服务器。实现这个的话需要下面两个条件：</p>
-<ol>
-<li>手机所连接的wifi与电脑在同一局域网</li>
-<li>手机连接wifi之后设置代理模式。</li>
-</ol>
-<p>如果是笔记本的话第一个条件很好满足，只需要开一个热点让手机连接就行。台式机的话就需要随身wifi这样的外部设备。</p>
-<p>手机设置代理模式：</p>
-<p><img src="http://img.blog.csdn.net/20150817100515342?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt=""></p>
-<p>注意这里，主机名就是电脑的ip，端口号是traffic forwarding那里设置的端口号。</p>
-<p>经过上面的设置，就可以开始录制了。电脑上点击录制开始按钮，可以看到启动了代理服务器，然后在手机上进行操作就可以了。注意loadrunner的信息提示，如果有什么问题根据信息做更改。</p>
-
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/19/loadrunner利用代理模式录制手机脚本/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1060,35 +1037,13 @@
 
       
         
-          
-            <h1 id="loadrunner学习"><a href="#loadrunner学习" class="headerlink" title="loadrunner学习"></a>loadrunner学习</h1><h2 id="loadrunner介绍"><a href="#loadrunner介绍" class="headerlink" title="loadrunner介绍"></a>loadrunner介绍</h2><p><strong>LoadRunner </strong>是 HP Mercury Interactive用来测试应用程序性能的工具</p>
+          <h1 id="loadrunner学习"><a href="#loadrunner学习" class="headerlink" title="loadrunner学习"></a>loadrunner学习</h1><h2 id="loadrunner介绍"><a href="#loadrunner介绍" class="headerlink" title="loadrunner介绍"></a>loadrunner介绍</h2><p><strong>LoadRunner </strong>是 HP Mercury Interactive用来测试应用程序性能的工具</p>
 <p>LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 </p>
-<h3 id="loadrunner测试过程"><a href="#loadrunner测试过程" class="headerlink" title="loadrunner测试过程"></a>loadrunner测试过程</h3><ul>
-<li>制定负载测试计划 </li>
-<li>开发测试脚本</li>
-<li>创建运行场景 </li>
-<li>执行测试</li>
-<li>监视场景 </li>
-<li>分析测试结果 </li>
-</ul>
-<h2 id="loadrunner组件"><a href="#loadrunner组件" class="headerlink" title="loadrunner组件"></a>loadrunner组件</h2><h2 id="loadrunner脚本编写"><a href="#loadrunner脚本编写" class="headerlink" title="loadrunner脚本编写"></a>loadrunner脚本编写</h2><h3 id="参数化"><a href="#参数化" class="headerlink" title="参数化"></a>参数化</h3><h4 id="什么是参数化"><a href="#什么是参数化" class="headerlink" title="什么是参数化"></a>什么是参数化</h4><p>脚本在发送请求的时候会提交一些数据，多个虚拟用户运行脚本时如果都提交相同的数据，这不符合实际的运行情况，而且可能会引发冲突。为了真实的体现真实的运行环境，需要尽可能的模拟各种各样的输入，这时候就用到参数化了。</p>
-<h4 id="参数化的过程"><a href="#参数化的过程" class="headerlink" title="参数化的过程"></a>参数化的过程</h4><ol>
-<li>确定需要参数化的常量值</li>
-<li>设置参数的属性及数据源</li>
-</ol>
-<h5 id="具体的操作"><a href="#具体的操作" class="headerlink" title="具体的操作"></a>具体的操作</h5><p>选中要参数化的内容。</p>
-<p>方法一，右键—【<strong>Replace with a new parameter</strong>】</p>
-<p>方法二，菜单【<strong>insert</strong>】—-【<strong>new Parameter…</strong>】</p>
-<p>在脚本Vuser_init中找到用户名输入的值，选择，右键选择使用参数替换-&gt;新建参数</p>
-<p>​    <img src="http://pic002.cnblogs.com/images/2012/311516/2012062221463146.png" alt="img"></p>
-<p>​    </p>
-<p>​    <img src="http://img1.tuicool.com/2MbY73N.png%21web" alt="img"></p>
-<p>​    　　完成后开始添加数据，选择上一步添加的参数右键，选择参数属性</p>
-<p>​    <img src="http://img0.tuicool.com/7zeQ7nQ.png%21web" alt="img"></p>
-<p>​    　　选择参数类型，File，文件路径，填写任意文件名，选择添加列pass，用记事本编辑添加数据，选择列处，选择之前添加的名称，同理添加密码数据时，选择列pass即可。</p>
-<h4 id="数据源来源之mysql数据库"><a href="#数据源来源之mysql数据库" class="headerlink" title="数据源来源之mysql数据库"></a>数据源来源之mysql数据库</h4><p>具体内容看过来–&gt;&gt;Loadrunner 参数化使用mysql数据源 </p>
-<h2 id="loadrunner场景设置"><a href="#loadrunner场景设置" class="headerlink" title="loadrunner场景设置"></a>loadrunner场景设置</h2><h2 id="录制手机端脚本"><a href="#录制手机端脚本" class="headerlink" title="录制手机端脚本"></a>录制手机端脚本</h2><h2 id="loadrunner使用遇到的问题"><a href="#loadrunner使用遇到的问题" class="headerlink" title="loadrunner使用遇到的问题"></a>loadrunner使用遇到的问题</h2><h3 id="常见报错信息"><a href="#常见报错信息" class="headerlink" title="常见报错信息"></a>常见报错信息</h3><h3 id="返回信息乱码解决方案"><a href="#返回信息乱码解决方案" class="headerlink" title="返回信息乱码解决方案"></a>返回信息乱码解决方案</h3>
-          
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/18/loadrunner学习/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1137,7 +1092,7 @@
               
                 
                 <a class="post-title-link" href="/2017/01/18/安装nmon/" itemprop="url">
-                  未命名
+                  centos下安装nmon
                 </a>
               
             
@@ -1155,6 +1110,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -1186,15 +1160,12 @@
 
       
         
-          
-            <h1 id="centos下安装nmon"><a href="#centos下安装nmon" class="headerlink" title="centos下安装nmon"></a>centos下安装nmon</h1><h3 id="nmon的安装"><a href="#nmon的安装" class="headerlink" title="nmon的安装"></a>nmon的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/local/nmon</div><div class="line">cd /usr/local/nmon</div><div class="line">wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz</div><div class="line">tar zxvf nmon_linux_14i.tar.gz</div><div class="line">chmod 777 nmon_x86_64_sles11</div></pre></td></tr></table></figure>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./nmon_x86_64_sles11</div></pre></td></tr></table></figure>
-<h3 id="nmon的使用"><a href="#nmon的使用" class="headerlink" title="nmon的使用"></a>nmon的使用</h3><p>按C显示CPU信息，再按一次C关闭</p>
-<p>按M显示内存</p>
-<p>按N显示网络</p>
-<p>按D显示硬盘</p>
-
-          
+          <h1 id="centos下安装nmon"><a href="#centos下安装nmon" class="headerlink" title="centos下安装nmon"></a>centos下安装nmon</h1><h3 id="nmon的安装"><a href="#nmon的安装" class="headerlink" title="nmon的安装"></a>nmon的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/local/nmon</div><div class="line">cd /usr/local/nmon</div><div class="line">wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz</div><div class="line">tar zxvf nmon_linux_14i.tar.gz</div><div class="line">chmod 777 nmon_x86_64_sles11</div></pre></td></tr></table></figure>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/01/18/安装nmon/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1292,49 +1263,14 @@
 
       
         
-          
-            <h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><hr>
-<p>author:侯兴隆</p>
-<p>date：2016.11.24</p>
-<hr>
-<p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
-<h3 id="查看rpc是否已开启-1"><a href="#查看rpc是否已开启-1" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h3><p>如果使用loadrunner监控服务器资源的时候发现如下的错误信息：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.</div><div class="line">RPC-TCP: recv()/recvfrom() failed.</div></pre></td></tr></table></figure>
-<p>我们先检查一下服务器的rpc功能是不是已经打开了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpcinfo -p</div></pre></td></tr></table></figure>
-<p>如果如下图所示：</p>
-<p><img src="http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-<p>说明rpc已经在运行，没有的话我们开启rpc功能</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
-<p>而如果在执行  之后，提示：-bash: rpcinfo: command not found，说明系统还未安装rpc。那么我们先来安装rpc。</p>
-<h3 id="安装rpc"><a href="#安装rpc" class="headerlink" title="安装rpc"></a>安装rpc</h3><p>一步步按照下面的步骤进行就可以成功的安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install xinetd rsh-server rsh</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://nchc.dl.sourceforge.net/project/rstatd/rstatd/4.0.1/rpc.rstatd-4.0.1.tar.gz</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">tar -zxvf rpc.rstatd-4.0.1.tar.gz</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd rpc.rstatd-4.0.1</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./configure</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">make install</div></pre></td></tr></table></figure>
-<p>修改/etc/xinetd.d目录下面的3个conf(rogin,rsh,rexec)中的disable均设置为no</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cd /etc/xinetd.d</div><div class="line">vi  rlogin  　--编辑disable=no，保存</div><div class="line">vi  rsh     　--编辑disable=no，保存</div><div class="line">vi  rexec     --编辑disable=no，保存</div><div class="line">rpc.rstatd    --启动rpc.rstatd进程</div></pre></td></tr></table></figure>
-<p>如果报下面的错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot register service: RPC: Unable to receive; errno = Connection refused</div></pre></td></tr></table></figure>
-<p>说明还需少一个东西，RPC需要rpcbind，这里要注意看一下你系统的信息，centos6之后改为rpcbind，6之前是叫portmap，安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install rpcbind</div></pre></td></tr></table></figure>
-<p>启动</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
-<p>到这里应该不会报错了，说明成功开启rpc，看一下它的运行状态，如果还是报错：</p>
-<blockquote>
-<p>Cannot register service: RPC: Unable to receive; errno = Connection refused</p>
-</blockquote>
-<p>可能是rpcbind没有开启，先开启：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/etc/init.d/rpcbind start</div></pre></td></tr></table></figure>
-<p>再启动：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpc.rstatd</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpcinfo -p</div></pre></td></tr></table></figure>
-<p><img src="http://upload-images.jianshu.io/upload_images/2936641-7721b4dead7a6150.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
-
-          
+          <h1 id="查看rpc是否已开启"><a href="#查看rpc是否已开启" class="headerlink" title="查看rpc是否已开启"></a>查看rpc是否已开启</h1><hr>
+<p>title: 查看rpc是否已开启<br>categories: 性能测试<br>tags: [性能测试, linux, rpc]</p>
+<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><p>在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/25/查看rpc是否已开启/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1432,91 +1368,14 @@
 
       
         
-          
-            <h1 id="linux下安装loadrunner负载组件"><a href="#linux下安装loadrunner负载组件" class="headerlink" title="linux下安装loadrunner负载组件"></a>linux下安装loadrunner负载组件</h1><hr>
-<p>author：侯兴隆</p>
-<p>date：2016.11.25</p>
-<hr>
-<p>有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。</p>
-<h3 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h3><h3 id="检查防火墙"><a href="#检查防火墙" class="headerlink" title="检查防火墙"></a>检查防火墙</h3><p>既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service iptables status</div></pre></td></tr></table></figure>
-<p>如果提示：Firewall is not running，说明防火墙已经关闭，否则将其关闭。</p>
-<h3 id="安装依赖组件"><a href="#安装依赖组件" class="headerlink" title="安装依赖组件"></a>安装依赖组件</h3><p>解压缩安装包之后发现里面有一个compat-libstdc++-33-3.2.3-61.i386.rpm文件，需要先安装这个文件，开始安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rpm -ivh compat-libstdc++-33-3.2.3-61.i386.rpm</div></pre></td></tr></table></figure>
-<p>可能会报如下错误：</p>
-<blockquote>
-<p>warning: compat-libstdc++-33-3.2.3-61.i386.rpm: Header V3 DSA/SHA1 Signature, key ID e8562897: NOKEY<br>error: Failed dependencies:<br>       libgcc_s.so.1 is needed by compat-libstdc++-33-3.2.3-61.i386<br>       libgcc_s.so.1(GCC_3.0) is needed by compat-libstdc++-33-3.2.3-61.i386<br>       libgcc_s.so.1(GCC_3.3) is needed by compat-libstdc++-33-3.2.3-61.i386<br>       libgcc_s.so.1(GLIBC_2.0) is needed by compat-libstdc++-33-3.2.3-61.i386</p>
-</blockquote>
-<p>说明缺少依赖组件，我们一点点来安装：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install libgcc.i686</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yun install libgcc.x86_64</div></pre></td></tr></table></figure>
-<p>一般安装完上面两个就可以了，如果还有缺少的组件根据提示继续安装</p>
-<h3 id="安装loadrunner"><a href="#安装loadrunner" class="headerlink" title="安装loadrunner"></a>安装loadrunner</h3><p>先解压文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">unzip Linux.zip</div></pre></td></tr></table></figure>
-<p>进入Linux文件夹，运行安装程序installer.sh**</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd Linux</div><div class="line">sh installer.sh</div></pre></td></tr></table></figure>
-<p>这个时候会报错，提示一些脚本文件权限不足，为了方便起见，一次更改Linux下所有文件的权限</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd ..</div><div class="line">chmod 777 -R Linux/</div></pre></td></tr></table></figure>
-<p>再次进入Linux目录，运行安装脚本</p>
-<p>成功开始安装，根据提示依次输入n（next） a（agree） i （）f （finish）就ok了</p>
-<h3 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h3><p>增加一个LR负载端的客户higkoo</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">useradd -g 0 -s /bin/csh higkoo</div></pre></td></tr></table></figure>
-<h4 id="修改部分LR的配置"><a href="#修改部分LR的配置" class="headerlink" title="修改部分LR的配置"></a>修改部分LR的配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/</div><div class="line">more env.csh</div></pre></td></tr></table></figure>
-<p><img src="http://s13.sinaimg.cn/mw690/9aa583cfgx6C9JejHc07c&amp;690" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vi /etc/csh.cshrc</div></pre></td></tr></table></figure>
-<p>在文件的最后一行加上</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">source /opt/HP/HP_LoadGenerator/env.csh</div></pre></td></tr></table></figure>
-<p>切换到higkoo用户，验证一下程序是否安装成功。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">su higkoo</div><div class="line">env</div></pre></td></tr></table></figure>
-<p><img src="http://s9.sinaimg.cn/mw690/9aa583cfgx6C9JFsCuY68&amp;690" alt=""></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./verify_generator</div></pre></td></tr></table></figure>
-<p>此时出现提示页面如下：</p>
-<p><img src="http://s12.sinaimg.cn/mw690/9aa583cfgx6C9JRANf53b&amp;690" alt=""></p>
-<p>要求我们设置一个DISPLAY 变量，我们直接修改env.csh文件来解决。</p>
-<p>先切换到root用户下，因为两个原因：</p>
-<p>1、env.csh文件对higkoo用户是只读的，无法修改</p>
-<p>2、修改env.csh用户，相当于修改csh的配置，这个时候需要重新进入一下csh，才能生效</p>
-<p>所以我们先退回到root下，修改env.csh 文件。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">exit   ////切换回root用户</div><div class="line">vi /opt/HP/HP_LoadGenerator/env.csh</div></pre></td></tr></table></figure>
-<p>直接在文件最后方加上 </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">setenv DISPLAY 0.0</div></pre></td></tr></table></figure>
-<p>切换到higkoo用户，再次运行验证程序</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">su higkoo</div><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./verify_generator</div></pre></td></tr></table></figure>
-<p><img src="http://s10.sinaimg.cn/mw690/9aa583cfgx6C9LSuljHe9&amp;690" alt=""></p>
-<h4 id="启动LR-负载端"><a href="#启动LR-负载端" class="headerlink" title="启动LR 负载端"></a>启动LR 负载端</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./m_daemon_setup start</div></pre></td></tr></table></figure>
-<p>如果能跟正常启动非常幸运，如果不行的话一般需要进行如下的操作：</p>
-<p>查看当前shell下的主机名：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">env</div></pre></td></tr></table></figure>
-<p>会看到这样的信息：</p>
-<blockquote>
-<p>[root@iZrj9ficl3p7xemrfle8zgZ ~]# env<br>HOSTNAME=<strong>iZrj9ficl3p7xemrfle8zgZ</strong><br>TERM=xterm<br>SHELL=/bin/bash<br>HISTSIZE=1000</p>
-</blockquote>
-<p>注意上面的HOSTNAME的值，这就是主机名，我们ping一下看看能不能通</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping iZrj9ficl3p7xemrfle8zgZ</div></pre></td></tr></table></figure>
-<p>会发现连接不上，loadrunner现在无法启动的原因就在这里。</p>
-<p>切换到root下，更改hosts配置，把bogon指向127.0.0.1</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">exit</div><div class="line">vi /etc/hosts</div></pre></td></tr></table></figure>
-<blockquote>
-<p>127.0.0.1 localhost iZrj9ficl3p7xemrfle8zgZ<br>::1         localhost localhost.localdomain localhost6 localhost6.localdomain6</p>
-</blockquote>
-<p>按照上面的格式将主机名绑定到127.0.0.1上</p>
-<p>再ping一下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ping iZrj9ficl3p7xemrfle8zgZ</div></pre></td></tr></table></figure>
-<p>将会发现能够ping通</p>
-<p>下面重新启动loadrunner</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">cd /opt/HP/HP_LoadGenerator/bin</div><div class="line">./m_daemon_setup start</div></pre></td></tr></table></figure>
-<p>如果输出类似下面的信息，说明成功启动</p>
-<blockquote>
-<p><strong>m_agent_daemon ( 26299 )</strong></p>
-</blockquote>
-<h3 id="检查loadrunner是否正常启动"><a href="#检查loadrunner是否正常启动" class="headerlink" title="检查loadrunner是否正常启动"></a>检查loadrunner是否正常启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ps aux | grep m_agent_daemon</div></pre></td></tr></table></figure>
-<p>你将会看到下面的信息：</p>
-<blockquote>
-<p>[root@iZrj9ficl3p7xemrfle8zgZ ~]# ps aux | grep m_agent_daemon<br>higkoo   26299 0.1  4.4 737356 727868 ?       S   (后面的内容略掉)</p>
-<p>root     17552  0.0  0.0 103260   840 pts/0    S+   17:21   0:00 grep m_agent_daemon</p>
-</blockquote>
-
-          
+          <h1 id="linux下安装loadrunner负载组件"><a href="#linux下安装loadrunner负载组件" class="headerlink" title="linux下安装loadrunner负载组件"></a>linux下安装loadrunner负载组件</h1><hr>
+<p>title: github + hexo 博客搭建 2016-6-30<br>categories: 博客<br>tags: [博客搭建, github, hexo]</p>
+<h2 id="grammar-cjkRuby-true"><a href="#grammar-cjkRuby-true" class="headerlink" title="grammar_cjkRuby: true"></a>grammar_cjkRuby: true</h2><p>有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/11/25/linux下安装loadrunner负载组件/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
         
       
     </div>
@@ -1596,7 +1455,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">5</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1605,7 +1464,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">23</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
