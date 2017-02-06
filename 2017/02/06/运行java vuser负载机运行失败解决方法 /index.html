@@ -84,19 +84,16 @@
 
 
 
-<meta name="description" content="运行java vuser时添加负载机运行失败问题描述这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。
-问题原因负载机之间的jdk">
+<meta name="description" content="运行java vuser时添加负载机运行失败问题描述这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="运行java vuser时添加负载机运行失败">
 <meta property="og:url" content="http://yoursite.com/2017/02/06/运行java vuser负载机运行失败解决方法 /index.html">
 <meta property="og:site_name" content="一叶一如来">
-<meta property="og:description" content="运行java vuser时添加负载机运行失败问题描述这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。
-问题原因负载机之间的jdk">
-<meta property="og:updated_time" content="2017-01-24T06:54:56.000Z">
+<meta property="og:description" content="运行java vuser时添加负载机运行失败问题描述这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。">
+<meta property="og:updated_time" content="2017-02-06T14:38:33.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="运行java vuser时添加负载机运行失败">
-<meta name="twitter:description" content="运行java vuser时添加负载机运行失败问题描述这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。
-问题原因负载机之间的jdk">
+<meta name="twitter:description" content="运行java vuser时添加负载机运行失败问题描述这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。">
 
 
 
@@ -327,6 +324,7 @@
 
       
         <h1 id="运行java-vuser时添加负载机运行失败"><a href="#运行java-vuser时添加负载机运行失败" class="headerlink" title="运行java vuser时添加负载机运行失败"></a>运行java vuser时添加负载机运行失败</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。</p>
+<a id="more"></a>
 <h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>负载机之间的jdk版本不一致！！！</p>
 <p>主压测机是185，jdk的版本是1.6.0，添加的12和14 的jdk版本是1.6.45，导致运行失败，重新安装jdk版本，问题解决。</p>
 <p>185和12是不同网段的，但是没有影响，之前以为是网段不同造成的，实验发现无影响。</p>

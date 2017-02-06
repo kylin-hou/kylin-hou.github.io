@@ -183,9 +183,10 @@
     <link href="http://yoursite.com/2017/02/06/centos%E4%B8%8Bnginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
     <id>http://yoursite.com/2017/02/06/centos下nginx安装配置/</id>
     <published>2017-02-06T14:19:52.845Z</published>
-    <updated>2017-01-24T06:54:56.000Z</updated>
+    <updated>2017-02-06T14:37:40.933Z</updated>
     
     <content type="html">&lt;h1 id=&quot;centos下nginx安装配置&quot;&gt;&lt;a href=&quot;#centos下nginx安装配置&quot; class=&quot;headerlink&quot; title=&quot;centos下nginx安装配置&quot;&gt;&lt;/a&gt;centos下nginx安装配置&lt;/h1&gt;&lt;h3 id=&quot;安装安装编译工具及库文件&quot;&gt;&lt;a href=&quot;#安装安装编译工具及库文件&quot; class=&quot;headerlink&quot; title=&quot;安装安装编译工具及库文件&quot;&gt;&lt;/a&gt;安装安装编译工具及库文件&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;安装PCRE&quot;&gt;&lt;a href=&quot;#安装PCRE&quot; class=&quot;headerlink&quot; title=&quot;安装PCRE&quot;&gt;&lt;/a&gt;安装PCRE&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum -y install pcre-devel&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;安装nginx&quot;&gt;&lt;a href=&quot;#安装nginx&quot; class=&quot;headerlink&quot; title=&quot;安装nginx&quot;&gt;&lt;/a&gt;安装nginx&lt;/h3&gt;&lt;h4 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h4&gt;&lt;p&gt;下载 Nginx，下载地址：&lt;a href=&quot;http://nginx.org/download/nginx-1.6.2.tar.gz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nginx.org/download/nginx-1.6.2.tar.gz&lt;/a&gt; 如果能使用wget&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;wget http://nginx.org/download/nginx-1.6.2.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -214,7 +215,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;centos下nginx安装配置&quot;&gt;&lt;a href=&quot;#centos下nginx安装配置&quot; class=&quot;headerlink&quot; title=&quot;centos下nginx安装配置&quot;&gt;&lt;/a&gt;centos下nginx安装配置&lt;/h1&gt;&lt;h3 id=&quot;安装安装编译工具及
+      &lt;h1 id=&quot;centos下nginx安装配置&quot;&gt;&lt;a href=&quot;#centos下nginx安装配置&quot; class=&quot;headerlink&quot; title=&quot;centos下nginx安装配置&quot;&gt;&lt;/a&gt;centos下nginx安装配置&lt;/h1&gt;&lt;h3 id=&quot;安装安装编译工具及库文件&quot;&gt;&lt;a href=&quot;#安装安装编译工具及库文件&quot; class=&quot;headerlink&quot; title=&quot;安装安装编译工具及库文件&quot;&gt;&lt;/a&gt;安装安装编译工具及库文件&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
     
     </summary>
     
@@ -234,9 +235,10 @@
     <link href="http://yoursite.com/2017/02/06/%E8%BF%90%E8%A1%8Cjava%20vuser%E8%B4%9F%E8%BD%BD%E6%9C%BA%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%20/"/>
     <id>http://yoursite.com/2017/02/06/运行java vuser负载机运行失败解决方法 /</id>
     <published>2017-02-06T14:19:52.639Z</published>
-    <updated>2017-01-24T06:54:56.000Z</updated>
+    <updated>2017-02-06T14:38:33.453Z</updated>
     
     <content type="html">&lt;h1 id=&quot;运行java-vuser时添加负载机运行失败&quot;&gt;&lt;a href=&quot;#运行java-vuser时添加负载机运行失败&quot; class=&quot;headerlink&quot; title=&quot;运行java vuser时添加负载机运行失败&quot;&gt;&lt;/a&gt;运行java vuser时添加负载机运行失败&lt;/h1&gt;&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;问题原因&quot;&gt;&lt;a href=&quot;#问题原因&quot; class=&quot;headerlink&quot; title=&quot;问题原因&quot;&gt;&lt;/a&gt;问题原因&lt;/h3&gt;&lt;p&gt;负载机之间的jdk版本不一致！！！&lt;/p&gt;
 &lt;p&gt;主压测机是185，jdk的版本是1.6.0，添加的12和14 的jdk版本是1.6.45，导致运行失败，重新安装jdk版本，问题解决。&lt;/p&gt;
 &lt;p&gt;185和12是不同网段的，但是没有影响，之前以为是网段不同造成的，实验发现无影响。&lt;/p&gt;
@@ -251,7 +253,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;运行java-vuser时添加负载机运行失败&quot;&gt;&lt;a href=&quot;#运行java-vuser时添加负载机运行失败&quot; class=&quot;headerlink&quot; title=&quot;运行java vuser时添加负载机运行失败&quot;&gt;&lt;/a&gt;运行java vuser时添加负载机运行
+      &lt;h1 id=&quot;运行java-vuser时添加负载机运行失败&quot;&gt;&lt;a href=&quot;#运行java-vuser时添加负载机运行失败&quot; class=&quot;headerlink&quot; title=&quot;运行java vuser时添加负载机运行失败&quot;&gt;&lt;/a&gt;运行java vuser时添加负载机运行失败&lt;/h1&gt;&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。&lt;/p&gt;
     
     </summary>
     

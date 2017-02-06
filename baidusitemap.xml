@@ -4,6 +4,49 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/02/06/%E8%BF%90%E8%A1%8Cjava%20vuser%E8%B4%9F%E8%BD%BD%E6%9C%BA%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%20/</loc>
+    <lastmod>2017-02-06T14:38:33.453Z</lastmod>
+    <data>
+        <display>
+        <title>运行java vuser时添加负载机运行失败</title>
+        <pubTime>2017-02-06T14:19:52.639Z</pubTime>
+        
+        <tag>loadrunner</tag>
+         
+        <tag>性能测试</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/02/06/centos%E4%B8%8Bnginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2017-02-06T14:37:40.933Z</lastmod>
+    <data>
+        <display>
+        <title>nginx安装配置</title>
+        <pubTime>2017-02-06T14:19:52.845Z</pubTime>
+        
+        <tag>性能测试</tag>
+         
+        <tag>nginx</tag>
+         
+        <tag>centos</tag>
+         
+         
+           
+             
+              <breadCrumb title="性能测试" url="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2017-01-24T06:54:57.000Z</lastmod>
     <data>
@@ -28,12 +71,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/02/06/loadrunner%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <loc>http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/</loc>
     <lastmod>2017-01-24T06:54:56.000Z</lastmod>
     <data>
         <display>
-        <title></title>
-        <pubTime>2017-02-06T14:19:57.609Z</pubTime>
+        <title>loadrunner学习</title>
+        <pubTime>2017-01-18T14:29:38.801Z</pubTime>
         
         <tag>loadrunner</tag>
          
@@ -41,21 +84,9 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</loc>
-    <lastmod>2017-01-24T06:54:56.000Z</lastmod>
-    <data>
-        <display>
-        <title></title>
-        <pubTime>2016-11-25T15:34:01.814Z</pubTime>
-        
-         
-           
+             
+              <breadCrumb title="性能测试" url="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+          
         </display>
     </data>
     </url>
@@ -136,52 +167,6 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2017-01-24T06:54:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>loadrunner学习</title>
-        <pubTime>2017-01-18T14:29:38.801Z</pubTime>
-        
-        <tag>loadrunner</tag>
-         
-        <tag>性能测试</tag>
-         
-         
-           
-             
-              <breadCrumb title="性能测试" url="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://yoursite.com/2017/02/06/centos%E4%B8%8Bnginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2017-01-24T06:54:56.000Z</lastmod>
-    <data>
-        <display>
-        <title>nginx安装配置</title>
-        <pubTime>2017-02-06T14:19:52.845Z</pubTime>
-        
-        <tag>性能测试</tag>
-         
-        <tag>nginx</tag>
-         
-        <tag>centos</tag>
-         
-         
-           
-             
-              <breadCrumb title="性能测试" url="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>http://yoursite.com/2017/01/18/%E5%AE%89%E8%A3%85nmon/</loc>
     <lastmod>2017-01-24T06:54:56.000Z</lastmod>
     <data>
@@ -201,17 +186,32 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/02/06/%E8%BF%90%E8%A1%8Cjava%20vuser%E8%B4%9F%E8%BD%BD%E6%9C%BA%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%20/</loc>
+    <loc>http://yoursite.com/2017/02/06/loadrunner%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2017-01-24T06:54:56.000Z</lastmod>
     <data>
         <display>
-        <title>运行java vuser时添加负载机运行失败</title>
-        <pubTime>2017-02-06T14:19:52.639Z</pubTime>
+        <title></title>
+        <pubTime>2017-02-06T14:19:57.609Z</pubTime>
         
         <tag>loadrunner</tag>
          
         <tag>性能测试</tag>
          
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/</loc>
+    <lastmod>2017-01-24T06:54:56.000Z</lastmod>
+    <data>
+        <display>
+        <title></title>
+        <pubTime>2016-11-25T15:34:01.814Z</pubTime>
+        
          
            
         </display>

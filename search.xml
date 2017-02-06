@@ -117,6 +117,7 @@
       <title><![CDATA[nginx安装配置]]></title>
       <url>http://yoursite.com/2017/02/06/centos%E4%B8%8Bnginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h1 id="centos下nginx安装配置"><a href="#centos下nginx安装配置" class="headerlink" title="centos下nginx安装配置"></a>centos下nginx安装配置</h1><h3 id="安装安装编译工具及库文件"><a href="#安装安装编译工具及库文件" class="headerlink" title="安装安装编译工具及库文件"></a>安装安装编译工具及库文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel</div></pre></td></tr></table></figure>
+<a id="more"></a>
 <h3 id="安装PCRE"><a href="#安装PCRE" class="headerlink" title="安装PCRE"></a>安装PCRE</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum -y install pcre-devel</div></pre></td></tr></table></figure>
 <h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>下载 Nginx，下载地址：<a href="http://nginx.org/download/nginx-1.6.2.tar.gz" target="_blank" rel="external">http://nginx.org/download/nginx-1.6.2.tar.gz</a> 如果能使用wget</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">wget http://nginx.org/download/nginx-1.6.2.tar.gz</div></pre></td></tr></table></figure>
@@ -148,6 +149,7 @@
       <title><![CDATA[运行java vuser时添加负载机运行失败]]></title>
       <url>http://yoursite.com/2017/02/06/%E8%BF%90%E8%A1%8Cjava%20vuser%E8%B4%9F%E8%BD%BD%E6%9C%BA%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%20/</url>
       <content type="html"><![CDATA[<h1 id="运行java-vuser时添加负载机运行失败"><a href="#运行java-vuser时添加负载机运行失败" class="headerlink" title="运行java vuser时添加负载机运行失败"></a>运行java vuser时添加负载机运行失败</h1><h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。</p>
+<a id="more"></a>
 <h3 id="问题原因"><a href="#问题原因" class="headerlink" title="问题原因"></a>问题原因</h3><p>负载机之间的jdk版本不一致！！！</p>
 <p>主压测机是185，jdk的版本是1.6.0，添加的12和14 的jdk版本是1.6.45，导致运行失败，重新安装jdk版本，问题解决。</p>
 <p>185和12是不同网段的，但是没有影响，之前以为是网段不同造成的，实验发现无影响。</p>
