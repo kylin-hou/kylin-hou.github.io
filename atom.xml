@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-01-18T14:57:55.243Z</updated>
+  <updated>2017-01-24T06:54:57.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,29 +16,205 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>loadrunner学习</title>
-    <link href="http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/"/>
-    <id>http://yoursite.com/2017/01/18/loadrunner学习/</id>
-    <published>2017-01-18T14:29:38.801Z</published>
-    <updated>2017-01-18T14:57:55.243Z</updated>
+    <title>loadrunner返回信息乱码解决方案</title>
+    <link href="http://yoursite.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2017/02/06/返回信息乱码解决方案/</id>
+    <published>2017-02-06T14:19:58.394Z</published>
+    <updated>2017-01-24T06:54:57.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
-&lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
+    <content type="html">&lt;h1 id=&quot;loadrunner返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#loadrunner返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;loadrunner返回信息乱码解决方案&quot;&gt;&lt;/a&gt;loadrunner返回信息乱码解决方案&lt;/h1&gt;&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。&lt;/p&gt;
+&lt;p&gt;本教程可以轻松查看乱码信息，使信息更直观。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;loadrunner测试过程&quot;&gt;&lt;a href=&quot;#loadrunner测试过程&quot; class=&quot;headerlink&quot; title=&quot;loadrunner测试过程&quot;&gt;&lt;/a&gt;loadrunner测试过程&lt;/h3&gt;&lt;ul&gt;
-&lt;li&gt;制定负载测试计划 &lt;/li&gt;
-&lt;li&gt;开发测试脚本&lt;/li&gt;
-&lt;li&gt;创建运行场景 &lt;/li&gt;
-&lt;li&gt;执行测试&lt;/li&gt;
-&lt;li&gt;监视场景 &lt;/li&gt;
-&lt;li&gt;分析测试结果 &lt;/li&gt;
+&lt;h2 id=&quot;了解乱码&quot;&gt;&lt;a href=&quot;#了解乱码&quot; class=&quot;headerlink&quot; title=&quot;了解乱码&quot;&gt;&lt;/a&gt;了解乱码&lt;/h2&gt;&lt;h2 id=&quot;乱码带来的问题&quot;&gt;&lt;a href=&quot;#乱码带来的问题&quot; class=&quot;headerlink&quot; title=&quot;乱码带来的问题&quot;&gt;&lt;/a&gt;乱码带来的问题&lt;/h2&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;看不懂&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;如果是关键信息，无法根据这个信息进行判断事务成功与否&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt;( lr.eval_string(&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;result&amp;gt;&quot;&lt;/span&gt;).equals(&lt;span class=&quot;string&quot;&gt;&quot;true&quot;&lt;/span&gt;) )&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	lr.end_transaction(&lt;span class=&quot;string&quot;&gt;&quot;openAT&quot;&lt;/span&gt;,lr.PASS);		&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   lr.end_transaction(&lt;span class=&quot;string&quot;&gt;&quot;openAT&quot;&lt;/span&gt;,lr.FAIL);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   lr.error_message( lr.eval_string(&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;result2&amp;gt;&quot;&lt;/span&gt;) );&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;一般我们都是像上面一样去判断一个返回的值是不是跟我们预期的一致，但是如果是判断乱码的问题，就不能直接这样判断了，不管是跟正常的中文判断还是乱码之后的字符判断，都无法正常判断。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&quot;解决乱码&quot;&gt;&lt;a href=&quot;#解决乱码&quot; class=&quot;headerlink&quot; title=&quot;解决乱码&quot;&gt;&lt;/a&gt;解决乱码&lt;/h2&gt;&lt;h3 id=&quot;c语言脚本&quot;&gt;&lt;a href=&quot;#c语言脚本&quot; class=&quot;headerlink&quot; title=&quot;c语言脚本&quot;&gt;&lt;/a&gt;c语言脚本&lt;/h3&gt;&lt;h4 id=&quot;lr-convert-string-encoding-函数介绍&quot;&gt;&lt;a href=&quot;#lr-convert-string-encoding-函数介绍&quot; class=&quot;headerlink&quot; title=&quot;lr_convert_string_encoding 函数介绍&quot;&gt;&lt;/a&gt;&lt;strong&gt;lr_convert_string_encoding&lt;/strong&gt; 函数介绍&lt;/h4&gt;&lt;p&gt;loadrunner中本身有一个函数 &lt;em&gt;lr_convert_string_encoding&lt;/em&gt; ，可以用来查看乱码信息。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;lr_convert_string_encoding&lt;/strong&gt; converts a string encoding between the following encodings: System locale, Unicode, and UTF-8. The function saves the result string, including its terminating NULL, in the parameter &lt;em&gt;paramName&lt;/em&gt;. &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这是官方的解释，意思就是&lt;strong&gt;lr_convert_string_encoding&lt;/strong&gt;() 函数可以将字符串在系统语言环境、Unicode和UTF-8&lt;/p&gt;
+&lt;p&gt;直接进行编码转换。&lt;/p&gt;
+&lt;h4 id=&quot;lr-convert-string-encoding-函数使用&quot;&gt;&lt;a href=&quot;#lr-convert-string-encoding-函数使用&quot; class=&quot;headerlink&quot; title=&quot;lr_convert_string_encoding 函数使用&quot;&gt;&lt;/a&gt;&lt;strong&gt;lr_convert_string_encoding&lt;/strong&gt; 函数使用&lt;/h4&gt;&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;function&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;title&quot;&gt;lr_convert_string_encoding&lt;/span&gt;&lt;span class=&quot;params&quot;&gt;( &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; sourceString*, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; fromEncoding, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; **toEncoding, &lt;span class=&quot;keyword&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;char&lt;/span&gt; *paramName)&lt;/span&gt;&lt;/span&gt;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;举个例子：&lt;/p&gt;
+&lt;p&gt;假设乱码的字符串为：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;鎵嬫満鑾峰彇app鐢ㄦ埛璇勮淇℃伅鏃跺嚭閿\x99&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;鬼知道这是什么！&lt;/p&gt;
+&lt;p&gt;那么我们就用lr_convert_string_encoding()函数来处理一下，&lt;/p&gt;
+&lt;figure class=&quot;highlight c&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;lr_convert_string_encoding(&lt;span class=&quot;string&quot;&gt;&quot;鎵嬫満鑾峰彇app鐢ㄦ埛璇勮淇℃伅鏃跺嚭閿\x99&quot;&lt;/span&gt;,LR_ENC_UTF8,LR_ENC_SYSTEM_LOCALE,&lt;span class=&quot;string&quot;&gt;&quot;str&quot;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;现在已经将字符串从LR_ENC_UTF8格式转换到LR_ENC_SYSTEM_LOCALE编码，并且将新的字符串保存到了str变量中，我们重新输出一下str变量看一下：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;str = 手机获取app用户评论信息时出错\x00&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这样就OK了&lt;/p&gt;
+&lt;h3 id=&quot;java脚本&quot;&gt;&lt;a href=&quot;#java脚本&quot; class=&quot;headerlink&quot; title=&quot;java脚本&quot;&gt;&lt;/a&gt;java脚本&lt;/h3&gt;&lt;p&gt;在测试过程中，java脚本还是用的很多的，但是发现loadrunner没有提供可以直接在java脚本中进行字符串编码转换的函数。&lt;/p&gt;
+&lt;p&gt;嗯，肯定是因为java已经有自己的解决方案了，然后想起前端开发过程中经常解决的乱码问题，道理都是一样的，开始干。&lt;/p&gt;
+&lt;h5 id=&quot;方法一：&quot;&gt;&lt;a href=&quot;#方法一：&quot; class=&quot;headerlink&quot; title=&quot;方法一：&quot;&gt;&lt;/a&gt;方法一：&lt;/h5&gt;&lt;p&gt;我是这样想的，就把这个输出信息的控制台当作一个浏览器，为什么显示乱码了呢？肯定是这个浏览器在输出信息的时候额外做了一些手脚，把服务器返回的数据给转换了一下编码方式，导致信息不能正常显示。&lt;/p&gt;
+&lt;p&gt;我想到了java中字符串的getBytes()方法：&lt;/p&gt;
+&lt;p&gt;String的getBytes()方法是得到一个字串的字节数组，这是众所周知的。但特别要注意的是，本方法将返回该操作系统默认的编码格式的字节数组。&lt;/p&gt;
+&lt;p&gt;然后我实验了一下：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;byte&lt;/span&gt;[] br = lr.eval_string(&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;result&amp;gt;&quot;&lt;/span&gt;).getBytes();&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;String brStr2 = &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String(br,&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;);&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;将想要查看的内容保存到result参数中，然后对其重新编码并保存到brStr2变量中，输出brStr2，发现确实解决了乱码的问题。&lt;/p&gt;
+&lt;p&gt;但是有一次在用这个方法的时候，发现使用web.reg_save_param()保存乱码的信息到result的时候什么都没有保存，我猜测是因为乱码中的一些特殊字符导致左右边境判断失败，所以无法正常的保存信息。所以就想另外一个方法。&lt;/p&gt;
+&lt;h5 id=&quot;方法二：&quot;&gt;&lt;a href=&quot;#方法二：&quot; class=&quot;headerlink&quot; title=&quot;方法二：&quot;&gt;&lt;/a&gt;方法二：&lt;/h5&gt;&lt;p&gt;既然我们都是使用web.reg_save_param()函数把相应的信息保存，这个函数本身有没有什么方法解决乱码问题呢？&lt;/p&gt;
+&lt;p&gt;去查询手册，发现了一个参数：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;Convert&lt;/strong&gt;:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The possible values are:&lt;br&gt;HTML_TO_URL:  convert HTML–encoded data to a&lt;br&gt;URL–encoded data format&lt;br&gt;HTML_TO_TEXT: convert HTML–encoded data to plain text&lt;br&gt;format&lt;br&gt;This attribute is optional.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&quot;loadrunner组件&quot;&gt;&lt;a href=&quot;#loadrunner组件&quot; class=&quot;headerlink&quot; title=&quot;loadrunner组件&quot;&gt;&lt;/a&gt;loadrunner组件&lt;/h2&gt;&lt;h2 id=&quot;loadrunner脚本编写&quot;&gt;&lt;a href=&quot;#loadrunner脚本编写&quot; class=&quot;headerlink&quot; title=&quot;loadrunner脚本编写&quot;&gt;&lt;/a&gt;loadrunner脚本编写&lt;/h2&gt;&lt;h2 id=&quot;loadrunner场景设置&quot;&gt;&lt;a href=&quot;#loadrunner场景设置&quot; class=&quot;headerlink&quot; title=&quot;loadrunner场景设置&quot;&gt;&lt;/a&gt;loadrunner场景设置&lt;/h2&gt;&lt;h2 id=&quot;录制手机端脚本&quot;&gt;&lt;a href=&quot;#录制手机端脚本&quot; class=&quot;headerlink&quot; title=&quot;录制手机端脚本&quot;&gt;&lt;/a&gt;录制手机端脚本&lt;/h2&gt;&lt;h2 id=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;a href=&quot;#loadrunner使用遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;/a&gt;loadrunner使用遇到的问题&lt;/h2&gt;&lt;h3 id=&quot;常见报错信息&quot;&gt;&lt;a href=&quot;#常见报错信息&quot; class=&quot;headerlink&quot; title=&quot;常见报错信息&quot;&gt;&lt;/a&gt;常见报错信息&lt;/h3&gt;&lt;h3 id=&quot;返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;返回信息乱码解决方案&quot;&gt;&lt;/a&gt;返回信息乱码解决方案&lt;/h3&gt;</content>
+&lt;/blockquote&gt;
+&lt;p&gt;当我看到   &lt;em&gt;HTML_TO_TEXT: convert HTML–encoded data to plain text  format&lt;/em&gt; 也就是将HTML编码的数据转换为纯文本格式 的时候，感觉有希望！&lt;/p&gt;
+&lt;p&gt;然后添加上这个参数，并设置值为HTML_TO_TEXT，然后对结果重新进行编码，结果无论采用哪种编码方式，看到的仍然是乱码的。&lt;/p&gt;
+&lt;p&gt;然后试了一下另外一个值：HTML_TO_URL，发现是可以的！！！而且非常有效，建议以后可以采取这种方式，非常方便。&lt;/p&gt;
+&lt;p&gt;首先，引入相应的包，因为要用到URLdecode和encode的一些方法，直接在头部添加一行代码就OK：&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;import&lt;/span&gt; java.net.URLDecoder;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后在平时使用的web.reg_save_param()函数中多加一行代码就OK&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;web.reg_save_param (&lt;span class=&quot;string&quot;&gt;&quot;result&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                    &lt;span class=&quot;keyword&quot;&gt;new&lt;/span&gt; String []&amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &lt;span class=&quot;string&quot;&gt;&quot;NOTFOUND=ERROR&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &lt;span class=&quot;string&quot;&gt;&quot;LB=\&quot;prompt1\&quot;:\&quot;&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &lt;span class=&quot;string&quot;&gt;&quot;RB=\&quot;&quot;&lt;/span&gt; ,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &lt;span class=&quot;string&quot;&gt;&quot;Convert=HTML_TO_URL&quot;&lt;/span&gt;,&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &lt;span class=&quot;string&quot;&gt;&quot;LAST&quot;&lt;/span&gt;&amp;#125; );&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;因为多了这么一行代码，那么穿过来的信息就被转换成了URL-encode之后的编码格式，我们看到的信息将是下图中的样子，直接看也是看不懂的，我们只要decode一下就可以了。&lt;/p&gt;
+&lt;figure class=&quot;highlight java&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;String str = URLDecoder.decode(lr.eval_string(&lt;span class=&quot;string&quot;&gt;&quot;&amp;lt;result&amp;gt;&quot;&lt;/span&gt;),&lt;span class=&quot;string&quot;&gt;&quot;utf-8&quot;&lt;/span&gt;);&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;System.out.println(&lt;span class=&quot;string&quot;&gt;&quot;结果是：&quot;&lt;/span&gt;+str );&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;经过实验发现这种方法非常有效，而且直观，也可以针对中文进行结果的判断。&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
-&lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
+      &lt;h1 id=&quot;loadrunner返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#loadrunner返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;loadrunner返回信息乱码解决方案&quot;&gt;&lt;/a&gt;loadrunner返回信息乱码解决方案&lt;/h1&gt;&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。&lt;/p&gt;
+&lt;p&gt;本教程可以轻松查看乱码信息，使信息更直观。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="性能测试" scheme="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="乱码" scheme="http://yoursite.com/tags/%E4%B9%B1%E7%A0%81/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://yoursite.com/2017/02/06/loadrunner%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2017/02/06/loadrunner返回信息乱码解决方案/</id>
+    <published>2017-02-06T14:19:57.609Z</published>
+    <updated>2017-01-24T06:54:56.000Z</updated>
+    
+    <content type="html"></content>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Loadrunner 参数化使用mysql数据源</title>
+    <link href="http://yoursite.com/2017/02/06/Loadrunner%20%E5%8F%82%E6%95%B0%E5%8C%96%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E6%BA%90%20/"/>
+    <id>http://yoursite.com/2017/02/06/Loadrunner 参数化使用mysql数据源 /</id>
+    <published>2017-02-06T14:19:57.346Z</published>
+    <updated>2017-01-24T06:54:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;Loadrunner-参数化使用mysql数据源&quot;&gt;&lt;a href=&quot;#Loadrunner-参数化使用mysql数据源&quot; class=&quot;headerlink&quot; title=&quot;Loadrunner 参数化使用mysql数据源&quot;&gt;&lt;/a&gt;Loadrunner 参数化使用mysql数据源&lt;/h1&gt;&lt;h2 id=&quot;问题概述&quot;&gt;&lt;a href=&quot;#问题概述&quot; class=&quot;headerlink&quot; title=&quot;问题概述&quot;&gt;&lt;/a&gt;问题概述&lt;/h2&gt;&lt;p&gt;在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件中。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;下面介绍使用mysql参数化的一般方法&lt;/p&gt;
+&lt;h2 id=&quot;操作方法&quot;&gt;&lt;a href=&quot;#操作方法&quot; class=&quot;headerlink&quot; title=&quot;操作方法&quot;&gt;&lt;/a&gt;操作方法&lt;/h2&gt;&lt;h3 id=&quot;安装数据库驱动，连接mysql&quot;&gt;&lt;a href=&quot;#安装数据库驱动，连接mysql&quot; class=&quot;headerlink&quot; title=&quot;安装数据库驱动，连接mysql&quot;&gt;&lt;/a&gt;安装数据库驱动，连接mysql&lt;/h3&gt;&lt;p&gt;要想富先修路，当然要先保证能够正常的连接到mysql，不管是本地的还是远程的。&lt;/p&gt;
+&lt;p&gt;下载这个货：&lt;em&gt;mysql-connector-odbc-5.3.6-win32&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;版本自己可以选择一个合适的，但是一定要用32位的！！！因为loadrunner是32位，不然匹配不了。&lt;/p&gt;
+&lt;h3 id=&quot;打开odbc，设置数据源&quot;&gt;&lt;a href=&quot;#打开odbc，设置数据源&quot; class=&quot;headerlink&quot; title=&quot;打开odbc，设置数据源&quot;&gt;&lt;/a&gt;打开odbc，设置数据源&lt;/h3&gt;&lt;p&gt;在电脑开始栏中输入odbc，就可以看到安装好的odbc程序，打开&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20140331224056656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;然后在User DSN中点Add，选择刚添加的mysql驱动&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20140331224539296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;Data Source Name 和 Description中，随意填写。server中填写服务器的ip&lt;/p&gt;
+&lt;p&gt;User name 和Password就不用说了吧。Database是选择要使用的数据库。&lt;/p&gt;
+&lt;p&gt;点test来&lt;a href=&quot;http://lib.csdn.net/base/softwaretest&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;测试&lt;/a&gt;一下。好了， 连接成功。&lt;/p&gt;
+&lt;p&gt;回到LoadRunner中，在参数化窗口中点Data Wizard…按钮。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20140331225125406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20140331225322421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里要 选中Specify SQL statement manually.继续next，将会看到下一个界面，在machine Data Source中选中数据源&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20140331225402421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;点击ok之后&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-fc7baea57598ea04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里要注意，数字1的地方是自动填写好的，如果发现这里没有自动生成，说明你之前的操作是有问题的，需要重新来过。&lt;/p&gt;
+&lt;p&gt;数字2的地方是我们的sql语句，假设我需要取出lt_test表中的name字段，我们就可以select name from lr_test，这很容易理解。&lt;/p&gt;
+&lt;p&gt;好了，到这里之后就全部完成了，点击finish，就会看到数据已经成功从数据库中取出。&lt;/p&gt;
+&lt;h2 id=&quot;注意事项&quot;&gt;&lt;a href=&quot;#注意事项&quot; class=&quot;headerlink&quot; title=&quot;注意事项&quot;&gt;&lt;/a&gt;注意事项&lt;/h2&gt;&lt;h3 id=&quot;找不到mysql驱动&quot;&gt;&lt;a href=&quot;#找不到mysql驱动&quot; class=&quot;headerlink&quot; title=&quot;找不到mysql驱动&quot;&gt;&lt;/a&gt;找不到mysql驱动&lt;/h3&gt;&lt;p&gt;在上面的进行过程中，我们打开odbc，在User DSN中点Add，结果找不到mysql的驱动&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-966a312d7c94d98f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;啊，没有mysql的啊啊 啊，徒儿莫慌，为师自有妙计&lt;/p&gt;
+&lt;p&gt;打开 &lt;em&gt;C:\Windows\SysWOW64&lt;/em&gt;  文件夹，找到 &lt;strong&gt;odbcad32&lt;/strong&gt; 程序&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-eb8dcfac753a4d39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;打开，在这里你就会看到好多的程序啊 啊，安装的mysql的驱动程序也在里面，找到打开，就跟上面的操作步骤一样了。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-20b81a060ed6150b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Loadrunner-参数化使用mysql数据源&quot;&gt;&lt;a href=&quot;#Loadrunner-参数化使用mysql数据源&quot; class=&quot;headerlink&quot; title=&quot;Loadrunner 参数化使用mysql数据源&quot;&gt;&lt;/a&gt;Loadrunner 参数化使用mysql数据源&lt;/h1&gt;&lt;h2 id=&quot;问题概述&quot;&gt;&lt;a href=&quot;#问题概述&quot; class=&quot;headerlink&quot; title=&quot;问题概述&quot;&gt;&lt;/a&gt;问题概述&lt;/h2&gt;&lt;p&gt;在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件中。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="性能测试" scheme="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>nginx安装配置</title>
+    <link href="http://yoursite.com/2017/02/06/centos%E4%B8%8Bnginx%E5%AE%89%E8%A3%85%E9%85%8D%E7%BD%AE/"/>
+    <id>http://yoursite.com/2017/02/06/centos下nginx安装配置/</id>
+    <published>2017-02-06T14:19:52.845Z</published>
+    <updated>2017-01-24T06:54:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;centos下nginx安装配置&quot;&gt;&lt;a href=&quot;#centos下nginx安装配置&quot; class=&quot;headerlink&quot; title=&quot;centos下nginx安装配置&quot;&gt;&lt;/a&gt;centos下nginx安装配置&lt;/h1&gt;&lt;h3 id=&quot;安装安装编译工具及库文件&quot;&gt;&lt;a href=&quot;#安装安装编译工具及库文件&quot; class=&quot;headerlink&quot; title=&quot;安装安装编译工具及库文件&quot;&gt;&lt;/a&gt;安装安装编译工具及库文件&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum -y install make zlib zlib-devel gcc-c++ libtool  openssl openssl-devel&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;安装PCRE&quot;&gt;&lt;a href=&quot;#安装PCRE&quot; class=&quot;headerlink&quot; title=&quot;安装PCRE&quot;&gt;&lt;/a&gt;安装PCRE&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum -y install pcre-devel&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;安装nginx&quot;&gt;&lt;a href=&quot;#安装nginx&quot; class=&quot;headerlink&quot; title=&quot;安装nginx&quot;&gt;&lt;/a&gt;安装nginx&lt;/h3&gt;&lt;h4 id=&quot;下载&quot;&gt;&lt;a href=&quot;#下载&quot; class=&quot;headerlink&quot; title=&quot;下载&quot;&gt;&lt;/a&gt;下载&lt;/h4&gt;&lt;p&gt;下载 Nginx，下载地址：&lt;a href=&quot;http://nginx.org/download/nginx-1.6.2.tar.gz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nginx.org/download/nginx-1.6.2.tar.gz&lt;/a&gt; 如果能使用wget&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;wget http://nginx.org/download/nginx-1.6.2.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;解压安装包&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nginx-1.6.2.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入安装包目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;cd nginx-1.6.2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;编译安装&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[root@bogon nginx-1.6.2]# ./configure --prefix=/usr/local/webserver/nginx --with-http_stub_status_module --with-http_ssl_module --with-pcre=/usr/local/src/pcre-8.35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[root@bogon nginx-1.6.2]# make&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[root@bogon nginx-1.6.2]# make install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h4 id=&quot;nginx配置&quot;&gt;&lt;a href=&quot;#nginx配置&quot; class=&quot;headerlink&quot; title=&quot;nginx配置&quot;&gt;&lt;/a&gt;nginx配置&lt;/h4&gt;&lt;p&gt;创建 Nginx 运行使用的用户 nginx&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;[root@bogon conf]# /usr/sbin/groupadd nginx &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;[root@bogon conf]# /usr/sbin/useradd -g nginx nginx&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;配置nginx.conf，将/usr/local/webserver/nginx/conf/nginx.conf替换为以下内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;28&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;29&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;30&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;31&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;32&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;33&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;34&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;35&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;36&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;37&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;38&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;worker_processes  auto;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;worker_rlimit_nofile 65535;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;error_log  logs/error.log error;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;pid        logs/nginx.pid;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;events &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    use epoll;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    worker_connections  1024;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;http &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    server_tokens off;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    include       mime.types;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    default_type  application/octet-stream;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    log_format  main  &amp;apos;$remote_addr - $remote_user [$time_local] &amp;quot;$request&amp;quot; &amp;apos;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &amp;apos;$status $body_bytes_sent &amp;quot;$http_referer&amp;quot; &amp;apos;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;                      &amp;apos;&amp;quot;$http_user_agent&amp;quot; &amp;quot;$http_x_forwarded_for&amp;quot; $host &amp;apos;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;			&amp;apos;$upstream_addr $upstream_status $request_time $upstream_response_time&amp;apos;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    access_log  logs/access.log  main;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    sendfile        on;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    tcp_nopush     on;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    keepalive_timeout  65;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    tcp_nodelay   on;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    open_file_cache max=20000 inactive=120s;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    open_file_cache_valid 30s;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    open_file_cache_min_uses 2;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    open_file_cache_errors on;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    include extra/*.conf;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;然后在&lt;/p&gt;
+&lt;p&gt;/usr/local/webserver/nginx/conf/目录下新建一个extra文件夹，里面放一个extra.conf，内容如下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;13&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;14&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;15&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;16&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;17&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;18&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;19&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;20&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;21&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;22&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;23&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;24&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;25&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;26&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;27&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;upstream myServer &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;	#这里是tomcat实例的地址，有几个写几个&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    server ip:端口号 max_fails=2 fail_timeout=10s;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    server ip:端口号 max_fails=2 fail_timeout=10s;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    keepalive 4;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;server &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    listen       80 default;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    server_name  xxxx;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   # proxy_redirect http://xxxx http://xxx；&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   # proxy_redirect http://xxxx http://xxx;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    charset 	utf-8;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    access_log  logs/test-push.log  main;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    error_page   500 502 503 504  /50x.html;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    location = /50x.html &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        root   /etc/nginx/html;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    location / &amp;#123;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        proxy_next_upstream error timeout invalid_header http_500 http_502 http_503 http_504 http_404;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        proxy_pass   http://myServer;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        proxy_http_version 1.1;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;        proxy_set_header Connection &amp;quot;&amp;quot;;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;#125;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;注意上面 location中的proxy_pass   &lt;a href=&quot;http://myServer;必须与upstream&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://myServer;必须与upstream&lt;/a&gt; myServer中的myServer保持一致&lt;/p&gt;
+&lt;p&gt;关于server中的server_name，发现在只有一个server域的时候可以随便配，或者不配，这样任意的访问都会匹配到这个server。但是多个server域的时候nginx肯定会去匹配具体的请求。具体的理解可以看这里：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;一个大型的网站通常会有很多下属的站点，有各自的服务器提供相应的服务，在 nginx 中我们可以通过一个叫虚拟主机的概念来将这些不同的服务配置隔离，这就是上面配置中的 server 的含义。举例来说 google 旗下有翻译和学术两款产品我们就可以在 nginx 的配置文件中配置两个 server，server&lt;em&gt;name 分别为 translate.google.com 和 scholar.google.com，这样的话不同的 url 请求就会对应到 nginx 相应的设置，转发到不同的后端服务器上。这里的 server&lt;/em&gt;name 是和客户端 http 请求中的 host 行进行匹配的。 &lt;/p&gt;
+&lt;p&gt;default_server 的含义是指如果有其他 http 请求的 host 在 nginx 中不存在设置的话那么就用这个 server 的配置来处理。比如我们去访问 127.0.0.1 那么也会落到这个 server 来处理。 &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;启动关闭nginx&quot;&gt;&lt;a href=&quot;#启动关闭nginx&quot; class=&quot;headerlink&quot; title=&quot;启动关闭nginx&quot;&gt;&lt;/a&gt;启动关闭nginx&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;8&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;9&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;10&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;11&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;12&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;## 检查配置文件是否正确&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# /usr/local/nginx-1.6/sbin/nginx -t &lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# ./sbin/nginx -V     # 可以看到编译选项&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;## 启动、关闭&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# ./sbin/nginx        # 默认配置文件 conf/nginx.conf，-c 指定&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# ./sbin/nginx -s stop&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;或 pkill nginx&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;## 重启，不会改变启动时指定的配置文件&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;# ./sbin/nginx -s reload&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;或 kill -HUP `cat /usr/local/nginx-1.6/logs/nginx.pid`&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;想看更多的介绍，可以看看这个&lt;a href=&quot;https://segmentfault.com/a/1190000002797601&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://segmentfault.com/a/1190000002797601&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;centos下nginx安装配置&quot;&gt;&lt;a href=&quot;#centos下nginx安装配置&quot; class=&quot;headerlink&quot; title=&quot;centos下nginx安装配置&quot;&gt;&lt;/a&gt;centos下nginx安装配置&lt;/h1&gt;&lt;h3 id=&quot;安装安装编译工具及
     
     </summary>
     
@@ -47,19 +223,154 @@
     
       <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
     
-      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+      <category term="nginx" scheme="http://yoursite.com/tags/nginx/"/>
+    
+      <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
     
   </entry>
   
   <entry>
-    <title>centos下安装nmon</title>
+    <title>运行java vuser时添加负载机运行失败</title>
+    <link href="http://yoursite.com/2017/02/06/%E8%BF%90%E8%A1%8Cjava%20vuser%E8%B4%9F%E8%BD%BD%E6%9C%BA%E8%BF%90%E8%A1%8C%E5%A4%B1%E8%B4%A5%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%20/"/>
+    <id>http://yoursite.com/2017/02/06/运行java vuser负载机运行失败解决方法 /</id>
+    <published>2017-02-06T14:19:52.639Z</published>
+    <updated>2017-01-24T06:54:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;运行java-vuser时添加负载机运行失败&quot;&gt;&lt;a href=&quot;#运行java-vuser时添加负载机运行失败&quot; class=&quot;headerlink&quot; title=&quot;运行java vuser时添加负载机运行失败&quot;&gt;&lt;/a&gt;运行java vuser时添加负载机运行失败&lt;/h1&gt;&lt;h3 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h3&gt;&lt;p&gt;这次测试的接口是调用rpc，tps到2、3万，场景中已经添加了7台负载机，但是负载机的cpu使用仍然达到100%，负载机的性能已经影响到本次测试了，所以想多添加几台负载机。奇怪的是新添加的几台负载机运行场景之后，vuser直接是failed状态，不能正常运行，脚本中引用到的jar文件已经放到了相应的位置，但是就是不行。&lt;/p&gt;
+&lt;h3 id=&quot;问题原因&quot;&gt;&lt;a href=&quot;#问题原因&quot; class=&quot;headerlink&quot; title=&quot;问题原因&quot;&gt;&lt;/a&gt;问题原因&lt;/h3&gt;&lt;p&gt;负载机之间的jdk版本不一致！！！&lt;/p&gt;
+&lt;p&gt;主压测机是185，jdk的版本是1.6.0，添加的12和14 的jdk版本是1.6.45，导致运行失败，重新安装jdk版本，问题解决。&lt;/p&gt;
+&lt;p&gt;185和12是不同网段的，但是没有影响，之前以为是网段不同造成的，实验发现无影响。&lt;/p&gt;
+&lt;h3 id=&quot;压测机对性能测试的影响&quot;&gt;&lt;a href=&quot;#压测机对性能测试的影响&quot; class=&quot;headerlink&quot; title=&quot;压测机对性能测试的影响&quot;&gt;&lt;/a&gt;压测机对性能测试的影响&lt;/h3&gt;&lt;p&gt;正好看到了这一篇文章，分享下：&lt;a href=&quot;http://orange2015.blog.163.com/blog/static/245875047201502755714613/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://orange2015.blog.163.com/blog/static/245875047201502755714613/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;文章中说：&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;线下测试达到目标后，系统上线却出现了性能问题，而 TPS并没有线下测试的高，认真分析后，发现问题在于，我们测试的场景还是与线上有很大的差异，线上是很多Client请求造成的压力，而线下测试Client数量去只有一台，虽然并发请求的量可能相同，可对系统造成的压力去有很大的不同，为什么压力不同，线上的情况就是一个有力的证明，探究原因，应有不少，比如线上测试时，单台client自身压力比较大，对服务器压力有影响，1台Client并发40个请求与10台Client并发4个请求对服务器进行施压的效果一定是不同的。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个地方以后确实需要注意一下，压测机cpu如果一直在85%以上就需要考虑多加几台压测机&lt;/p&gt;
+&lt;p&gt;在测试过程中会经常遇到这样一个现象：开始时tps很高很稳定，但是没过几分钟tps开始下降，最后降为0。服务器都没有压力，这时候看一下负载机的资源使用情况，往往会发现负载机的cpu占用很高，这种情况就是由于负载机资源不足引起的。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;运行java-vuser时添加负载机运行失败&quot;&gt;&lt;a href=&quot;#运行java-vuser时添加负载机运行失败&quot; class=&quot;headerlink&quot; title=&quot;运行java vuser时添加负载机运行失败&quot;&gt;&lt;/a&gt;运行java vuser时添加负载机运行
+    
+    </summary>
+    
+    
+      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>loadrunner利用代理模式录制手机脚本</title>
+    <link href="http://yoursite.com/2017/01/19/loadrunner%E5%88%A9%E7%94%A8%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E5%BD%95%E5%88%B6%E6%89%8B%E6%9C%BA%E8%84%9A%E6%9C%AC/"/>
+    <id>http://yoursite.com/2017/01/19/loadrunner利用代理模式录制手机脚本/</id>
+    <published>2017-01-19T14:27:36.196Z</published>
+    <updated>2017-01-24T06:54:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;loadrunner利用代理模式录制手机脚本&quot;&gt;&lt;a href=&quot;#loadrunner利用代理模式录制手机脚本&quot; class=&quot;headerlink&quot; title=&quot;loadrunner利用代理模式录制手机脚本&quot;&gt;&lt;/a&gt;loadrunner利用代理模式录制手机脚本&lt;/h1&gt;&lt;p&gt;loadrunner12有手机版，可以直接在手机上录制脚本，但是需要root手机&lt;/p&gt;
+&lt;p&gt;loadrunner11和loadrunner12电脑版也是可以录制手机脚本的，设置一下代理就可以。&lt;/p&gt;
+&lt;h4 id=&quot;loadrunner的设置&quot;&gt;&lt;a href=&quot;#loadrunner的设置&quot; class=&quot;headerlink&quot; title=&quot;loadrunner的设置&quot;&gt;&lt;/a&gt;loadrunner的设置&lt;/h4&gt;&lt;p&gt;下面是loadrunner11的方法&lt;/p&gt;
+&lt;p&gt;首先创建脚本，选择WEB(HTTP/HTML)协议&lt;/p&gt;
+&lt;p&gt;弹出录制选项框，这里需要设置一下，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-52ec26644766db5f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;120101.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;这里注意program to record选项要重新设置一下，选择loadrunner安装目录下的bin目录下的wplus_init_wsock.exe&lt;/p&gt;
+&lt;p&gt;url可以不用写&lt;/p&gt;
+&lt;p&gt;然后点击options选项，如下图所示：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-0f2c82bb7d26de84.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;120102.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;选择network下的port mapping选项，然后点击new entry，进入如下界面：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-dc0f03297e1a26d7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;120103.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;target server：要录制的脚本所访问的网站域名，如果访问的地址跟这里填写的不一样手机将会访问不了。&lt;/p&gt;
+&lt;p&gt;port：80&lt;/p&gt;
+&lt;p&gt;service ID：HTTP&lt;/p&gt;
+&lt;p&gt;traffic forwarding：选中，然后填写一个端口号，这个端口号是给手机做代理用的。注意使用的端口号是你电脑空闲的一个端口号&lt;/p&gt;
+&lt;p&gt;设置这些就可以了，填好之后点击update&lt;/p&gt;
+&lt;h4 id=&quot;手机端的设置&quot;&gt;&lt;a href=&quot;#手机端的设置&quot; class=&quot;headerlink&quot; title=&quot;手机端的设置&quot;&gt;&lt;/a&gt;手机端的设置&lt;/h4&gt;&lt;p&gt;手机上需要设置代理，让手机的流量通过你loadrunner所在的电脑，原理还是让loadrunner充当一个代理服务器。实现这个的话需要下面两个条件：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;手机所连接的wifi与电脑在同一局域网&lt;/li&gt;
+&lt;li&gt;手机连接wifi之后设置代理模式。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;如果是笔记本的话第一个条件很好满足，只需要开一个热点让手机连接就行。台式机的话就需要随身wifi这样的外部设备。&lt;/p&gt;
+&lt;p&gt;手机设置代理模式：&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150817100515342?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQv/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
+&lt;p&gt;注意这里，主机名就是电脑的ip，端口号是traffic forwarding那里设置的端口号。&lt;/p&gt;
+&lt;p&gt;经过上面的设置，就可以开始录制了。电脑上点击录制开始按钮，可以看到启动了代理服务器，然后在手机上进行操作就可以了。注意loadrunner的信息提示，如果有什么问题根据信息做更改。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;loadrunner利用代理模式录制手机脚本&quot;&gt;&lt;a href=&quot;#loadrunner利用代理模式录制手机脚本&quot; class=&quot;headerlink&quot; title=&quot;loadrunner利用代理模式录制手机脚本&quot;&gt;&lt;/a&gt;loadrunner利用代理模式录制手机
+    
+    </summary>
+    
+      <category term="性能测试" scheme="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>loadrunner学习</title>
+    <link href="http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/"/>
+    <id>http://yoursite.com/2017/01/18/loadrunner学习/</id>
+    <published>2017-01-18T14:29:38.801Z</published>
+    <updated>2017-01-24T06:54:56.000Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
+&lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
+&lt;h3 id=&quot;loadrunner测试过程&quot;&gt;&lt;a href=&quot;#loadrunner测试过程&quot; class=&quot;headerlink&quot; title=&quot;loadrunner测试过程&quot;&gt;&lt;/a&gt;loadrunner测试过程&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;制定负载测试计划 &lt;/li&gt;
+&lt;li&gt;开发测试脚本&lt;/li&gt;
+&lt;li&gt;创建运行场景 &lt;/li&gt;
+&lt;li&gt;执行测试&lt;/li&gt;
+&lt;li&gt;监视场景 &lt;/li&gt;
+&lt;li&gt;分析测试结果 &lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&quot;loadrunner组件&quot;&gt;&lt;a href=&quot;#loadrunner组件&quot; class=&quot;headerlink&quot; title=&quot;loadrunner组件&quot;&gt;&lt;/a&gt;loadrunner组件&lt;/h2&gt;&lt;h2 id=&quot;loadrunner脚本编写&quot;&gt;&lt;a href=&quot;#loadrunner脚本编写&quot; class=&quot;headerlink&quot; title=&quot;loadrunner脚本编写&quot;&gt;&lt;/a&gt;loadrunner脚本编写&lt;/h2&gt;&lt;h3 id=&quot;参数化&quot;&gt;&lt;a href=&quot;#参数化&quot; class=&quot;headerlink&quot; title=&quot;参数化&quot;&gt;&lt;/a&gt;参数化&lt;/h3&gt;&lt;h4 id=&quot;什么是参数化&quot;&gt;&lt;a href=&quot;#什么是参数化&quot; class=&quot;headerlink&quot; title=&quot;什么是参数化&quot;&gt;&lt;/a&gt;什么是参数化&lt;/h4&gt;&lt;p&gt;脚本在发送请求的时候会提交一些数据，多个虚拟用户运行脚本时如果都提交相同的数据，这不符合实际的运行情况，而且可能会引发冲突。为了真实的体现真实的运行环境，需要尽可能的模拟各种各样的输入，这时候就用到参数化了。&lt;/p&gt;
+&lt;h4 id=&quot;参数化的过程&quot;&gt;&lt;a href=&quot;#参数化的过程&quot; class=&quot;headerlink&quot; title=&quot;参数化的过程&quot;&gt;&lt;/a&gt;参数化的过程&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;确定需要参数化的常量值&lt;/li&gt;
+&lt;li&gt;设置参数的属性及数据源&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h5 id=&quot;具体的操作&quot;&gt;&lt;a href=&quot;#具体的操作&quot; class=&quot;headerlink&quot; title=&quot;具体的操作&quot;&gt;&lt;/a&gt;具体的操作&lt;/h5&gt;&lt;p&gt;选中要参数化的内容。&lt;/p&gt;
+&lt;p&gt;方法一，右键—【&lt;strong&gt;Replace with a new parameter&lt;/strong&gt;】&lt;/p&gt;
+&lt;p&gt;方法二，菜单【&lt;strong&gt;insert&lt;/strong&gt;】—-【&lt;strong&gt;new Parameter…&lt;/strong&gt;】&lt;/p&gt;
+&lt;p&gt;在脚本Vuser_init中找到用户名输入的值，选择，右键选择使用参数替换-&amp;gt;新建参数&lt;/p&gt;
+&lt;p&gt;​    &lt;img src=&quot;http://pic002.cnblogs.com/images/2012/311516/2012062221463146.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​    &lt;/p&gt;
+&lt;p&gt;​    &lt;img src=&quot;http://img1.tuicool.com/2MbY73N.png%21web&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​    　　完成后开始添加数据，选择上一步添加的参数右键，选择参数属性&lt;/p&gt;
+&lt;p&gt;​    &lt;img src=&quot;http://img0.tuicool.com/7zeQ7nQ.png%21web&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​    　　选择参数类型，File，文件路径，填写任意文件名，选择添加列pass，用记事本编辑添加数据，选择列处，选择之前添加的名称，同理添加密码数据时，选择列pass即可。&lt;/p&gt;
+&lt;h4 id=&quot;数据源来源之mysql数据库&quot;&gt;&lt;a href=&quot;#数据源来源之mysql数据库&quot; class=&quot;headerlink&quot; title=&quot;数据源来源之mysql数据库&quot;&gt;&lt;/a&gt;数据源来源之mysql数据库&lt;/h4&gt;&lt;p&gt;具体内容看过来–&amp;gt;&amp;gt;Loadrunner 参数化使用mysql数据源 &lt;/p&gt;
+&lt;h2 id=&quot;loadrunner场景设置&quot;&gt;&lt;a href=&quot;#loadrunner场景设置&quot; class=&quot;headerlink&quot; title=&quot;loadrunner场景设置&quot;&gt;&lt;/a&gt;loadrunner场景设置&lt;/h2&gt;&lt;h2 id=&quot;录制手机端脚本&quot;&gt;&lt;a href=&quot;#录制手机端脚本&quot; class=&quot;headerlink&quot; title=&quot;录制手机端脚本&quot;&gt;&lt;/a&gt;录制手机端脚本&lt;/h2&gt;&lt;h2 id=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;a href=&quot;#loadrunner使用遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;/a&gt;loadrunner使用遇到的问题&lt;/h2&gt;&lt;h3 id=&quot;常见报错信息&quot;&gt;&lt;a href=&quot;#常见报错信息&quot; class=&quot;headerlink&quot; title=&quot;常见报错信息&quot;&gt;&lt;/a&gt;常见报错信息&lt;/h3&gt;&lt;h3 id=&quot;返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;返回信息乱码解决方案&quot;&gt;&lt;/a&gt;返回信息乱码解决方案&lt;/h3&gt;</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#l
+    
+    </summary>
+    
+      <category term="性能测试" scheme="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+    
+      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
+    
+      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
     <link href="http://yoursite.com/2017/01/18/%E5%AE%89%E8%A3%85nmon/"/>
     <id>http://yoursite.com/2017/01/18/安装nmon/</id>
     <published>2017-01-18T14:29:33.674Z</published>
-    <updated>2017-01-18T15:00:23.068Z</updated>
+    <updated>2017-01-24T06:54:56.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nmon的安装&quot; class=&quot;headerlink&quot; title=&quot;nmon的安装&quot;&gt;&lt;/a&gt;nmon的安装&lt;/h3&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chmod 777 nmon_x86_64_sles11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    <content type="html">&lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nmon的安装&quot; class=&quot;headerlink&quot; title=&quot;nmon的安装&quot;&gt;&lt;/a&gt;nmon的安装&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;mkdir /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd /usr/local/nmon&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nmon_linux_14i.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chmod 777 nmon_x86_64_sles11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;启动&quot;&gt;&lt;a href=&quot;#启动&quot; class=&quot;headerlink&quot; title=&quot;启动&quot;&gt;&lt;/a&gt;启动&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;./nmon_x86_64_sles11&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h3 id=&quot;nmon的使用&quot;&gt;&lt;a href=&quot;#nmon的使用&quot; class=&quot;headerlink&quot; title=&quot;nmon的使用&quot;&gt;&lt;/a&gt;nmon的使用&lt;/h3&gt;&lt;p&gt;按C显示CPU信息，再按一次C关闭&lt;/p&gt;
 &lt;p&gt;按M显示内存&lt;/p&gt;
@@ -69,31 +380,29 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nmon的安装&quot; class=&quot;headerlink&quot; title=&quot;nmon的安装&quot;&gt;&lt;/a&gt;nmon的安装&lt;/h3&gt;
+      &lt;h1 id=&quot;centos下安装nmon&quot;&gt;&lt;a href=&quot;#centos下安装nmon&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nmon&quot;&gt;&lt;/a&gt;centos下安装nmon&lt;/h1&gt;&lt;h3 id=&quot;nmon的安装&quot;&gt;&lt;a href=&quot;#nm
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
-    
     
       <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="nmon" scheme="http://yoursite.com/tags/nmon/"/>
     
       <category term="centos" scheme="http://yoursite.com/tags/centos/"/>
     
   </entry>
   
   <entry>
-    <title>查看rpc是否已开启</title>
+    <title></title>
     <link href="http://yoursite.com/2016/11/25/%E6%9F%A5%E7%9C%8Brpc%E6%98%AF%E5%90%A6%E5%B7%B2%E5%BC%80%E5%90%AF/"/>
     <id>http://yoursite.com/2016/11/25/查看rpc是否已开启/</id>
     <published>2016-11-25T15:34:01.814Z</published>
-    <updated>2017-01-18T15:02:24.999Z</updated>
+    <updated>2017-01-24T06:54:56.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;查看rpc是否已开启&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author:侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.24&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;查看rpc是否已开启-1&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启-1&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h3&gt;&lt;p&gt;如果使用loadrunner监控服务器资源的时候发现如下的错误信息：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;Monitor name :UNIX Resources. Internal rpc error (error code:2). Machine: 192.168.2.183. Hint: Check that RPC on this machine is up and running. Check that rstat daemon on this machine is up and running (use rpcinfo utility for this verification). Details: RPC: RPC call failed.&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;RPC-TCP: recv()/recvfrom() failed.&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;我们先检查一下服务器的rpc功能是不是已经打开了：&lt;/p&gt;
@@ -134,33 +443,27 @@
     <summary type="html">
     
       &lt;h1 id=&quot;查看rpc是否已开启&quot;&gt;&lt;a href=&quot;#查看rpc是否已开启&quot; class=&quot;headerlink&quot; title=&quot;查看rpc是否已开启&quot;&gt;&lt;/a&gt;查看rpc是否已开启&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;在使用loadrunner进行性能测试的过程中，我们可以监控服务器的资源使用情况，那么需要服务器开启rpc功能。下面简单介绍一下开启rpc的方法。&lt;/p&gt;
+&lt;p&gt;author:侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.24
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
-    
-      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="rpc" scheme="http://yoursite.com/tags/rpc/"/>
     
   </entry>
   
   <entry>
-    <title>linux下安装loadrunner负载组件</title>
+    <title></title>
     <link href="http://yoursite.com/2016/11/25/linux%E4%B8%8B%E5%AE%89%E8%A3%85loadrunner%E8%B4%9F%E8%BD%BD%E7%BB%84%E4%BB%B6/"/>
     <id>http://yoursite.com/2016/11/25/linux下安装loadrunner负载组件/</id>
     <published>2016-11-25T15:33:59.783Z</published>
-    <updated>2016-11-27T12:43:24.767Z</updated>
+    <updated>2017-01-24T06:54:56.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;a href=&quot;#linux下安装loadrunner负载组件&quot; class=&quot;headerlink&quot; title=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;/a&gt;linux下安装loadrunner负载组件&lt;/h1&gt;&lt;hr&gt;
+&lt;p&gt;author：侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.25&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。&lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;h3 id=&quot;下载安装包&quot;&gt;&lt;a href=&quot;#下载安装包&quot; class=&quot;headerlink&quot; title=&quot;下载安装包&quot;&gt;&lt;/a&gt;下载安装包&lt;/h3&gt;&lt;p&gt;安装包下载地址：&lt;/p&gt;
-&lt;h3 id=&quot;检查防火墙&quot;&gt;&lt;a href=&quot;#检查防火墙&quot; class=&quot;headerlink&quot; title=&quot;检查防火墙&quot;&gt;&lt;/a&gt;检查防火墙&lt;/h3&gt;&lt;p&gt;既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：&lt;/p&gt;
+&lt;h3 id=&quot;下载安装包&quot;&gt;&lt;a href=&quot;#下载安装包&quot; class=&quot;headerlink&quot; title=&quot;下载安装包&quot;&gt;&lt;/a&gt;下载安装包&lt;/h3&gt;&lt;h3 id=&quot;检查防火墙&quot;&gt;&lt;a href=&quot;#检查防火墙&quot; class=&quot;headerlink&quot; title=&quot;检查防火墙&quot;&gt;&lt;/a&gt;检查防火墙&lt;/h3&gt;&lt;p&gt;既然使用该主机做负载，需要关闭它的防火墙，查看以下防火墙的状态：&lt;/p&gt;
 &lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;service iptables status&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;如果提示：Firewall is not running，说明防火墙已经关闭，否则将其关闭。&lt;/p&gt;
 &lt;h3 id=&quot;安装依赖组件&quot;&gt;&lt;a href=&quot;#安装依赖组件&quot; class=&quot;headerlink&quot; title=&quot;安装依赖组件&quot;&gt;&lt;/a&gt;安装依赖组件&lt;/h3&gt;&lt;p&gt;解压缩安装包之后发现里面有一个compat-libstdc++-33-3.2.3-61.i386.rpm文件，需要先安装这个文件，开始安装&lt;/p&gt;
@@ -241,32 +544,25 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;a href=&quot;#linux下安装loadrunner负载组件&quot; class=&quot;headerlink&quot; title=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;/a&gt;linux下安装loadrunner负载组件&lt;/h1&gt;&lt;hr&gt;
-&lt;p&gt;有时候我们的windows压测机的性能不够，需要使用linux服务器充当负载机，下面说一下linux上安装loadrunner负载组件的整个过程。&lt;/p&gt;
+      &lt;h1 id=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;a href=&quot;#linux下安装loadrunner负载组件&quot; class=&quot;headerlink&quot; title=&quot;linux下安装loadrunner负载组件&quot;&gt;&lt;/a&gt;linux下安装loadrunner负载
     
     </summary>
     
-      <category term="性能测试" scheme="http://yoursite.com/categories/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
-    
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
-    
-      <category term="性能测试" scheme="http://yoursite.com/tags/%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95/"/>
-    
-      <category term="loadrunner" scheme="http://yoursite.com/tags/loadrunner/"/>
     
   </entry>
   
   <entry>
-    <title>linux下安装nload</title>
+    <title></title>
     <link href="http://yoursite.com/2016/11/25/linux%E5%AE%89%E8%A3%85nload/"/>
     <id>http://yoursite.com/2016/11/25/linux安装nload/</id>
     <published>2016-11-25T15:33:59.687Z</published>
-    <updated>2016-11-27T07:11:07.803Z</updated>
+    <updated>2017-01-24T06:54:56.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;linux下安装nload&quot;&gt;&lt;a href=&quot;#linux下安装nload&quot; class=&quot;headerlink&quot; title=&quot;linux下安装nload&quot;&gt;&lt;/a&gt;linux下安装nload&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;a href=&quot;#centos下安装nload监控网卡的流量情况&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;/a&gt;centos下安装nload监控网卡的流量情况&lt;/h2&gt;&lt;h4 id=&quot;1、安装依赖包&quot;&gt;&lt;a href=&quot;#1、安装依赖包&quot; class=&quot;headerlink&quot; title=&quot;1、安装依赖包&quot;&gt;&lt;/a&gt;1、安装依赖包&lt;/h4&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
-&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum install -y gcc gcc-c++ ncurses-devel make wget&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;author：侯兴隆&lt;/p&gt;
+&lt;p&gt;date：2016.11.25&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;a href=&quot;#centos下安装nload监控网卡的流量情况&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;/a&gt;centos下安装nload监控网卡的流量情况&lt;/h2&gt;&lt;h4 id=&quot;1、安装依赖包&quot;&gt;&lt;a href=&quot;#1、安装依赖包&quot; class=&quot;headerlink&quot; title=&quot;1、安装依赖包&quot;&gt;&lt;/a&gt;1、安装依赖包&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;yum install -y gcc gcc-c++ ncurses-devel make wget&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h4 id=&quot;2、下载Nload&quot;&gt;&lt;a href=&quot;#2、下载Nload&quot; class=&quot;headerlink&quot; title=&quot;2、下载Nload&quot;&gt;&lt;/a&gt;2、下载Nload&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;wget http://www.roland-riegel.de/nload/nload-0.7.4.tar.gz&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h4 id=&quot;3、安装Nload&quot;&gt;&lt;a href=&quot;#3、安装Nload&quot; class=&quot;headerlink&quot; title=&quot;3、安装Nload&quot;&gt;&lt;/a&gt;3、安装Nload&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;tar zxvf nload-0.7.4.tar.gz&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;cd nload-0.7.4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;./configure&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;make&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;make install&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;h4 id=&quot;4、运行Nload&quot;&gt;&lt;a href=&quot;#4、运行Nload&quot; class=&quot;headerlink&quot; title=&quot;4、运行Nload&quot;&gt;&lt;/a&gt;4、运行Nload&lt;/h4&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;nload&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -284,16 +580,11 @@
     <summary type="html">
     
       &lt;h1 id=&quot;linux下安装nload&quot;&gt;&lt;a href=&quot;#linux下安装nload&quot; class=&quot;headerlink&quot; title=&quot;linux下安装nload&quot;&gt;&lt;/a&gt;linux下安装nload&lt;/h1&gt;&lt;hr&gt;
-&lt;h2 id=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;a href=&quot;#centos下安装nload监控网卡的流量情况&quot; class=&quot;headerlink&quot; title=&quot;centos下安装nload监控网卡的流量情况&quot;&gt;&lt;/a&gt;centos下安装nload监控网卡的流量情况&lt;/h2&gt;&lt;h4 id=&quot;1、安装依赖包&quot;&gt;&lt;a href=&quot;#1、安装依赖包&quot; class=&quot;headerlink&quot; title=&quot;1、安装依赖包&quot;&gt;&lt;/a&gt;1、安装依赖包&lt;/h4&gt;
+&lt;p&gt;author：侯兴隆&lt;/p&gt;
+&lt;p&gt;dat
     
     </summary>
     
-      <category term="linux" scheme="http://yoursite.com/categories/linux/"/>
-    
-    
-      <category term="linux" scheme="http://yoursite.com/tags/linux/"/>
-    
-      <category term="nload" scheme="http://yoursite.com/tags/nload/"/>
     
   </entry>
   
@@ -649,112 +940,6 @@ git push -u origin master
       <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="编辑" scheme="http://yoursite.com/tags/%E7%BC%96%E8%BE%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>github + hexo 博客搭建 2016-6-30</title>
-    <link href="http://yoursite.com/2016/07/05/github-hexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    <id>http://yoursite.com/2016/07/05/github-hexo博客搭建/</id>
-    <published>2016-07-05T01:45:15.364Z</published>
-    <updated>2016-07-06T05:30:12.740Z</updated>
-    
-    <content type="html">&lt;h2 id=&quot;git安装&quot;&gt;&lt;a href=&quot;#git安装&quot; class=&quot;headerlink&quot; title=&quot;git安装&quot;&gt;&lt;/a&gt;git安装&lt;/h2&gt;&lt;p&gt;git的相关教程非常多，这里就不赘述了&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;node-js安装&quot;&gt;&lt;a href=&quot;#node-js安装&quot; class=&quot;headerlink&quot; title=&quot;node.js安装&quot;&gt;&lt;/a&gt;node.js安装&lt;/h2&gt;&lt;p&gt;去官网下载 &lt;a href=&quot;http://nodejs.org/download/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://nodejs.org/download/&lt;/a&gt; ，之后安装，我使用了默认安装路径&lt;/p&gt;
-&lt;h2 id=&quot;安装Hexo&quot;&gt;&lt;a href=&quot;#安装Hexo&quot; class=&quot;headerlink&quot; title=&quot;安装Hexo&quot;&gt;&lt;/a&gt;安装Hexo&lt;/h2&gt;&lt;p&gt;在电脑的屏幕上右键（随便选择桌面上就行），选择Git Bash Here ，然后出现终端界面，输入npm install -g hexo&lt;br&gt;回车之后等待，但是出错，报错如下&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;npm WARN optional Skipping failed optional dependency /hexo/chokidar/fsevents:&lt;br&gt;npm WARN notsup Not compatible with your operating system or architecture: fsevents@1.0.12&lt;br&gt;npm ERR! Windows_NT 10.0.10586&lt;br&gt;npm ERR! argv “C:\Program Files\nodejs\node.exe” “C:\Program Files\nodejs\node_modules\npm\bin\npm-cli.js” “install” “-g” “hexo”&lt;br&gt;npm ERR! node v6.2.2&lt;br&gt;npm ERR! npm  v3.9.5&lt;br&gt;npm ERR! shasum check failed for C:\Users\kylin\AppData\Local\Temp\npm-12620-bfae7f80\registry.npmjs.org\JSONStream-\JSONStream-1.1.3.tgz&lt;br&gt;npm ERR! Expected: 1b296c7949b47e4fc22ac7958f76d2fbe2415493&lt;br&gt;npm ERR! Actual:   46eb6043a766a9b5f25d516cd21373227d912302&lt;br&gt;npm ERR! From:     &lt;a href=&quot;https://registry.npmjs.org/JSONStream/-/JSONStream-1.1.3.tgz&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://registry.npmjs.org/JSONStream/-/JSONStream-1.1.3.tgz&lt;/a&gt;&lt;br&gt;npm ERR!&lt;br&gt;npm ERR! If you need help, you may report this error at:&lt;br&gt;npm ERR!     &lt;a href=&quot;https://github.com/npm/npm/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/npm/npm/issues&lt;/a&gt;&lt;br&gt;npm ERR! Please include the following file with any support request:&lt;br&gt;npm ERR!     C:\Users\kylin\Desktop\npm-debug.log&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;出错的原因不明白，尝试各种解决方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将安装好的最新版卸载掉，重新下载了稳定版v4.4.4安装重试&lt;/li&gt;
-&lt;li&gt;以管理员身份运行Git Bash，然后再输入npm install -g hexo，成功！！！&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;创建一个文件夹，保存自己的hexo网站，在文件夹内右键，选择Git Bash Here ，输入&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;hexo init
-npm install
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;输入hexo server，出现下图的话表示hexo运行成功&lt;/p&gt;
-&lt;p&gt;![hexo运行成功][1]&lt;/p&gt;
-&lt;p&gt;浏览器访问 &lt;a href=&quot;http://localhost:4000&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://localhost:4000&lt;/a&gt; ，看一下会有什么效果&lt;/p&gt;
-&lt;h2 id=&quot;开始Github&quot;&gt;&lt;a href=&quot;#开始Github&quot; class=&quot;headerlink&quot; title=&quot;开始Github&quot;&gt;&lt;/a&gt;开始Github&lt;/h2&gt;&lt;ol&gt;
-&lt;li&gt;github账号以前已经注册过，直接使用&lt;/li&gt;
-&lt;li&gt;建立一个仓库，与用户名对应的仓库，仓库名必须为『your_user_name.github.io』&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;将本地的ssh-key复制到github上&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;ssh-keygen -t rsa -C &amp;quot;你的github注册邮箱&amp;quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 然后一直回车，直到出现&lt;/p&gt;
-&lt;p&gt; ![enter description here][2]&lt;br&gt; 查看电脑中以前的ssh-key，输入：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cd ~/.ssh/ &amp;amp;&amp;amp; ls
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 如果结果为： id_rsa  id_rsa.pub继续进行，输入：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;cat id_rsa.pub
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 将会显示出SSH-KEY，复制内容粘贴到github的ssh中&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;在hexo目录中有一个  config.yml 文件, 在其最后补全如下信息：&lt;br&gt;   deploy:&lt;br&gt;   type: git&lt;br&gt;   repo: &lt;a href=&quot;https://github.com/yourname/yourname.github.io.git&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/yourname/yourname.github.io.git&lt;/a&gt;&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;branch: master
-执行
-
-     hexo deploy
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;   出错：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;ERROR Deployer not found: git&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt; 找到解决方案：&lt;br&gt; 需要先安装hexo-deployer-git，然后将github修改为git&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;npm install hexo-deployer-git --save
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt; 之后重新执行hexo deploy&lt;br&gt; 弹出一个对话框，输入github账户名和密码，完成之后，成功将本地的hexo文件上传到github&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;在使用ssh连接github的时候一直不成功，输入ssh -T git@github.com显示：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;$ ssh -T git@github.com
-The authenticity of host &amp;apos;github.com (192.30.253.112)&amp;apos; can&amp;apos;t be established.
-RSA key fingerprint is SHA256:nThbg6kXUpJWGl7E1IGOCspRomTxdCARLviKw6E5SY8.
-Are you sure you want to continue connecting (yes/no)?
-Host key verification failed.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;尝试了很多次依然是不管用，发现这个问题有点白痴，要在Are you sure you want to continue connecting (yes/no)?这句话后面填上yes，回车才能成功！！！！&lt;/p&gt;
-&lt;h2 id=&quot;使用GitHub-Pages建立博客&quot;&gt;&lt;a href=&quot;#使用GitHub-Pages建立博客&quot; class=&quot;headerlink&quot; title=&quot;使用GitHub Pages建立博客&quot;&gt;&lt;/a&gt;使用GitHub Pages建立博客&lt;/h2&gt;&lt;p&gt;在搜索hexo的相关资料的时候发现了next主题，所以首先使用next主题看一下效果，next的地址为 &lt;a href=&quot;http://theme-next.iissnan.com/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://theme-next.iissnan.com/&lt;/a&gt;&lt;br&gt;上面有详细的配置说明，可以把主题设置的更加适合自己。&lt;/p&gt;
-&lt;h4 id=&quot;发表新文章&quot;&gt;&lt;a href=&quot;#发表新文章&quot; class=&quot;headerlink&quot; title=&quot;发表新文章&quot;&gt;&lt;/a&gt;发表新文章&lt;/h4&gt;&lt;ul&gt;
-&lt;li&gt;hexo new “文章标题”（可以简写new为n）&lt;/li&gt;
-&lt;li&gt;我喜欢直接在source_posts文件夹下新建一个.md文件，效果是一样的，或者把在其他地方写好的md文件直接拷贝过来&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;然后继续 hexo g，hexo d，文章就部署好了&lt;/p&gt;
-&lt;h4 id=&quot;删除文章&quot;&gt;&lt;a href=&quot;#删除文章&quot; class=&quot;headerlink&quot; title=&quot;删除文章&quot;&gt;&lt;/a&gt;删除文章&lt;/h4&gt;&lt;p&gt;删除文章非常简单，直接把相应的.md文件在删除，然后执行hexo g，hexo d就OK了&lt;/p&gt;
-&lt;h4 id=&quot;首页显示文章摘要&quot;&gt;&lt;a href=&quot;#首页显示文章摘要&quot; class=&quot;headerlink&quot; title=&quot;首页显示文章摘要&quot;&gt;&lt;/a&gt;首页显示文章摘要&lt;/h4&gt;&lt;p&gt;在next主题使用说明中有说明，一共三种方法：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;在文章中使用 &lt;!-- more --&gt; 手动进行截断，Hexo 提供的方式 &lt;strong&gt;推荐&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;在文章的 front-matter 中添加 description，并提供文章摘录&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;自动形成摘要，在 主题配置文件 中添加：&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;auto_excerpt:
-  enable: true
-  length: 150
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;默认截取的长度为 150 字符，可以根据需要自行设定&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;建议使用 &lt;!-- more --&gt;（即第一种方式），除了可以精确控制需要显示的摘录内容以外， 这种方式也可以让 Hexo 中的插件更好的识别。&lt;/p&gt;
-&lt;h4 id=&quot;添加独立域名&quot;&gt;&lt;a href=&quot;#添加独立域名&quot; class=&quot;headerlink&quot; title=&quot;添加独立域名&quot;&gt;&lt;/a&gt;添加独立域名&lt;/h4&gt;&lt;p&gt;很早之前就买了一个域名，kylin10.com,但是确一直没有用起来，之前的博客网站放在新浪云SAE上，域名没有备案无法绑定，SAE的费用也是越来越高，用完了云豆就来折腾github了。&lt;/p&gt;
-&lt;p&gt;将github与自己的域名绑定只需下面几部：&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;在Hexo的source目录下新建一个CNAME文件，里面写上自己的域名，注意前面不要加www等内容，直接写kylin10.com，完成之后deploy&lt;/li&gt;
-&lt;li&gt;注册&lt;a href=&quot;https://www.dnspod.cn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DNSpod&lt;/a&gt;，添加域名,可以按照下图设置：&lt;br&gt;&lt;img src=&quot;http://cnfeat.qiniudn.com/15.png&quot; alt=&quot;图片描述&quot;&gt;&lt;br&gt;图片来自&lt;a href=&quot;http://www.jianshu.com/p/05289a4bc8b2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.jianshu.com/p/05289a4bc8b2/&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;3.在购买域名的管理中心修改域名对应的dns&lt;/p&gt;
-&lt;h4 id=&quot;同时部署至github和Coding&quot;&gt;&lt;a href=&quot;#同时部署至github和Coding&quot; class=&quot;headerlink&quot; title=&quot;同时部署至github和Coding&quot;&gt;&lt;/a&gt;同时部署至github和Coding&lt;/h4&gt;&lt;p&gt;同时将博客部署到github跟coding上，可以参考这个教程 &lt;a href=&quot;http://sanwen8.cn/p/1a0TJhT.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://sanwen8.cn/p/1a0TJhT.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;但是有一点需要注意：&lt;/p&gt;
-&lt;p&gt;在给coding上添加ssh的时候要选择个人公钥！！！，默认的是公开公钥，第一次我没有注意，添加之后git一直出错。&lt;/p&gt;
-&lt;h4 id=&quot;站内搜索&quot;&gt;&lt;a href=&quot;#站内搜索&quot; class=&quot;headerlink&quot; title=&quot;站内搜索&quot;&gt;&lt;/a&gt;站内搜索&lt;/h4&gt;&lt;p&gt;不知道为什么，站内搜索一直失败，还在努力中&lt;/p&gt;
-</content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;git安装&quot;&gt;&lt;a href=&quot;#git安装&quot; class=&quot;headerlink&quot; title=&quot;git安装&quot;&gt;&lt;/a&gt;git安装&lt;/h2&gt;&lt;p&gt;git的相关教程非常多，这里就不赘述了&lt;br&gt;
-    
-    </summary>
-    
-      <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-      <category term="github" scheme="http://yoursite.com/tags/github/"/>
-    
-      <category term="hexo" scheme="http://yoursite.com/tags/hexo/"/>
     
   </entry>
   

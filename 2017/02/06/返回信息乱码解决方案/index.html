@@ -1,0 +1,861 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="loadrunner,性能测试,乱码," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="loadrunner返回信息乱码解决方案问题描述loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。
+本教程可以轻松查看乱码信息，使信息更直观。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="loadrunner返回信息乱码解决方案">
+<meta property="og:url" content="http://yoursite.com/2017/02/06/返回信息乱码解决方案/index.html">
+<meta property="og:site_name" content="一叶一如来">
+<meta property="og:description" content="loadrunner返回信息乱码解决方案问题描述loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。
+本教程可以轻松查看乱码信息，使信息更直观。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-01-24T06:54:57.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="loadrunner返回信息乱码解决方案">
+<meta name="twitter:description" content="loadrunner返回信息乱码解决方案问题描述loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。
+本教程可以轻松查看乱码信息，使信息更直观。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 6304112575189616000,
+      author: '主编大人'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/06/返回信息乱码解决方案/"/>
+
+  <title> loadrunner返回信息乱码解决方案 | 一叶一如来 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">一叶一如来</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="#" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'zyv1ezSgqAsgAZWyWKL9','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                loadrunner返回信息乱码解决方案
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-06T22:19:58+08:00" content="2017-02-06">
+              2017-02-06
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/性能测试/" itemprop="url" rel="index">
+                    <span itemprop="name">性能测试</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/02/06/返回信息乱码解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/返回信息乱码解决方案/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="loadrunner返回信息乱码解决方案"><a href="#loadrunner返回信息乱码解决方案" class="headerlink" title="loadrunner返回信息乱码解决方案"></a>loadrunner返回信息乱码解决方案</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。</p>
+<p>本教程可以轻松查看乱码信息，使信息更直观。</p>
+<a id="more"></a>
+<h2 id="了解乱码"><a href="#了解乱码" class="headerlink" title="了解乱码"></a>了解乱码</h2><h2 id="乱码带来的问题"><a href="#乱码带来的问题" class="headerlink" title="乱码带来的问题"></a>乱码带来的问题</h2><ol>
+<li><p>看不懂</p>
+</li>
+<li><p>如果是关键信息，无法根据这个信息进行判断事务成功与否</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>( lr.eval_string(<span class="string">"&lt;result&gt;"</span>).equals(<span class="string">"true"</span>) )&#123;</div><div class="line">	lr.end_transaction(<span class="string">"openAT"</span>,lr.PASS);		</div><div class="line">    &#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">   lr.end_transaction(<span class="string">"openAT"</span>,lr.FAIL);</div><div class="line">   lr.error_message( lr.eval_string(<span class="string">"&lt;result2&gt;"</span>) );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一般我们都是像上面一样去判断一个返回的值是不是跟我们预期的一致，但是如果是判断乱码的问题，就不能直接这样判断了，不管是跟正常的中文判断还是乱码之后的字符判断，都无法正常判断。</p>
+</li>
+</ol>
+<h2 id="解决乱码"><a href="#解决乱码" class="headerlink" title="解决乱码"></a>解决乱码</h2><h3 id="c语言脚本"><a href="#c语言脚本" class="headerlink" title="c语言脚本"></a>c语言脚本</h3><h4 id="lr-convert-string-encoding-函数介绍"><a href="#lr-convert-string-encoding-函数介绍" class="headerlink" title="lr_convert_string_encoding 函数介绍"></a><strong>lr_convert_string_encoding</strong> 函数介绍</h4><p>loadrunner中本身有一个函数 <em>lr_convert_string_encoding</em> ，可以用来查看乱码信息。</p>
+<blockquote>
+<p><strong>lr_convert_string_encoding</strong> converts a string encoding between the following encodings: System locale, Unicode, and UTF-8. The function saves the result string, including its terminating NULL, in the parameter <em>paramName</em>. </p>
+</blockquote>
+<p>这是官方的解释，意思就是<strong>lr_convert_string_encoding</strong>() 函数可以将字符串在系统语言环境、Unicode和UTF-8</p>
+<p>直接进行编码转换。</p>
+<h4 id="lr-convert-string-encoding-函数使用"><a href="#lr-convert-string-encoding-函数使用" class="headerlink" title="lr_convert_string_encoding 函数使用"></a><strong>lr_convert_string_encoding</strong> 函数使用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lr_convert_string_encoding</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> sourceString*, <span class="keyword">const</span> <span class="keyword">char</span> fromEncoding, <span class="keyword">const</span> <span class="keyword">char</span> **toEncoding, <span class="keyword">const</span> <span class="keyword">char</span> *paramName)</span></span>;</div></pre></td></tr></table></figure>
+<p>举个例子：</p>
+<p>假设乱码的字符串为：</p>
+<blockquote>
+<p>鎵嬫満鑾峰彇app鐢ㄦ埛璇勮淇℃伅鏃跺嚭閿\x99</p>
+</blockquote>
+<p>鬼知道这是什么！</p>
+<p>那么我们就用lr_convert_string_encoding()函数来处理一下，</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lr_convert_string_encoding(<span class="string">"鎵嬫満鑾峰彇app鐢ㄦ埛璇勮淇℃伅鏃跺嚭閿\x99"</span>,LR_ENC_UTF8,LR_ENC_SYSTEM_LOCALE,<span class="string">"str"</span>);</div></pre></td></tr></table></figure>
+<p>现在已经将字符串从LR_ENC_UTF8格式转换到LR_ENC_SYSTEM_LOCALE编码，并且将新的字符串保存到了str变量中，我们重新输出一下str变量看一下：</p>
+<blockquote>
+<p>str = 手机获取app用户评论信息时出错\x00</p>
+</blockquote>
+<p>这样就OK了</p>
+<h3 id="java脚本"><a href="#java脚本" class="headerlink" title="java脚本"></a>java脚本</h3><p>在测试过程中，java脚本还是用的很多的，但是发现loadrunner没有提供可以直接在java脚本中进行字符串编码转换的函数。</p>
+<p>嗯，肯定是因为java已经有自己的解决方案了，然后想起前端开发过程中经常解决的乱码问题，道理都是一样的，开始干。</p>
+<h5 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h5><p>我是这样想的，就把这个输出信息的控制台当作一个浏览器，为什么显示乱码了呢？肯定是这个浏览器在输出信息的时候额外做了一些手脚，把服务器返回的数据给转换了一下编码方式，导致信息不能正常显示。</p>
+<p>我想到了java中字符串的getBytes()方法：</p>
+<p>String的getBytes()方法是得到一个字串的字节数组，这是众所周知的。但特别要注意的是，本方法将返回该操作系统默认的编码格式的字节数组。</p>
+<p>然后我实验了一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] br = lr.eval_string(<span class="string">"&lt;result&gt;"</span>).getBytes();</div><div class="line">String brStr2 = <span class="keyword">new</span> String(br,<span class="string">"utf-8"</span>);</div></pre></td></tr></table></figure>
+<p>将想要查看的内容保存到result参数中，然后对其重新编码并保存到brStr2变量中，输出brStr2，发现确实解决了乱码的问题。</p>
+<p>但是有一次在用这个方法的时候，发现使用web.reg_save_param()保存乱码的信息到result的时候什么都没有保存，我猜测是因为乱码中的一些特殊字符导致左右边境判断失败，所以无法正常的保存信息。所以就想另外一个方法。</p>
+<h5 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h5><p>既然我们都是使用web.reg_save_param()函数把相应的信息保存，这个函数本身有没有什么方法解决乱码问题呢？</p>
+<p>去查询手册，发现了一个参数：</p>
+<blockquote>
+<ul>
+<li><p><strong>Convert</strong>:</p>
+<blockquote>
+<p>The possible values are:<br>HTML_TO_URL:  convert HTML–encoded data to a<br>URL–encoded data format<br>HTML_TO_TEXT: convert HTML–encoded data to plain text<br>format<br>This attribute is optional.</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>当我看到   <em>HTML_TO_TEXT: convert HTML–encoded data to plain text  format</em> 也就是将HTML编码的数据转换为纯文本格式 的时候，感觉有希望！</p>
+<p>然后添加上这个参数，并设置值为HTML_TO_TEXT，然后对结果重新进行编码，结果无论采用哪种编码方式，看到的仍然是乱码的。</p>
+<p>然后试了一下另外一个值：HTML_TO_URL，发现是可以的！！！而且非常有效，建议以后可以采取这种方式，非常方便。</p>
+<p>首先，引入相应的包，因为要用到URLdecode和encode的一些方法，直接在头部添加一行代码就OK：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.net.URLDecoder;</div></pre></td></tr></table></figure>
+<p>然后在平时使用的web.reg_save_param()函数中多加一行代码就OK</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">web.reg_save_param (<span class="string">"result"</span>,</div><div class="line">                    <span class="keyword">new</span> String []&#123;</div><div class="line">                      <span class="string">"NOTFOUND=ERROR"</span>,</div><div class="line">                      <span class="string">"LB=\"prompt1\":\""</span>,</div><div class="line">                      <span class="string">"RB=\""</span> ,</div><div class="line">                      <span class="string">"Convert=HTML_TO_URL"</span>,</div><div class="line">                      <span class="string">"LAST"</span>&#125; );</div></pre></td></tr></table></figure>
+<p>因为多了这么一行代码，那么穿过来的信息就被转换成了URL-encode之后的编码格式，我们看到的信息将是下图中的样子，直接看也是看不懂的，我们只要decode一下就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String str = URLDecoder.decode(lr.eval_string(<span class="string">"&lt;result&gt;"</span>),<span class="string">"utf-8"</span>);</div><div class="line">System.out.println(<span class="string">"结果是："</span>+str );</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>经过实验发现这种方法非常有效，而且直观，也可以针对中文进行结果的判断。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/loadrunner/" rel="tag">#loadrunner</a>
+          
+            <a href="/tags/性能测试/" rel="tag">#性能测试</a>
+          
+            <a href="/tags/乱码/" rel="tag">#乱码</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/06/loadrunner返回信息乱码解决方案/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/02/06/返回信息乱码解决方案/"
+           data-title="loadrunner返回信息乱码解决方案" data-url="http://yoursite.com/2017/02/06/返回信息乱码解决方案/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://o9tsdg3pn.bkt.clouddn.com/u=68755334,814198844&fm=21&gp=0.jpg"
+               alt="Kylin Hou" />
+          <p class="site-author-name" itemprop="name">Kylin Hou</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/kylin-hou/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#loadrunner返回信息乱码解决方案"><span class="nav-number">1.</span> <span class="nav-text">loadrunner返回信息乱码解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解乱码"><span class="nav-number">1.2.</span> <span class="nav-text">了解乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乱码带来的问题"><span class="nav-number">1.3.</span> <span class="nav-text">乱码带来的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决乱码"><span class="nav-number">1.4.</span> <span class="nav-text">解决乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c语言脚本"><span class="nav-number">1.4.1.</span> <span class="nav-text">c语言脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lr-convert-string-encoding-函数介绍"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">lr_convert_string_encoding 函数介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lr-convert-string-encoding-函数使用"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">lr_convert_string_encoding 函数使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java脚本"><span class="nav-number">1.4.2.</span> <span class="nav-text">java脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一："><span class="nav-number">1.4.2.0.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二："><span class="nav-number">1.4.2.0.2.</span> <span class="nav-text">方法二：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Kylin Hou</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Mist
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"kylin-hou"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';                
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+                            
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').mousedown(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+  
+
+  
+
+  
+
+</body>
+</html>
