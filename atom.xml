@@ -322,11 +322,10 @@
     <link href="http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/"/>
     <id>http://yoursite.com/2017/01/18/loadrunner学习/</id>
     <published>2017-01-18T14:29:38.801Z</published>
-    <updated>2017-02-06T14:43:05.900Z</updated>
+    <updated>2017-02-08T12:57:18.000Z</updated>
     
     <content type="html">&lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
 &lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
-&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;h3 id=&quot;loadrunner测试过程&quot;&gt;&lt;a href=&quot;#loadrunner测试过程&quot; class=&quot;headerlink&quot; title=&quot;loadrunner测试过程&quot;&gt;&lt;/a&gt;loadrunner测试过程&lt;/h3&gt;&lt;ul&gt;
 &lt;li&gt;制定负载测试计划 &lt;/li&gt;
 &lt;li&gt;开发测试脚本&lt;/li&gt;
@@ -341,22 +340,19 @@
 &lt;li&gt;设置参数的属性及数据源&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h5 id=&quot;具体的操作&quot;&gt;&lt;a href=&quot;#具体的操作&quot; class=&quot;headerlink&quot; title=&quot;具体的操作&quot;&gt;&lt;/a&gt;具体的操作&lt;/h5&gt;&lt;p&gt;选中要参数化的内容。&lt;/p&gt;
-&lt;p&gt;方法一，右键—【&lt;strong&gt;Replace with a new parameter&lt;/strong&gt;】&lt;/p&gt;
-&lt;p&gt;方法二，菜单【&lt;strong&gt;insert&lt;/strong&gt;】—-【&lt;strong&gt;new Parameter…&lt;/strong&gt;】&lt;/p&gt;
-&lt;p&gt;在脚本Vuser_init中找到用户名输入的值，选择，右键选择使用参数替换-&amp;gt;新建参数&lt;/p&gt;
-&lt;p&gt;​    &lt;img src=&quot;http://pic002.cnblogs.com/images/2012/311516/2012062221463146.png&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​    &lt;/p&gt;
-&lt;p&gt;​    &lt;img src=&quot;http://img1.tuicool.com/2MbY73N.png%21web&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​    　　完成后开始添加数据，选择上一步添加的参数右键，选择参数属性&lt;/p&gt;
-&lt;p&gt;​    &lt;img src=&quot;http://img0.tuicool.com/7zeQ7nQ.png%21web&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
-&lt;p&gt;​    　　选择参数类型，File，文件路径，填写任意文件名，选择添加列pass，用记事本编辑添加数据，选择列处，选择之前添加的名称，同理添加密码数据时，选择列pass即可。&lt;/p&gt;
-&lt;h4 id=&quot;数据源来源之mysql数据库&quot;&gt;&lt;a href=&quot;#数据源来源之mysql数据库&quot; class=&quot;headerlink&quot; title=&quot;数据源来源之mysql数据库&quot;&gt;&lt;/a&gt;数据源来源之mysql数据库&lt;/h4&gt;&lt;p&gt;具体内容看过来–&amp;gt;&amp;gt;Loadrunner 参数化使用mysql数据源 &lt;/p&gt;
-&lt;h2 id=&quot;loadrunner场景设置&quot;&gt;&lt;a href=&quot;#loadrunner场景设置&quot; class=&quot;headerlink&quot; title=&quot;loadrunner场景设置&quot;&gt;&lt;/a&gt;loadrunner场景设置&lt;/h2&gt;&lt;h2 id=&quot;录制手机端脚本&quot;&gt;&lt;a href=&quot;#录制手机端脚本&quot; class=&quot;headerlink&quot; title=&quot;录制手机端脚本&quot;&gt;&lt;/a&gt;录制手机端脚本&lt;/h2&gt;&lt;h2 id=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;a href=&quot;#loadrunner使用遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;/a&gt;loadrunner使用遇到的问题&lt;/h2&gt;&lt;h3 id=&quot;常见报错信息&quot;&gt;&lt;a href=&quot;#常见报错信息&quot; class=&quot;headerlink&quot; title=&quot;常见报错信息&quot;&gt;&lt;/a&gt;常见报错信息&lt;/h3&gt;&lt;h3 id=&quot;返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;返回信息乱码解决方案&quot;&gt;&lt;/a&gt;返回信息乱码解决方案&lt;/h3&gt;</content>
+&lt;p&gt;方法一，右键—【&lt;strong&gt;Replace with a new parameter&lt;/strong&gt;】&lt;br&gt;在脚本中找到需要参数化的值，选择，右键选择使用参数替换-&amp;gt;新建参数&lt;br&gt;​    &lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-0a22757bbc8dc929.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;img&quot;&gt;&lt;br&gt;点击peoperties&lt;br&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-a579bb83a089d505.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;img&quot;&gt;&lt;/p&gt;
+&lt;p&gt;​&lt;br&gt;方法二，右键—【&lt;strong&gt;Use Existing Parameter&lt;/strong&gt;】&lt;/p&gt;
+&lt;p&gt;可以先把所有需要用到的参数化变量一起创建，在工具栏中点击参数化按钮，弹窗选项框，点击new按钮，创建新的参数化变量即可。&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://upload-images.jianshu.io/upload_images/2936641-aa87dfd7af035de6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;图片.png&quot;&gt;&lt;/p&gt;
+&lt;p&gt;创建好之后，在脚本中需要参数化的变量上右键，选择–Use Existing Parameter –选择对应的变量。&lt;/p&gt;
+&lt;h4 id=&quot;数据源来源之mysql数据库&quot;&gt;&lt;a href=&quot;#数据源来源之mysql数据库&quot; class=&quot;headerlink&quot; title=&quot;数据源来源之mysql数据库&quot;&gt;&lt;/a&gt;数据源来源之mysql数据库&lt;/h4&gt;&lt;p&gt;具体内容看过来–&amp;gt;&amp;gt;&lt;a href=&quot;http://kylin10.com/2017/02/06/Loadrunner%20%E5%8F%82%E6%95%B0%E5%8C%96%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E6%BA%90%20/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Loadrunner 参数化使用mysql数据源&lt;/a&gt; &lt;/p&gt;
+&lt;h2 id=&quot;loadrunner场景设置&quot;&gt;&lt;a href=&quot;#loadrunner场景设置&quot; class=&quot;headerlink&quot; title=&quot;loadrunner场景设置&quot;&gt;&lt;/a&gt;loadrunner场景设置&lt;/h2&gt;&lt;h2 id=&quot;录制手机端脚本&quot;&gt;&lt;a href=&quot;#录制手机端脚本&quot; class=&quot;headerlink&quot; title=&quot;录制手机端脚本&quot;&gt;&lt;/a&gt;录制手机端脚本&lt;/h2&gt;&lt;p&gt;使用loadrunner也可以录制手机端的脚本，&lt;a href=&quot;http://kylin10.com/2017/01/19/loadrunner%E5%88%A9%E7%94%A8%E4%BB%A3%E7%90%86%E6%A8%A1%E5%BC%8F%E5%BD%95%E5%88%B6%E6%89%8B%E6%9C%BA%E8%84%9A%E6%9C%AC/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;戳我&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;a href=&quot;#loadrunner使用遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;loadrunner使用遇到的问题&quot;&gt;&lt;/a&gt;loadrunner使用遇到的问题&lt;/h2&gt;&lt;h3 id=&quot;常见报错信息&quot;&gt;&lt;a href=&quot;#常见报错信息&quot; class=&quot;headerlink&quot; title=&quot;常见报错信息&quot;&gt;&lt;/a&gt;常见报错信息&lt;/h3&gt;&lt;h3 id=&quot;返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;返回信息乱码解决方案&quot;&gt;&lt;/a&gt;返回信息乱码解决方案&lt;/h3&gt;&lt;p&gt;在使用loadrunner进行测试的过程中会发现服务器返回的中文信息不能正常显示，解决方法看这里 &lt;a href=&quot;http://kylin10.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;戳我&lt;/a&gt;&lt;/p&gt;
+</content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#loadrunner介绍&quot; class=&quot;headerlink&quot; title=&quot;loadrunner介绍&quot;&gt;&lt;/a&gt;loadrunner介绍&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;LoadRunner &lt;/strong&gt;是 HP Mercury Interactive用来测试应用程序性能的工具&lt;/p&gt;
-&lt;p&gt;LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 &lt;/p&gt;
+      &lt;h1 id=&quot;loadrunner学习&quot;&gt;&lt;a href=&quot;#loadrunner学习&quot; class=&quot;headerlink&quot; title=&quot;loadrunner学习&quot;&gt;&lt;/a&gt;loadrunner学习&lt;/h1&gt;&lt;h2 id=&quot;loadrunner介绍&quot;&gt;&lt;a href=&quot;#l
     
     </summary>
     
@@ -816,9 +812,10 @@
     <link href="http://yoursite.com/2016/08/02/Typora%E6%8E%A8%E8%8D%90/"/>
     <id>http://yoursite.com/2016/08/02/Typora推荐/</id>
     <published>2016-08-02T11:57:44.363Z</published>
-    <updated>2016-09-05T15:39:04.759Z</updated>
+    <updated>2017-02-06T14:58:10.296Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Typora推荐&quot;&gt;&lt;a href=&quot;#Typora推荐&quot; class=&quot;headerlink&quot; title=&quot;Typora推荐&quot;&gt;&lt;/a&gt;Typora推荐&lt;/h1&gt;&lt;h3 id=&quot;Typora是什么，可以吃吗？&quot;&gt;&lt;a href=&quot;#Typora是什么，可以吃吗？&quot; class=&quot;headerlink&quot; title=&quot;Typora是什么，可以吃吗？&quot;&gt;&lt;/a&gt;Typora是什么，可以吃吗？&lt;/h3&gt;&lt;p&gt;最近一直在使用markdown写东西，但是windows平台上的各种编辑器都不是很满意，之前一直用的markdowneditor不知道怎么就是启动不了了，索性再找个更好的，于是乎就发现了typora。&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
 &lt;p&gt;这里就不过多的介绍了，介绍可以随便搜搜看，目前是我发现的最好用的编辑器。漂亮、稳定、功能强大。&lt;/p&gt;
 &lt;h3 id=&quot;资源下载&quot;&gt;&lt;a href=&quot;#资源下载&quot; class=&quot;headerlink&quot; title=&quot;资源下载&quot;&gt;&lt;/a&gt;资源下载&lt;/h3&gt;&lt;p&gt;typora各个平台都有，可以去官网下载，我在下载的时候，下载了2次一直失败，可能是国外服务器 的原因。所以这里分享一个网盘下载&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;http://pan.baidu.com/s/1skYhvvn&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;点我下载&lt;/a&gt;&lt;/p&gt;
@@ -827,7 +824,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Typora推荐&quot;&gt;&lt;a href=&quot;#Typora推荐&quot; class=&quot;headerlink&quot; title=&quot;Typora推荐&quot;&gt;&lt;/a&gt;Typora推荐&lt;/h1&gt;&lt;h3 id=&quot;Typora是什么，可以吃吗？&quot;&gt;&lt;a href=&quot;#Typora是什么，可以吃吗
+      &lt;h1 id=&quot;Typora推荐&quot;&gt;&lt;a href=&quot;#Typora推荐&quot; class=&quot;headerlink&quot; title=&quot;Typora推荐&quot;&gt;&lt;/a&gt;Typora推荐&lt;/h1&gt;&lt;h3 id=&quot;Typora是什么，可以吃吗？&quot;&gt;&lt;a href=&quot;#Typora是什么，可以吃吗？&quot; class=&quot;headerlink&quot; title=&quot;Typora是什么，可以吃吗？&quot;&gt;&lt;/a&gt;Typora是什么，可以吃吗？&lt;/h3&gt;&lt;p&gt;最近一直在使用markdown写东西，但是windows平台上的各种编辑器都不是很满意，之前一直用的markdowneditor不知道怎么就是启动不了了，索性再找个更好的，于是乎就发现了typora。&lt;/p&gt;
     
     </summary>
     
