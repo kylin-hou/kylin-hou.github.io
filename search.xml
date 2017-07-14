@@ -72,12 +72,6 @@
     </entry>
     
     <entry>
-      <title></title>
-      <url>http://yoursite.com/2017/02/06/loadrunner%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
-      <content type="html"></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[Loadrunner 参数化使用mysql数据源]]></title>
       <url>http://yoursite.com/2017/02/06/Loadrunner%20%E5%8F%82%E6%95%B0%E5%8C%96%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E6%BA%90%20/</url>
       <content type="html"><![CDATA[<h1 id="Loadrunner-参数化使用mysql数据源"><a href="#Loadrunner-参数化使用mysql数据源" class="headerlink" title="Loadrunner 参数化使用mysql数据源"></a>Loadrunner 参数化使用mysql数据源</h1><h2 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h2><p>在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件中。</p>
@@ -202,6 +196,7 @@
       <url>http://yoursite.com/2017/01/18/loadrunner%E5%AD%A6%E4%B9%A0/</url>
       <content type="html"><![CDATA[<h1 id="loadrunner学习"><a href="#loadrunner学习" class="headerlink" title="loadrunner学习"></a>loadrunner学习</h1><h2 id="loadrunner介绍"><a href="#loadrunner介绍" class="headerlink" title="loadrunner介绍"></a>loadrunner介绍</h2><p><strong>LoadRunner </strong>是 HP Mercury Interactive用来测试应用程序性能的工具</p>
 <p>LoadRunner 通过模拟一个多用户并行工作的环境来对应用程序进行负载测试。通过使用最少的硬件资源，这些虚拟用户提供一致的、可重复并可度量的负载，像实际用户一样使用所要测试的应用程序。LoadRunner 深入的报告和图提供了评估应用程序性能所需的信息。 </p>
+<a id="more"></a>
 <h3 id="loadrunner测试过程"><a href="#loadrunner测试过程" class="headerlink" title="loadrunner测试过程"></a>loadrunner测试过程</h3><ul>
 <li>制定负载测试计划 </li>
 <li>开发测试脚本</li>
