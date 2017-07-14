@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="编程,java," />
+  <meta name="keywords" content="loadrunner,性能测试," />
 
 
 
@@ -84,19 +84,26 @@
 
 
 
-<meta name="description" content="java的学习心得现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。">
+<meta name="description" content="Loadrunner 参数化使用mysql数据源问题概述在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java的学习心得">
-<meta property="og:url" content="http://yoursite.com/2016/09/15/java的学习心得/index.html">
+<meta property="og:title" content="Loadrunner参数化使用mysql数据源">
+<meta property="og:url" content="http://yoursite.com/2017/02/06/Loadrunner参数化使用mysql数据源/index.html">
 <meta property="og:site_name" content="一叶一如来">
-<meta property="og:description" content="java的学习心得现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。">
-<meta property="og:image" content="http://images.cnitblog.com/blog/475698/201502/101534463707675.jpg">
-<meta property="og:image" content="http://pic002.cnblogs.com/images/2012/80896/2012053020261738.gif">
-<meta property="og:updated_time" content="2016-10-03T15:31:48.355Z">
+<meta property="og:description" content="Loadrunner 参数化使用mysql数据源问题概述在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件">
+<meta property="og:image" content="http://img.blog.csdn.net/20140331224056656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140331224539296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140331225125406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140331225322421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20140331225402421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2936641-fc7baea57598ea04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2936641-966a312d7c94d98f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2936641-eb8dcfac753a4d39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2936641-20b81a060ed6150b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-07-14T13:58:03.227Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java的学习心得">
-<meta name="twitter:description" content="java的学习心得现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。">
-<meta name="twitter:image" content="http://images.cnitblog.com/blog/475698/201502/101534463707675.jpg">
+<meta name="twitter:title" content="Loadrunner参数化使用mysql数据源">
+<meta name="twitter:description" content="Loadrunner 参数化使用mysql数据源问题概述在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20140331224056656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
 
@@ -117,9 +124,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/09/15/java的学习心得/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/06/Loadrunner参数化使用mysql数据源/"/>
 
-  <title> java的学习心得 | 一叶一如来 </title>
+  <title> Loadrunner参数化使用mysql数据源 | 一叶一如来 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +286,7 @@
             
             
               
-                java的学习心得
+                Loadrunner参数化使用mysql数据源
               
             
           </h1>
@@ -291,8 +298,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-15T22:55:56+08:00" content="2016-09-15">
-              2016-09-15
+            <time itemprop="dateCreated" datetime="2017-02-06T22:19:57+08:00" content="2017-02-06">
+              2017-02-06
             </time>
           </span>
 
@@ -305,8 +312,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
+                  <a href="/categories/性能测试/" itemprop="url" rel="index">
+                    <span itemprop="name">性能测试</span>
                   </a>
                 </span>
 
@@ -321,8 +328,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/09/15/java的学习心得/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/15/java的学习心得/" itemprop="commentsCount"></span>
+                <a href="/2017/02/06/Loadrunner参数化使用mysql数据源/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/06/Loadrunner参数化使用mysql数据源/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -345,51 +352,36 @@
       
 
       
-        <h1 id="java的学习心得"><a href="#java的学习心得" class="headerlink" title="java的学习心得"></a>java的学习心得</h1><p>现在来让我写一篇这样的文章真的感觉压力好大，但是之前已经答应过小学妹抽时间写一个东西，顺便分享一下我的资料。压力真的好大，害怕会误人子弟。所有的这些都是我个人的成长历程，自己的一些心得，仅作参考。希望对你有所帮助。</p>
+        <h1 id="Loadrunner-参数化使用mysql数据源"><a href="#Loadrunner-参数化使用mysql数据源" class="headerlink" title="Loadrunner 参数化使用mysql数据源"></a>Loadrunner 参数化使用mysql数据源</h1><h2 id="问题概述"><a href="#问题概述" class="headerlink" title="问题概述"></a>问题概述</h2><p>在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件中。</p>
 <a id="more"></a>
-<h3 id="java的学习过程"><a href="#java的学习过程" class="headerlink" title="java的学习过程"></a>java的学习过程</h3><p>感觉自己写的有点乱，先附上一个图吧。</p>
-<p><img src="http://images.cnitblog.com/blog/475698/201502/101534463707675.jpg" alt=""></p>
-<h4 id="第一阶段-基础学习"><a href="#第一阶段-基础学习" class="headerlink" title="第一阶段 基础学习"></a>第一阶段 基础学习</h4><h5 id="基本语法学习"><a href="#基本语法学习" class="headerlink" title="基本语法学习"></a>基本语法学习</h5><p>首先是要学习最基础的学法，不管学习什么编程语言都要经历的过程，如果你已经有其他编程语言的经验了，那么不用一天的时间你就可以把java的基本语法给掌握，就算你没有编程经验，认真的看，试着上手码一下代码，很快就可以入门的，java作为入门语言还是很容易的，我实在想不通为什么大学里面的入门编程语言都要选择c！</p>
-<p>需要学习的基础知识无非就是基本的一些规则，从最简单的变量、字符串到数组，学习怎么写循环，怎么做选择，再到什么是函数，等等，这些很基础的东西随便找一本java书就可以学习到。其实我建议初学者可以去图书馆随便挑一本薄一点的java入门书来看，注意一定要薄一点，第一本书不用太有深度，如果你从一开始就看java编程思想，很容易被吓到的。</p>
-<p>路要一步一步来，别贪心。</p>
-<h5 id="集合框架的学习"><a href="#集合框架的学习" class="headerlink" title="集合框架的学习"></a>集合框架的学习</h5><p>集合这部分我单独列了出来，其实也可以放在基础语法的那部分里面，但是我感觉这部分实在是太重要了，单出来吧。不管是在具体的工作中还是面试的时候，这部分对你都很重要！！！</p>
-<p>java的集合大体就这么点东西：</p>
-<ul>
-<li>Collection<ul>
-<li>List<ul>
-<li>LinkedList</li>
-<li>ArrayList</li>
-<li>Vector<ul>
-<li>Stack</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>Set</li>
-<li>Map<ul>
-<li>Hashtable</li>
-<li>HashMap</li>
-<li>WeakHashMap</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>随便百度一下java集合类，就可以找出很多的博客文章来讲解，我就不多费口舌了，附上一个图，感受一下吧。</p>
-<p><img src="http://pic002.cnblogs.com/images/2012/80896/2012053020261738.gif" alt=""></p>
-<h5 id="开始面向对象"><a href="#开始面向对象" class="headerlink" title="开始面向对象"></a>开始面向对象</h5><p>啊，终于开始面向对象了，不管你有没有男朋友女朋友，在java的世界里面，你很容易就面向对象，而且你一定要有面向对象的意识，所以学习java是多么的幸福。</p>
-<h4 id="第二阶段-web编程"><a href="#第二阶段-web编程" class="headerlink" title="第二阶段 web编程"></a>第二阶段 web编程</h4><h5 id="熟悉API"><a href="#熟悉API" class="headerlink" title="熟悉API"></a>熟悉API</h5><h5 id="html"><a href="#html" class="headerlink" title="html"></a>html</h5><h5 id="servlet-和JSP学习"><a href="#servlet-和JSP学习" class="headerlink" title="servlet 和JSP学习"></a>servlet 和JSP学习</h5><h5 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h5><h4 id="第三阶段-J2EE"><a href="#第三阶段-J2EE" class="headerlink" title="第三阶段 J2EE"></a>第三阶段 J2EE</h4><h5 id="spring"><a href="#spring" class="headerlink" title="spring"></a>spring</h5><h5 id="Hibernate"><a href="#Hibernate" class="headerlink" title="Hibernate"></a>Hibernate</h5><h5 id="等"><a href="#等" class="headerlink" title="等"></a>等</h5><h3 id="相关资料分享"><a href="#相关资料分享" class="headerlink" title="相关资料分享"></a>相关资料分享</h3><h4 id="基础部分资料"><a href="#基础部分资料" class="headerlink" title="基础部分资料"></a>基础部分资料</h4><p><strong>郝斌的javaSE视频</strong>     <a href="http://pan.baidu.com/s/1o7IbLQ6" target="_blank" rel="external">百度云分享</a></p>
-<p><strong>极客学院</strong>的java基础视频  <a href="http://pan.baidu.com/s/1slPD2Xn" target="_blank" rel="external">百度云分享</a></p>
-<p>除此之外基础的java视频可以看一下<strong>慕课网</strong>的视频，慕课网的视频都是免费的，而且讲的不会很枯燥，闲着没事就可以看几集。直接去这里看就好了 <a href="http://www.imooc.com/course/list?c=java" target="_blank" rel="external">慕课网</a></p>
-<p>上面这些是我比较推荐看的，培训机构的视频很多，但是很多都比较啰嗦，从头看到尾很费时间，但是对于基础比较差的来说可能会有帮助，郝斌老师讲的我感觉是最好的一个，他还有c/++ 、数据库的视频，感兴趣的可以找一找看看，然后慕课网非常推荐，网站的视频资源比较新，讲的虽然浅，但是作为入门解除迷茫还是很不错的。建议初学者按部就班把郝斌老师的视频看一下，一定要跟着视频里面敲代码，不一定是边看边敲，也可以看完之后再敲，但是一定要   <strong>敲敲敲！！！</strong>慕课网或者极客学院的作为辅助下酒菜。</p>
-<p>好了，学习玩上面的JAVASE之后，其实你已经学习了很多东西了，可能你还是感觉自己不会写东西啊，怎样写一个程序，写一个网站后台一点概念都没有啊，不要着急，基本的招式学会了之后，后面的路很好走，慢慢的你就会成为武林高手。</p>
-<h4 id="进阶部分"><a href="#进阶部分" class="headerlink" title="进阶部分"></a>进阶部分</h4><p>现在可以学习java EE部分的内容了，之前我看过哪些视频我已经忘记了<br>这里分享一下<strong>尚学堂</strong>的一些视频 <a href="http://pan.baidu.com/s/1miAo8XE" target="_blank" rel="external">百度云分享</a></p>
-<p>文件夹里面有一个  马士兵_在线聊天系统雏形视频教程  可以先照着视频把这个练习一下，这个我是具体写过的。</p>
-<p>然后学习一下 jsp技术   jdbc技术  spring技术   springMVC 等等<br>这些视频看完之后对应具体的项目是怎样写出来的就会有了一定的概念。自己也可以写简单的程序了，具体还会用到哪些技术自己再继续去学习。</p>
-<p>我不可能把所有你需要的资源都给你找到，你要去学会自己找资源。</p>
-<p>然后就是<strong>不断的学习</strong></p>
-<p><em>感谢互联网这个时代，让我们能够接触足够多的资源</em></p>
-<p><strong>keep learning</strong></p>
+<p>下面介绍使用mysql参数化的一般方法</p>
+<h2 id="操作方法"><a href="#操作方法" class="headerlink" title="操作方法"></a>操作方法</h2><h3 id="安装数据库驱动，连接mysql"><a href="#安装数据库驱动，连接mysql" class="headerlink" title="安装数据库驱动，连接mysql"></a>安装数据库驱动，连接mysql</h3><p>要想富先修路，当然要先保证能够正常的连接到mysql，不管是本地的还是远程的。</p>
+<p>下载这个货：<em>mysql-connector-odbc-5.3.6-win32</em></p>
+<p>版本自己可以选择一个合适的，但是一定要用32位的！！！因为loadrunner是32位，不然匹配不了。</p>
+<h3 id="打开odbc，设置数据源"><a href="#打开odbc，设置数据源" class="headerlink" title="打开odbc，设置数据源"></a>打开odbc，设置数据源</h3><p>在电脑开始栏中输入odbc，就可以看到安装好的odbc程序，打开</p>
+<p><img src="http://img.blog.csdn.net/20140331224056656?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>然后在User DSN中点Add，选择刚添加的mysql驱动</p>
+<p><img src="http://img.blog.csdn.net/20140331224539296?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>Data Source Name 和 Description中，随意填写。server中填写服务器的ip</p>
+<p>User name 和Password就不用说了吧。Database是选择要使用的数据库。</p>
+<p>点test来<a href="http://lib.csdn.net/base/softwaretest" target="_blank" rel="external">测试</a>一下。好了， 连接成功。</p>
+<p>回到LoadRunner中，在参数化窗口中点Data Wizard…按钮。</p>
+<p><img src="http://img.blog.csdn.net/20140331225125406?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p><img src="http://img.blog.csdn.net/20140331225322421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>这里要 选中Specify SQL statement manually.继续next，将会看到下一个界面，在machine Data Source中选中数据源</p>
+<p><img src="http://img.blog.csdn.net/20140331225402421?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvemhhbmdjaGFveQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt=""></p>
+<p>点击ok之后</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-fc7baea57598ea04.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这里要注意，数字1的地方是自动填写好的，如果发现这里没有自动生成，说明你之前的操作是有问题的，需要重新来过。</p>
+<p>数字2的地方是我们的sql语句，假设我需要取出lt_test表中的name字段，我们就可以select name from lr_test，这很容易理解。</p>
+<p>好了，到这里之后就全部完成了，点击finish，就会看到数据已经成功从数据库中取出。</p>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><h3 id="找不到mysql驱动"><a href="#找不到mysql驱动" class="headerlink" title="找不到mysql驱动"></a>找不到mysql驱动</h3><p>在上面的进行过程中，我们打开odbc，在User DSN中点Add，结果找不到mysql的驱动</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-966a312d7c94d98f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>啊，没有mysql的啊啊 啊，徒儿莫慌，为师自有妙计</p>
+<p>打开 <em>C:\Windows\SysWOW64</em>  文件夹，找到 <strong>odbcad32</strong> 程序</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-eb8dcfac753a4d39.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>打开，在这里你就会看到好多的程序啊 啊，安装的mysql的驱动程序也在里面，找到打开，就跟上面的操作步骤一样了。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-20b81a060ed6150b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 
       
     </div>
@@ -411,9 +403,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/编程/" rel="tag">#编程</a>
+            <a href="/tags/loadrunner/" rel="tag">#loadrunner</a>
           
-            <a href="/tags/java/" rel="tag">#java</a>
+            <a href="/tags/性能测试/" rel="tag">#性能测试</a>
           
         </div>
       
@@ -422,16 +414,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/09/05/走我带你去看看/" rel="next" title="走，我带你去看看">
-                <i class="fa fa-chevron-left"></i> 走，我带你去看看
+              <a href="/2017/02/06/centos下nginx安装配置/" rel="next" title="nginx安装配置">
+                <i class="fa fa-chevron-left"></i> nginx安装配置
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/11/25/linux安装nload/" rel="prev" title="linux下安装nload">
-                linux下安装nload <i class="fa fa-chevron-right"></i>
+              <a href="/2017/02/06/返回信息乱码解决方案/" rel="prev" title="loadrunner返回信息乱码解决方案">
+                loadrunner返回信息乱码解决方案 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -458,8 +450,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/15/java的学习心得/"
-           data-title="java的学习心得" data-url="http://yoursite.com/2016/09/15/java的学习心得/">
+      <div class="ds-thread" data-thread-key="2017/02/06/Loadrunner参数化使用mysql数据源/"
+           data-title="Loadrunner参数化使用mysql数据源" data-url="http://yoursite.com/2017/02/06/Loadrunner参数化使用mysql数据源/">
       </div>
     
   </div>
@@ -561,7 +553,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#java的学习心得"><span class="nav-number">1.</span> <span class="nav-text">java的学习心得</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#java的学习过程"><span class="nav-number">1.0.1.</span> <span class="nav-text">java的学习过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一阶段-基础学习"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">第一阶段 基础学习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#基本语法学习"><span class="nav-number">1.0.1.1.1.</span> <span class="nav-text">基本语法学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#集合框架的学习"><span class="nav-number">1.0.1.1.2.</span> <span class="nav-text">集合框架的学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#开始面向对象"><span class="nav-number">1.0.1.1.3.</span> <span class="nav-text">开始面向对象</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第二阶段-web编程"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">第二阶段 web编程</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#熟悉API"><span class="nav-number">1.0.1.2.1.</span> <span class="nav-text">熟悉API</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#html"><span class="nav-number">1.0.1.2.2.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#servlet-和JSP学习"><span class="nav-number">1.0.1.2.3.</span> <span class="nav-text">servlet 和JSP学习</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#数据库"><span class="nav-number">1.0.1.2.4.</span> <span class="nav-text">数据库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#第三阶段-J2EE"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">第三阶段 J2EE</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#spring"><span class="nav-number">1.0.1.3.1.</span> <span class="nav-text">spring</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Hibernate"><span class="nav-number">1.0.1.3.2.</span> <span class="nav-text">Hibernate</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#等"><span class="nav-number">1.0.1.3.3.</span> <span class="nav-text">等</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#相关资料分享"><span class="nav-number">1.0.2.</span> <span class="nav-text">相关资料分享</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基础部分资料"><span class="nav-number">1.0.2.1.</span> <span class="nav-text">基础部分资料</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进阶部分"><span class="nav-number">1.0.2.2.</span> <span class="nav-text">进阶部分</span></a></li></ol></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Loadrunner-参数化使用mysql数据源"><span class="nav-number">1.</span> <span class="nav-text">Loadrunner 参数化使用mysql数据源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题概述"><span class="nav-number">1.1.</span> <span class="nav-text">问题概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作方法"><span class="nav-number">1.2.</span> <span class="nav-text">操作方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装数据库驱动，连接mysql"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装数据库驱动，连接mysql</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打开odbc，设置数据源"><span class="nav-number">1.2.2.</span> <span class="nav-text">打开odbc，设置数据源</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">1.3.</span> <span class="nav-text">注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#找不到mysql驱动"><span class="nav-number">1.3.1.</span> <span class="nav-text">找不到mysql驱动</span></a></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
