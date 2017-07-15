@@ -17,8 +17,8 @@
   
   <entry>
     <title>测试222222222222222222222222</title>
-    <link href="http://yoursite.com/2017/07/14/%E6%B5%8B%E8%AF%95%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%9033333332222222/"/>
-    <id>http://yoursite.com/2017/07/14/测试持续集成33333332222222/</id>
+    <link href="http://yoursite.com/2017/07/14/%E6%B5%8B%E8%AF%95%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%9044444444444444/"/>
+    <id>http://yoursite.com/2017/07/14/测试持续集成44444444444444/</id>
     <published>2017-07-14T14:00:21.076Z</published>
     <updated>2017-07-14T14:01:13.315Z</updated>
     
@@ -926,9 +926,9 @@ git push -u origin master
       <category term="博客" scheme="http://yoursite.com/categories/%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="markdown" scheme="http://yoursite.com/tags/markdown/"/>
+    
+      <category term="博客" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="编辑" scheme="http://yoursite.com/tags/%E7%BC%96%E8%BE%91/"/>
     
