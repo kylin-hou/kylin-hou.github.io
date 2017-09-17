@@ -4,12 +4,6 @@
   
     
     <entry>
-      <title><![CDATA[测试222222222222222222222222]]></title>
-      <url>http://yoursite.com/2017/07/14/%E6%B5%8B%E8%AF%95%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%9044444444444444/</url>
-      <content type="html"><![CDATA[<h1 id="测试222222222222222222222222"><a href="#测试222222222222222222222222" class="headerlink" title="测试222222222222222222222222"></a>测试222222222222222222222222</h1>]]></content>
-    </entry>
-    
-    <entry>
       <title><![CDATA[loadrunner返回信息乱码解决方案]]></title>
       <url>http://yoursite.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
       <content type="html"><![CDATA[<h1 id="loadrunner返回信息乱码解决方案"><a href="#loadrunner返回信息乱码解决方案" class="headerlink" title="loadrunner返回信息乱码解决方案"></a>loadrunner返回信息乱码解决方案</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。</p>
