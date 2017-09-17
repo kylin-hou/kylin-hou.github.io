@@ -4,12 +4,12 @@
 
     
   <url>
-    <loc>http://yoursite.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
-    <lastmod>2017-09-17T06:31:06.525Z</lastmod>
+    <loc>http://yoursite.com/2017/09/17/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
+    <lastmod>2017-09-17T08:07:03.486Z</lastmod>
     <data>
         <display>
         <title>loadrunner返回信息乱码解决方案</title>
-        <pubTime>2017-02-06T14:19:58.394Z</pubTime>
+        <pubTime>2017-09-17T07:56:45.476Z</pubTime>
         
         <tag>loadrunner</tag>
          
@@ -28,8 +28,30 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/09/17/%E6%A8%A1%E6%9D%BF/</loc>
+    <lastmod>2017-09-17T07:56:45.451Z</lastmod>
+    <data>
+        <display>
+        <title>这只是我的一个模板</title>
+        <pubTime>2017-09-17T07:56:45.445Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>模板</tag>
+         
+         
+           
+             
+              <breadCrumb title="模板" url="http://yoursite.com/categories/%E6%A8%A1%E6%9D%BF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/02/06/Loadrunner%E5%8F%82%E6%95%B0%E5%8C%96%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E6%BA%90/</loc>
-    <lastmod>2017-07-14T13:58:03.227Z</lastmod>
+    <lastmod>2017-09-17T06:30:25.402Z</lastmod>
     <data>
         <display>
         <title>Loadrunner参数化使用mysql数据源</title>

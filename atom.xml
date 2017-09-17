@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-09-17T06:31:06.525Z</updated>
+  <updated>2017-09-17T08:07:03.486Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,10 +17,10 @@
   
   <entry>
     <title>loadrunner返回信息乱码解决方案</title>
-    <link href="http://yoursite.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
-    <id>http://yoursite.com/2017/02/06/返回信息乱码解决方案/</id>
-    <published>2017-02-06T14:19:58.394Z</published>
-    <updated>2017-09-17T06:31:06.525Z</updated>
+    <link href="http://yoursite.com/2017/09/17/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/"/>
+    <id>http://yoursite.com/2017/09/17/返回信息乱码解决方案/</id>
+    <published>2017-09-17T07:56:45.476Z</published>
+    <updated>2017-09-17T08:07:03.486Z</updated>
     
     <content type="html">&lt;h1 id=&quot;loadrunner返回信息乱码解决方案&quot;&gt;&lt;a href=&quot;#loadrunner返回信息乱码解决方案&quot; class=&quot;headerlink&quot; title=&quot;loadrunner返回信息乱码解决方案&quot;&gt;&lt;/a&gt;loadrunner返回信息乱码解决方案&lt;/h1&gt;&lt;h2 id=&quot;问题描述&quot;&gt;&lt;a href=&quot;#问题描述&quot; class=&quot;headerlink&quot; title=&quot;问题描述&quot;&gt;&lt;/a&gt;问题描述&lt;/h2&gt;&lt;p&gt;loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。&lt;/p&gt;
 &lt;p&gt;本教程可以轻松查看乱码信息，使信息更直观。&lt;/p&gt;
@@ -105,11 +105,38 @@
   </entry>
   
   <entry>
+    <title>这只是我的一个模板</title>
+    <link href="http://yoursite.com/2017/09/17/%E6%A8%A1%E6%9D%BF/"/>
+    <id>http://yoursite.com/2017/09/17/模板/</id>
+    <published>2017-09-17T07:56:45.445Z</published>
+    <updated>2017-09-17T07:56:45.451Z</updated>
+    
+    <content type="html">&lt;h1 id=&quot;这只是我的一个模板&quot;&gt;&lt;a href=&quot;#这只是我的一个模板&quot; class=&quot;headerlink&quot; title=&quot;这只是我的一个模板&quot;&gt;&lt;/a&gt;这只是我的一个模板&lt;/h1&gt;&lt;h3 id=&quot;哈哈&quot;&gt;&lt;a href=&quot;#哈哈&quot; class=&quot;headerlink&quot; title=&quot;哈哈&quot;&gt;&lt;/a&gt;哈哈&lt;/h3&gt;&lt;p&gt;这是测试数据&lt;/p&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;测试&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;这只是我的一个模板&quot;&gt;&lt;a href=&quot;#这只是我的一个模板&quot; class=&quot;headerlink&quot; title=&quot;这只是我的一个模板&quot;&gt;&lt;/a&gt;这只是我的一个模板&lt;/h1&gt;&lt;h3 id=&quot;哈哈&quot;&gt;&lt;a href=&quot;#哈哈&quot; class=&quot;headerlink&quot; title=&quot;哈哈&quot;&gt;&lt;/a&gt;哈哈&lt;/h3&gt;&lt;p&gt;这是测试数据&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="模板" scheme="http://yoursite.com/categories/%E6%A8%A1%E6%9D%BF/"/>
+    
+    
+      <category term="测试" scheme="http://yoursite.com/tags/%E6%B5%8B%E8%AF%95/"/>
+    
+      <category term="模板" scheme="http://yoursite.com/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Loadrunner参数化使用mysql数据源</title>
     <link href="http://yoursite.com/2017/02/06/Loadrunner%E5%8F%82%E6%95%B0%E5%8C%96%E4%BD%BF%E7%94%A8mysql%E6%95%B0%E6%8D%AE%E6%BA%90/"/>
     <id>http://yoursite.com/2017/02/06/Loadrunner参数化使用mysql数据源/</id>
     <published>2017-02-06T14:19:57.346Z</published>
-    <updated>2017-07-14T13:58:03.227Z</updated>
+    <updated>2017-09-17T06:30:25.402Z</updated>
     
     <content type="html">&lt;h1 id=&quot;Loadrunner-参数化使用mysql数据源&quot;&gt;&lt;a href=&quot;#Loadrunner-参数化使用mysql数据源&quot; class=&quot;headerlink&quot; title=&quot;Loadrunner 参数化使用mysql数据源&quot;&gt;&lt;/a&gt;Loadrunner 参数化使用mysql数据源&lt;/h1&gt;&lt;h2 id=&quot;问题概述&quot;&gt;&lt;a href=&quot;#问题概述&quot; class=&quot;headerlink&quot; title=&quot;问题概述&quot;&gt;&lt;/a&gt;问题概述&lt;/h2&gt;&lt;p&gt;在使用loadrunner进行性能测试的过程中，参数化是非常重要的一个操作，有时候我们参数化的数据需要跟数据库中的数据一致才能有效的完成测试。我们可以选择将数据库中的对应字段的数据导出到文件，然后把数据copy到脚本文件中，但是还有更简单的方法，我们可以直接使用loadrunner连接我们的数据库，将对应字段的数据取出直接保存到参数化脚本文件中。&lt;/p&gt;
 &lt;a id=&quot;more&quot;&gt;&lt;/a&gt;

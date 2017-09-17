@@ -5,7 +5,7 @@
     
     <entry>
       <title><![CDATA[loadrunner返回信息乱码解决方案]]></title>
-      <url>http://yoursite.com/2017/02/06/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
+      <url>http://yoursite.com/2017/09/17/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</url>
       <content type="html"><![CDATA[<h1 id="loadrunner返回信息乱码解决方案"><a href="#loadrunner返回信息乱码解决方案" class="headerlink" title="loadrunner返回信息乱码解决方案"></a>loadrunner返回信息乱码解决方案</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。</p>
 <p>本教程可以轻松查看乱码信息，使信息更直观。</p>
 <a id="more"></a>
@@ -68,6 +68,15 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String str = URLDecoder.decode(lr.eval_string(<span class="string">"&lt;result&gt;"</span>),<span class="string">"utf-8"</span>);</div><div class="line">System.out.println(<span class="string">"结果是："</span>+str );</div></pre></td></tr></table></figure>
 <p><img src="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
 <p>经过实验发现这种方法非常有效，而且直观，也可以针对中文进行结果的判断。</p>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[这只是我的一个模板]]></title>
+      <url>http://yoursite.com/2017/09/17/%E6%A8%A1%E6%9D%BF/</url>
+      <content type="html"><![CDATA[<h1 id="这只是我的一个模板"><a href="#这只是我的一个模板" class="headerlink" title="这只是我的一个模板"></a>这只是我的一个模板</h1><h3 id="哈哈"><a href="#哈哈" class="headerlink" title="哈哈"></a>哈哈</h3><p>这是测试数据</p>
+<a id="more"></a>
+<p>测试</p>
 ]]></content>
     </entry>
     

@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="性能测试,linux,nmon," />
+  <meta name="keywords" content="loadrunner,性能测试,乱码," />
 
 
 
@@ -84,16 +84,21 @@
 
 
 
-<meta name="description" content="centos下安装nmonnmon的安装12345mkdir /usr/local/nmoncd /usr/local/nmonwget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gztar zxvf nmon_linux_14i.tar.gzchmod 777 nmon_x86_64_sles11">
+<meta name="description" content="loadrunner返回信息乱码解决方案问题描述loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。
+本教程可以轻松查看乱码信息，使信息更直观。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="centos下安装nmon">
-<meta property="og:url" content="http://yoursite.com/2017/01/18/安装nmon/index.html">
+<meta property="og:title" content="loadrunner返回信息乱码解决方案">
+<meta property="og:url" content="http://yoursite.com/2017/09/17/返回信息乱码解决方案/index.html">
 <meta property="og:site_name" content="一叶一如来">
-<meta property="og:description" content="centos下安装nmonnmon的安装12345mkdir /usr/local/nmoncd /usr/local/nmonwget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gztar zxvf nmon_linux_14i.tar.gzchmod 777 nmon_x86_64_sles11">
-<meta property="og:updated_time" content="2017-02-06T14:44:32.006Z">
+<meta property="og:description" content="loadrunner返回信息乱码解决方案问题描述loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。
+本教程可以轻松查看乱码信息，使信息更直观。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2017-09-17T08:07:03.486Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="centos下安装nmon">
-<meta name="twitter:description" content="centos下安装nmonnmon的安装12345mkdir /usr/local/nmoncd /usr/local/nmonwget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gztar zxvf nmon_linux_14i.tar.gzchmod 777 nmon_x86_64_sles11">
+<meta name="twitter:title" content="loadrunner返回信息乱码解决方案">
+<meta name="twitter:description" content="loadrunner返回信息乱码解决方案问题描述loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。
+本教程可以轻松查看乱码信息，使信息更直观。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -114,9 +119,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/01/18/安装nmon/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/09/17/返回信息乱码解决方案/"/>
 
-  <title> centos下安装nmon | 一叶一如来 </title>
+  <title> loadrunner返回信息乱码解决方案 | 一叶一如来 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +281,7 @@
             
             
               
-                centos下安装nmon
+                loadrunner返回信息乱码解决方案
               
             
           </h1>
@@ -288,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-01-18T22:29:33+08:00" content="2017-01-18">
-              2017-01-18
+            <time itemprop="dateCreated" datetime="2017-09-17T15:56:45+08:00" content="2017-09-17">
+              2017-09-17
             </time>
           </span>
 
@@ -302,8 +307,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/linux/" itemprop="url" rel="index">
-                    <span itemprop="name">linux</span>
+                  <a href="/categories/性能测试/" itemprop="url" rel="index">
+                    <span itemprop="name">性能测试</span>
                   </a>
                 </span>
 
@@ -318,8 +323,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2017/01/18/安装nmon/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/18/安装nmon/" itemprop="commentsCount"></span>
+                <a href="/2017/09/17/返回信息乱码解决方案/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/09/17/返回信息乱码解决方案/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -342,13 +347,68 @@
       
 
       
-        <h1 id="centos下安装nmon"><a href="#centos下安装nmon" class="headerlink" title="centos下安装nmon"></a>centos下安装nmon</h1><h3 id="nmon的安装"><a href="#nmon的安装" class="headerlink" title="nmon的安装"></a>nmon的安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">mkdir /usr/local/nmon</div><div class="line">cd /usr/local/nmon</div><div class="line">wget http://sourceforge.net/projects/nmon/files/nmon_linux_14i.tar.gz</div><div class="line">tar zxvf nmon_linux_14i.tar.gz</div><div class="line">chmod 777 nmon_x86_64_sles11</div></pre></td></tr></table></figure>
+        <h1 id="loadrunner返回信息乱码解决方案"><a href="#loadrunner返回信息乱码解决方案" class="headerlink" title="loadrunner返回信息乱码解决方案"></a>loadrunner返回信息乱码解决方案</h1><h2 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h2><p>loadrunner是一个很强大的工具，但是对于中文的支持并不友好，从服务器返回的信息如果包含中文，显示将会是乱码。</p>
+<p>本教程可以轻松查看乱码信息，使信息更直观。</p>
 <a id="more"></a>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">./nmon_x86_64_sles11</div></pre></td></tr></table></figure>
-<h3 id="nmon的使用"><a href="#nmon的使用" class="headerlink" title="nmon的使用"></a>nmon的使用</h3><p>按C显示CPU信息，再按一次C关闭</p>
-<p>按M显示内存</p>
-<p>按N显示网络</p>
-<p>按D显示硬盘</p>
+<h2 id="了解乱码"><a href="#了解乱码" class="headerlink" title="了解乱码"></a>了解乱码</h2><h2 id="乱码带来的问题"><a href="#乱码带来的问题" class="headerlink" title="乱码带来的问题"></a>乱码带来的问题</h2><ol>
+<li><p>看不懂</p>
+</li>
+<li><p>如果是关键信息，无法根据这个信息进行判断事务成功与否</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>( lr.eval_string(<span class="string">"&lt;result&gt;"</span>).equals(<span class="string">"true"</span>) )&#123;</div><div class="line">	lr.end_transaction(<span class="string">"openAT"</span>,lr.PASS);		</div><div class="line">    &#125;</div><div class="line"><span class="keyword">else</span> &#123;</div><div class="line">   lr.end_transaction(<span class="string">"openAT"</span>,lr.FAIL);</div><div class="line">   lr.error_message( lr.eval_string(<span class="string">"&lt;result2&gt;"</span>) );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>一般我们都是像上面一样去判断一个返回的值是不是跟我们预期的一致，但是如果是判断乱码的问题，就不能直接这样判断了，不管是跟正常的中文判断还是乱码之后的字符判断，都无法正常判断。</p>
+</li>
+</ol>
+<h2 id="解决乱码"><a href="#解决乱码" class="headerlink" title="解决乱码"></a>解决乱码</h2><h3 id="c语言脚本"><a href="#c语言脚本" class="headerlink" title="c语言脚本"></a>c语言脚本</h3><h4 id="lr-convert-string-encoding-函数介绍"><a href="#lr-convert-string-encoding-函数介绍" class="headerlink" title="lr_convert_string_encoding 函数介绍"></a><strong>lr_convert_string_encoding</strong> 函数介绍</h4><p>loadrunner中本身有一个函数 <em>lr_convert_string_encoding</em> ，可以用来查看乱码信息。</p>
+<blockquote>
+<p><strong>lr_convert_string_encoding</strong> converts a string encoding between the following encodings: System locale, Unicode, and UTF-8. The function saves the result string, including its terminating NULL, in the parameter <em>paramName</em>. </p>
+</blockquote>
+<p>这是官方的解释，意思就是<strong>lr_convert_string_encoding</strong>() 函数可以将字符串在系统语言环境、Unicode和UTF-8</p>
+<p>直接进行编码转换。</p>
+<h4 id="lr-convert-string-encoding-函数使用"><a href="#lr-convert-string-encoding-函数使用" class="headerlink" title="lr_convert_string_encoding 函数使用"></a><strong>lr_convert_string_encoding</strong> 函数使用</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">int</span> <span class="title">lr_convert_string_encoding</span><span class="params">( <span class="keyword">const</span> <span class="keyword">char</span> sourceString*, <span class="keyword">const</span> <span class="keyword">char</span> fromEncoding, <span class="keyword">const</span> <span class="keyword">char</span> **toEncoding, <span class="keyword">const</span> <span class="keyword">char</span> *paramName)</span></span>;</div></pre></td></tr></table></figure>
+<p>举个例子：</p>
+<p>假设乱码的字符串为：</p>
+<blockquote>
+<p>鎵嬫満鑾峰彇app鐢ㄦ埛璇勮淇℃伅鏃跺嚭閿\x99</p>
+</blockquote>
+<p>鬼知道这是什么！</p>
+<p>那么我们就用lr_convert_string_encoding()函数来处理一下，</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">lr_convert_string_encoding(<span class="string">"鎵嬫満鑾峰彇app鐢ㄦ埛璇勮淇℃伅鏃跺嚭閿\x99"</span>,LR_ENC_UTF8,LR_ENC_SYSTEM_LOCALE,<span class="string">"str"</span>);</div></pre></td></tr></table></figure>
+<p>现在已经将字符串从LR_ENC_UTF8格式转换到LR_ENC_SYSTEM_LOCALE编码，并且将新的字符串保存到了str变量中，我们重新输出一下str变量看一下：</p>
+<blockquote>
+<p>str = 手机获取app用户评论信息时出错\x00</p>
+</blockquote>
+<p>这样就OK了</p>
+<h3 id="java脚本"><a href="#java脚本" class="headerlink" title="java脚本"></a>java脚本</h3><p>在测试过程中，java脚本还是用的很多的，但是发现loadrunner没有提供可以直接在java脚本中进行字符串编码转换的函数。</p>
+<p>嗯，肯定是因为java已经有自己的解决方案了，然后想起前端开发过程中经常解决的乱码问题，道理都是一样的，开始干。</p>
+<h5 id="方法一："><a href="#方法一：" class="headerlink" title="方法一："></a>方法一：</h5><p>我是这样想的，就把这个输出信息的控制台当作一个浏览器，为什么显示乱码了呢？肯定是这个浏览器在输出信息的时候额外做了一些手脚，把服务器返回的数据给转换了一下编码方式，导致信息不能正常显示。</p>
+<p>我想到了java中字符串的getBytes()方法：</p>
+<p>String的getBytes()方法是得到一个字串的字节数组，这是众所周知的。但特别要注意的是，本方法将返回该操作系统默认的编码格式的字节数组。</p>
+<p>然后我实验了一下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">byte</span>[] br = lr.eval_string(<span class="string">"&lt;result&gt;"</span>).getBytes();</div><div class="line">String brStr2 = <span class="keyword">new</span> String(br,<span class="string">"utf-8"</span>);</div></pre></td></tr></table></figure>
+<p>将想要查看的内容保存到result参数中，然后对其重新编码并保存到brStr2变量中，输出brStr2，发现确实解决了乱码的问题。</p>
+<p>但是有一次在用这个方法的时候，发现使用web.reg_save_param()保存乱码的信息到result的时候什么都没有保存，我猜测是因为乱码中的一些特殊字符导致左右边境判断失败，所以无法正常的保存信息。所以就想另外一个方法。</p>
+<h5 id="方法二："><a href="#方法二：" class="headerlink" title="方法二："></a>方法二：</h5><p>既然我们都是使用web.reg_save_param()函数把相应的信息保存，这个函数本身有没有什么方法解决乱码问题呢？</p>
+<p>去查询手册，发现了一个参数：</p>
+<blockquote>
+<ul>
+<li><p><strong>Convert</strong>:</p>
+<blockquote>
+<p>The possible values are:<br>HTML_TO_URL:  convert HTML–encoded data to a<br>URL–encoded data format<br>HTML_TO_TEXT: convert HTML–encoded data to plain text<br>format<br>This attribute is optional.</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<p>当我看到   <em>HTML_TO_TEXT: convert HTML–encoded data to plain text  format</em> 也就是将HTML编码的数据转换为纯文本格式 的时候，感觉有希望！</p>
+<p>然后添加上这个参数，并设置值为HTML_TO_TEXT，然后对结果重新进行编码，结果无论采用哪种编码方式，看到的仍然是乱码的。</p>
+<p>然后试了一下另外一个值：HTML_TO_URL，发现是可以的！！！而且非常有效，建议以后可以采取这种方式，非常方便。</p>
+<p>首先，引入相应的包，因为要用到URLdecode和encode的一些方法，直接在头部添加一行代码就OK：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.net.URLDecoder;</div></pre></td></tr></table></figure>
+<p>然后在平时使用的web.reg_save_param()函数中多加一行代码就OK</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">web.reg_save_param (<span class="string">"result"</span>,</div><div class="line">                    <span class="keyword">new</span> String []&#123;</div><div class="line">                      <span class="string">"NOTFOUND=ERROR"</span>,</div><div class="line">                      <span class="string">"LB=\"prompt1\":\""</span>,</div><div class="line">                      <span class="string">"RB=\""</span> ,</div><div class="line">                      <span class="string">"Convert=HTML_TO_URL"</span>,</div><div class="line">                      <span class="string">"LAST"</span>&#125; );</div></pre></td></tr></table></figure>
+<p>因为多了这么一行代码，那么穿过来的信息就被转换成了URL-encode之后的编码格式，我们看到的信息将是下图中的样子，直接看也是看不懂的，我们只要decode一下就可以了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String str = URLDecoder.decode(lr.eval_string(<span class="string">"&lt;result&gt;"</span>),<span class="string">"utf-8"</span>);</div><div class="line">System.out.println(<span class="string">"结果是："</span>+str );</div></pre></td></tr></table></figure>
+<p><img src="http://upload-images.jianshu.io/upload_images/2936641-f3db00d1bf1478af.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>经过实验发现这种方法非常有效，而且直观，也可以针对中文进行结果的判断。</p>
 
       
     </div>
@@ -370,11 +430,11 @@
       
         <div class="post-tags">
           
+            <a href="/tags/loadrunner/" rel="tag">#loadrunner</a>
+          
             <a href="/tags/性能测试/" rel="tag">#性能测试</a>
           
-            <a href="/tags/linux/" rel="tag">#linux</a>
-          
-            <a href="/tags/nmon/" rel="tag">#nmon</a>
+            <a href="/tags/乱码/" rel="tag">#乱码</a>
           
         </div>
       
@@ -383,17 +443,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/25/查看rpc是否已开启/" rel="next" title="查看rpc是否已开启">
-                <i class="fa fa-chevron-left"></i> 查看rpc是否已开启
+              <a href="/2017/09/17/模板/" rel="next" title="这只是我的一个模板">
+                <i class="fa fa-chevron-left"></i> 这只是我的一个模板
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/01/18/loadrunner学习/" rel="prev" title="loadrunner学习">
-                loadrunner学习 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -419,8 +475,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/01/18/安装nmon/"
-           data-title="centos下安装nmon" data-url="http://yoursite.com/2017/01/18/安装nmon/">
+      <div class="ds-thread" data-thread-key="2017/09/17/返回信息乱码解决方案/"
+           data-title="loadrunner返回信息乱码解决方案" data-url="http://yoursite.com/2017/09/17/返回信息乱码解决方案/">
       </div>
     
   </div>
@@ -522,7 +578,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#centos下安装nmon"><span class="nav-number">1.</span> <span class="nav-text">centos下安装nmon</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#nmon的安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">nmon的安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">1.0.2.</span> <span class="nav-text">启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nmon的使用"><span class="nav-number">1.0.3.</span> <span class="nav-text">nmon的使用</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#loadrunner返回信息乱码解决方案"><span class="nav-number">1.</span> <span class="nav-text">loadrunner返回信息乱码解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题描述"><span class="nav-number">1.1.</span> <span class="nav-text">问题描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解乱码"><span class="nav-number">1.2.</span> <span class="nav-text">了解乱码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#乱码带来的问题"><span class="nav-number">1.3.</span> <span class="nav-text">乱码带来的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决乱码"><span class="nav-number">1.4.</span> <span class="nav-text">解决乱码</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#c语言脚本"><span class="nav-number">1.4.1.</span> <span class="nav-text">c语言脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#lr-convert-string-encoding-函数介绍"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">lr_convert_string_encoding 函数介绍</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#lr-convert-string-encoding-函数使用"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">lr_convert_string_encoding 函数使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java脚本"><span class="nav-number">1.4.2.</span> <span class="nav-text">java脚本</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#方法一："><span class="nav-number">1.4.2.0.1.</span> <span class="nav-text">方法一：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#方法二："><span class="nav-number">1.4.2.0.2.</span> <span class="nav-text">方法二：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
             
           </div>
         </section>
