@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/09/17/testappveyor/</loc>
+    <lastmod>2017-09-17T08:54:05.922Z</lastmod>
+    <data>
+        <display>
+        <title>test持续集成</title>
+        <pubTime>2017-09-17T08:53:28.076Z</pubTime>
+        
+        <tag>测试</tag>
+         
+        <tag>模板</tag>
+         
+         
+           
+             
+              <breadCrumb title="模板" url="http://yoursite.com/categories/%E6%A8%A1%E6%9D%BF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/09/17/%E8%BF%94%E5%9B%9E%E4%BF%A1%E6%81%AF%E4%B9%B1%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/</loc>
     <lastmod>2017-09-17T08:07:03.486Z</lastmod>
     <data>
